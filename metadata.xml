@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipojo xmlns="org.apache.felix.ipojo">
+  <component classname="controllers.SistemaLuciStanzaImpl" name="SistemaLuciStanza">
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.light.BinaryLight" field="luci">
+      <callback method="assegnaLuce" type="bind"/>
+      <callback method="ritiraLuce" type="unbind"/>
+    </requires>
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.presence.PresenceSensor" field="sensoriPresenza">
+      <callback method="assegnaSensorePresenza" type="bind"/>
+      <callback method="ritiraSensorePresenza" type="unbind"/>
+    </requires>
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.light.Photometer" field="fotometri">
+      <callback method="assegnaFotometro" type="bind"/>
+      <callback method="ritiraFotometro" type="unbind"/>
+    </requires>
+    <callback method="start" transition="validate"/>
+    <callback method="stop" transition="invalidate"/>
+  </component>
+  <instance component="SistemaLuciStanza" name="SistemaLuciStanza-1"/>
+</ipojo>
