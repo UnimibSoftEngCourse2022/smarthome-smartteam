@@ -3,8 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: SmartHome
 Bundle-SymbolicName: SmartHome
 Bundle-Version: 1.0.0.qualifier
-Created-By: iPOJO 1.12.1
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: fr.liglab.adele.icasa, fr.liglab.adele.icasa.access, fr.
  liglab.adele.icasa.access.command, fr.liglab.adele.icasa.application, f
  r.liglab.adele.icasa.application.impl, fr.liglab.adele.icasa.applicatio
@@ -41,8 +39,10 @@ Import-Package: fr.liglab.adele.icasa, fr.liglab.adele.icasa.access, fr.
  1,2.0.0)", org.apache.felix.ipojo.architecture;version="[1.12.1,2.0.0)"
  , org.json, org.osgi.service.cm;version=1.2, org.osgi.service.log;versi
  on=1.3
+Created-By: iPOJO 1.12.1
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 iPOJO-Components: instance { $component="SistemaLuciStanza" $name="Siste
- maLuciStanza-1" }component { $classname="controllers.SistemaLuciStanzaI
+ maLuciStanza-2" }component { $classname="controllers.SistemaLuciStanzaI
  mpl" $name="SistemaLuciStanza" requires { $aggregate="true" $optional="
  true" $specification="fr.liglab.adele.icasa.device.light.BinaryLight" $
  field="luci" callback { $method="assegnaLuce" $type="bind" }callback { 
@@ -71,8 +71,19 @@ iPOJO-Components: instance { $component="SistemaLuciStanza" $name="Siste
  le.icasa.device.light.BinaryLight,java.util.Map}" $names="{luce,proprie
  ta}" }method { $name="assegnaSensorePresenza" $arguments="{fr.liglab.ad
  ele.icasa.device.presence.PresenceSensor,java.util.Map}" $names="{senso
- rePresenza,proprieta}" }method { $name="ritiraSensorePresenza" $argumen
- ts="{fr.liglab.adele.icasa.device.presence.PresenceSensor,java.util.Map
- }" $names="{sensorePresenza,proprieta}" }method { $name="stop" }method 
- { $name="start" }}}
+ rePresenza,proprieta}" }method { $name="cercaLuciArea" $return="java.ut
+ il.ArrayList" $arguments="{fr.liglab.adele.icasa.device.light.BinaryLig
+ ht[],fr.liglab.adele.icasa.device.presence.PresenceSensor}" $names="{lu
+ ci,sensorePresenza}" }method { $name="cercaFotometroArea" $return="fr.l
+ iglab.adele.icasa.device.light.Photometer" $arguments="{fr.liglab.adele
+ .icasa.device.light.Photometer[],fr.liglab.adele.icasa.device.presence.
+ PresenceSensor}" $names="{fotometri,sensorePresenza}" }method { $name="
+ assegnaListener" $arguments="{fr.liglab.adele.icasa.device.light.Photom
+ eter,fr.liglab.adele.icasa.device.presence.PresenceSensor}" $names="{fo
+ tometroArea,sensorePresenza}" }method { $name="rimuoviListener" $argume
+ nts="{fr.liglab.adele.icasa.device.presence.PresenceSensor}" $names="{s
+ ensorePresenza}" }method { $name="ritiraSensorePresenza" $arguments="{f
+ r.liglab.adele.icasa.device.presence.PresenceSensor,java.util.Map}" $na
+ mes="{sensorePresenza,proprieta}" }method { $name="stop" }method { $nam
+ e="start" }}}
 

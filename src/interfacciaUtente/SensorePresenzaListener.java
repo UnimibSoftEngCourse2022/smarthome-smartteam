@@ -6,7 +6,7 @@ import java.util.List;
 
 import controllers.SistemaLuciStanzaImpl;
 import database.GestoreAree;
-import dominio.Stanza;
+import dominio.Area;
 import fr.liglab.adele.icasa.device.DeviceListener;
 import fr.liglab.adele.icasa.device.GenericDevice;
 import fr.liglab.adele.icasa.device.light.BinaryLight;
@@ -39,34 +39,39 @@ public class SensorePresenzaListener implements DeviceListener{
 	public void devicePropertyModified(GenericDevice dispositivo, String nomeProprieta, Object vecchioValore, Object nuovoValore) {
 		 
 		//ci accertiamo che il device sia un PresenceSensor
-		assert dispositivo instanceof PresenceSensor : "è richiesto un sensore di presenza";
+		assert dispositivo instanceof PresenceSensor : "e' richiesto un sensore di presenza";
 		  
 		PresenceSensor sensoreInCambiamento = (PresenceSensor) dispositivo;
 
 		//se il sensore rileva una presenza
 		if (nomeProprieta.equals(PresenceSensor.PRESENCE_SENSOR_SENSED_PRESENCE)) {
 		   
-		   //recupero l'area (stanza) in cui si trova il sensore
-		   String areaRilevata = (String) sensoreInCambiamento.getPropertyValue("Location");
-		   System.out.println("Il dispositivo con il numero seriale " + sensoreInCambiamento.getSerialNumber() + " è cambiato");
-		   System.out.println("Questo sensore e' nella stanza:" + areaRilevata);  
-		   
-			GestoreAree gestoreAree = GestoreAree.getIstanza();
-			Stanza stanza = (Stanza) gestoreAree.getArea(areaRilevata);
+		    //recupero l'area in cui si trova il sensore
+			Area area = recuperoArea((String) sensoreInCambiamento.getPropertyValue("Location"), sensoreInCambiamento);
+
+			//controllo la luminosita' nella stanza, e se e' inferiore ad un certo valore
+			//accendo la luce, se la stanza si svuota o c'e' abbastanza luce naturale la spengo
 			if(fotometro.getIlluminance() < 1075.0){
 				if(sensoreInCambiamento.getSensedPresence()){
-					stanza.accendiLuci();
+					area.accendiLuci();
 				}else{
-					//timer TODO
-					//if(!sensoreInCambiamento.getSensedPresence()){
-					stanza.spegniLuci();
-					//}
+					area.spegniLuci();
 				}
 			}else {
-				stanza.spegniLuci();
+				area.spegniLuci();
 			}
 		}
 
+	}
+
+	//metodo per il recupero dell' area in cui si trova sensoreInCambiamento
+	public Area recuperoArea(String areaRilevata, PresenceSensor sensoreInCambiamento){
+		System.out.println(
+				"Il dispositivo con il numero seriale " + sensoreInCambiamento.getSerialNumber() + " e' cambiato");
+		System.out.println("Questo sensore e' nell' area:" + areaRilevata);
+
+		GestoreAree gestoreAree = GestoreAree.getIstanza();
+		return gestoreAree.getArea(areaRilevata);
 	}
 	
 	@Override

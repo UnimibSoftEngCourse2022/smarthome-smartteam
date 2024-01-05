@@ -16,5 +16,5 @@
     <callback method="start" transition="validate"/>
     <callback method="stop" transition="invalidate"/>
   </component>
-  <instance component="SistemaLuciStanza" name="SistemaLuciStanza-1"/>
+  <instance component="SistemaLuciStanza" name="SistemaLuciStanza-2"/>
 </ipojo>

@@ -24,5 +24,17 @@ public class Area {
 			return true;
 		return false;
 	}
+
+	public void accendiLuci() {
+		for (int i = 0; i < luci.size(); i++) {
+			luci.get(i).turnOn();
+		}
+	}
+
+	public void spegniLuci() {
+		for(int i = 0; i < luci.size(); i++){
+			luci.get(i).turnOff();
+		}
+	}
 	
 }
