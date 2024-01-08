@@ -17,4 +17,21 @@
     <callback method="stop" transition="invalidate"/>
   </component>
   <instance component="SistemaLuciStanza" name="SistemaLuciStanza-2"/>
+  <component classname="controllers.SistemaAntincendioImpl" name="SistemaAntincendio">
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.gasSensor.CarbonDioxydeSensor" field="rilevatoriCO2">
+      <callback method="assegnaRilevatoreCO2" type="bind"/>
+      <callback method="ritiraRilevatoreCO2" type="unbind"/>
+    </requires>
+    <callback method="start" transition="validate"/>
+    <callback method="stop" transition="invalidate"/>
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.sprinkler.Sprinkler" field="sprinklers">
+      <callback method="assegnaSprinkler" type="bind"/>
+      <callback method="ritiraSprinkler" type="unbind"/>
+    </requires>
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.security.Siren" field="sirene">
+      <callback method="assegnaSirena" type="bind"/>
+      <callback method="ritiraSirena" type="unbind"/>
+    </requires>
+  </component>
+  <instance component="SistemaAntincendio" name="SistemaAntincendio-1"/>
 </ipojo>

@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class GestoreAree {
 
-    private List<Area> aree;
-    private static GestoreAree istanza;
+    private volatile List<Area> aree;
+    private static volatile GestoreAree istanza;
 
     public static GestoreAree getIstanza(){
         if(istanza == null){
@@ -46,4 +46,10 @@ public class GestoreAree {
         return null;
     }
     
+    
+    public void stampaAree(){
+        for(int i = 0; i < aree.size(); i++){
+            System.out.println("Area: " + aree.get(i).getNome());
+        }
+    } 
 }

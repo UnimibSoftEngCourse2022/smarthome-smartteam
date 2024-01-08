@@ -63,6 +63,8 @@ public class SistemaLuciStanzaImpl {
 		assegnaListener(fotometroArea, sensorePresenza);
 		Area nuovaArea = new Area((String) sensorePresenza.getPropertyValue("Location"), luciArea);
 		gestoreAree.aggiungiArea(nuovaArea);
+		System.out.println(nuovaArea.getNome() + "creata");
+		gestoreAree.stampaAree();
 	}
 
 
@@ -117,7 +119,7 @@ public class SistemaLuciStanzaImpl {
 
 	/** Metodo di fine ciclo di vita del componente */
 	public void stop() {
-		System.out.println("Fine");
+		System.out.println("Fine sistema gestione LUCI");
 
 		for (PresenceSensor sensorePresenza : sensoriPresenza) {
 			rimuoviListener(sensorePresenza);
@@ -127,7 +129,7 @@ public class SistemaLuciStanzaImpl {
 
 	/** Metodo di inizio ciclo di vita del componente */
 	public void start() {
-		System.out.println("Inizio");
+		System.out.println("Inizio sistema gestione LUCI");
 	}
 	
 }
