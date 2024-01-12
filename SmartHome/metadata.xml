@@ -35,6 +35,14 @@
     </requires>
     <callback method="start" transition="validate"/>
     <callback method="stop" transition="invalidate"/>
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.security.FloodSensor" field="sensoriAllagamento">
+      <callback method="assegnaSensoreAllagamento" type="bind"/>
+      <callback method="ritiraSensoreAllagamento" type="unbind"/>
+    </requires>
   </component>
-  <instance component="InizializzaSistema" name="InizializzaSistema-2"/>
+  <component classname="controllers.SistemaAntiallagamentoImpl" name="SistemaAntiallagamento">
+    <callback method="start" transition="validate"/>
+    <callback method="stop" transition="invalidate"/>
+  </component>
+  <instance component="InizializzaSistema" name="InizializzaSistema-1"/>
 </ipojo>

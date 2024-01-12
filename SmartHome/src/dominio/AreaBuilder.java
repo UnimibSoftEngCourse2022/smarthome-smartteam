@@ -8,6 +8,7 @@ import fr.liglab.adele.icasa.device.light.Photometer;
 import fr.liglab.adele.icasa.device.presence.PresenceSensor;
 import fr.liglab.adele.icasa.device.security.Siren;
 import fr.liglab.adele.icasa.device.sprinkler.Sprinkler;
+import fr.liglab.adele.icasa.device.security.FloodSensor;
 
 public class AreaBuilder {
 	
@@ -18,6 +19,7 @@ public class AreaBuilder {
 	private CarbonDioxydeSensor rilevatoreCO2;
 	private List<Sprinkler> sprinklers;
 	private List<Siren> sirene;
+	private FloodSensor sensoreAllagamento;
 	
 	
 	public AreaBuilder nome(String nome) {
@@ -61,6 +63,12 @@ public class AreaBuilder {
 	    return this;
 	}
 	
+	
+	public AreaBuilder sensoreAllagamento(FloodSensor sensoreAllagamento) {
+		this.sensoreAllagamento = sensoreAllagamento;
+		return this;
+	}
+	
 
 	public String getNome() {
 		return nome;
@@ -95,5 +103,11 @@ public class AreaBuilder {
 	public List<Siren> getSirene() {
 		return sirene;
 	}
+	
+	
+	public FloodSensor getSensoreAllagamento() {
+		return sensoreAllagamento;
+	}
+	
 	
 }

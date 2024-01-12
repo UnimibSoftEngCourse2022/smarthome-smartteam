@@ -3,6 +3,7 @@ package controllers;
 import fr.liglab.adele.icasa.device.gasSensor.CarbonDioxydeSensor;
 import fr.liglab.adele.icasa.device.presence.PresenceSensor;
 import fr.liglab.adele.icasa.device.sprinkler.Sprinkler;
+import fr.liglab.adele.icasa.device.security.FloodSensor;
 import fr.liglab.adele.icasa.device.security.Siren;
 import fr.liglab.adele.icasa.device.light.Photometer;
 import fr.liglab.adele.icasa.device.light.BinaryLight;
@@ -15,14 +16,16 @@ import database.GestoreAree;
 import dominio.Area;
 import dominio.AreaBuilder;
 
+
 public class InizializzaSistemaImpl {
 
 	boolean sistemaInizializzato = false;
-	
+
 	// Componenti sottosistemi
 	private SistemaLuciStanzaImpl sistemaLuci;
 	private SistemaAntincendioImpl sistemaAntincendio;
-	
+	private SistemaAntiallagamentoImpl sistemaAntiallagamentoImpl;
+
 	/** Field for rilevatoriCO2 dependency */
 	private CarbonDioxydeSensor[] rilevatoriCO2;
 	/** Field for sensoriPresenza dependency */
@@ -35,7 +38,10 @@ public class InizializzaSistemaImpl {
 	private Photometer[] fotometri;
 	/** Field for luci dependency */
 	private BinaryLight[] luci;
+	/** Field for sensoriAllagamento dependency */
+	private FloodSensor[] sensoriAllagamento;
 
+	
 
 	/** Bind Method for rilevatoriCO2 dependency */
 	public void assegnaRilevatoreCO2(CarbonDioxydeSensor carbonDioxydeSensor, Map properties) {
@@ -87,17 +93,15 @@ public class InizializzaSistemaImpl {
 		}*/
 	}
 
-	
 	/** Unbind Method for sensoriPresenza dependency */
 	public void ritiraSensorePresenza(PresenceSensor sensorePresenza, Map proprieta) {
 		//sistemaLuci.ritiraSensorePresenza(sensorePresenza);
 	}
-	
-	
+
 	// ricerca di tutti i dispositivi presenti in una determinata area (stanza o corridoio)
-	
+
 	// luci
-	public ArrayList<BinaryLight> cercaLuciArea(BinaryLight luci[], String posizione){
+	public ArrayList<BinaryLight> cercaLuciArea(BinaryLight luci[], String posizione) {
 		ArrayList<BinaryLight> luciArea = new ArrayList<BinaryLight>();
 		for (BinaryLight luce : luci) {
 			if (luce.getPropertyValue("Location").equals(posizione)) {
@@ -107,9 +111,8 @@ public class InizializzaSistemaImpl {
 		return luciArea;
 	}
 
-
 	// fotometro
-	public Photometer cercaFotometroArea(Photometer[] fotometri, String posizione){
+	public Photometer cercaFotometroArea(Photometer[] fotometri, String posizione) {
 		Photometer fotometroArea = null;
 		for (Photometer fotometro : fotometri) {
 			if (fotometro.getPropertyValue("Location").equals(posizione)) {
@@ -119,21 +122,19 @@ public class InizializzaSistemaImpl {
 		return fotometroArea;
 	}
 
-	
 	// rilevatore CO2
-		public CarbonDioxydeSensor cercaRilevatoreArea(CarbonDioxydeSensor[] rilevatoriCO2, String posizione){
-			CarbonDioxydeSensor rilevatoreCO2Area = null;
-			for (CarbonDioxydeSensor rilevatore : rilevatoriCO2) {
-				if (rilevatore.getPropertyValue("Location").equals(posizione)) {
-					rilevatoreCO2Area = rilevatore;
-				}
+	public CarbonDioxydeSensor cercaRilevatoreArea(CarbonDioxydeSensor[] rilevatoriCO2, String posizione) {
+		CarbonDioxydeSensor rilevatoreCO2Area = null;
+		for (CarbonDioxydeSensor rilevatore : rilevatoriCO2) {
+			if (rilevatore.getPropertyValue("Location").equals(posizione)) {
+				rilevatoreCO2Area = rilevatore;
 			}
-			return rilevatoreCO2Area;
 		}
-		
+		return rilevatoreCO2Area;
+	}
 
 	// sprinklers
-	public ArrayList<Sprinkler> cercaSprinklersArea(Sprinkler[] sprinklers, String posizione){
+	public ArrayList<Sprinkler> cercaSprinklersArea(Sprinkler[] sprinklers, String posizione) {
 		ArrayList<Sprinkler> sprinklersArea = new ArrayList<Sprinkler>();
 		for (Sprinkler sprinkler : sprinklers) {
 			if (sprinkler.getPropertyValue("Location").equals(posizione)) {
@@ -142,10 +143,9 @@ public class InizializzaSistemaImpl {
 		}
 		return sprinklersArea;
 	}
-	
-	
+
 	// sirene
-	public ArrayList<Siren> cercaSireneArea(Siren[] sirene, String posizione){
+	public ArrayList<Siren> cercaSireneArea(Siren[] sirene, String posizione) {
 		ArrayList<Siren> sireneArea = new ArrayList<Siren>();
 		for (Siren sirena : sirene) {
 			if (sirena.getPropertyValue("Location").equals(posizione)) {
@@ -155,7 +155,18 @@ public class InizializzaSistemaImpl {
 		return sireneArea;
 	}
 	
+	
+	private FloodSensor cercaSensoreAllagamento(FloodSensor[] sensoriAllagamento, String posizione) {
+		FloodSensor sensoreAllagamento = null;
+		for (FloodSensor sensore : sensoriAllagamento) {
+			if (sensore.getPropertyValue("Location").equals(posizione)) {
+				sensoreAllagamento = sensore;
+			}
+		}
+		return sensoreAllagamento;
+	}
 
+	
 	/** Bind Method for luci dependency */
 	public void assegnaLuce(BinaryLight binaryLight, Map properties) {
 		// TODO: Add your implementation code here
@@ -166,6 +177,16 @@ public class InizializzaSistemaImpl {
 		// TODO: Add your implementation code here
 	}
 
+	/** Bind Method for sensoriAllagamento dependency */
+	public void assegnaSensoreAllagamento(FloodSensor sensoreAllagamento, Map properties) {
+		// TODO: Add your implementation code here
+	}
+
+	/** Unbind Method for sensoriAllagamento dependency */
+	public void ritiraSensoreAllagamento(FloodSensor sensoreAllagamento, Map properties) {
+		// TODO: Add your implementation code here
+	}
+	
 	/** Component Lifecycle Method */
 	public void stop() {
 		// TODO: Add your implementation code here
@@ -173,37 +194,43 @@ public class InizializzaSistemaImpl {
 
 	/** Component Lifecycle Method */
 	public void start() {
-		
+
 		System.out.println("Inizializzazione Stanze partita!");
 		// INIZIALIZZAZIONE STANZE
 		GestoreAree gestoreAree = GestoreAree.getIstanza();
-		
+
 		// assumiamo che in ogni area (stanza o corridoio) ci sia un sensore di presenza
 		// prendiamo quindi la Location di ciascun sensore per individuare tutti i dispositivi in un'area
-		for(PresenceSensor sensorePresenza : sensoriPresenza) {
+		for (PresenceSensor sensorePresenza : sensoriPresenza) {
 			String posizioneSensore = (String) sensorePresenza.getPropertyValue("Location");
 			// ELEMENTI GESTIONE LUCI
 			ArrayList<BinaryLight> luciInArea = cercaLuciArea(luci, posizioneSensore);
 			Photometer fotometroInArea = cercaFotometroArea(fotometri, posizioneSensore);
-			// ELEMENTI SISTEMA ANTINCENDIO
+			// ELEMENTI SISTEMA ANTINCENDIO E SISTEMA ANTIALLAGAMENTO
 			CarbonDioxydeSensor rilevatoreInArea = cercaRilevatoreArea(rilevatoriCO2, posizioneSensore);
 			List<Sprinkler> sprinklersInArea = cercaSprinklersArea(sprinklers, posizioneSensore);
 			List<Siren> sireneInArea = cercaSireneArea(sirene, posizioneSensore);
+			FloodSensor sensoreAllagamentoInArea = cercaSensoreAllagamento(sensoriAllagamento, posizioneSensore);
+			
 			// INIZIALIZZAZIONE AREA
 			AreaBuilder builder = new AreaBuilder();
-			builder.nome(posizioneSensore).sensorePresenza(sensorePresenza).fotometro(fotometroInArea).luci(luciInArea).rilevatoreCO2(rilevatoreInArea).sprinklers(sprinklersInArea).sirene(sireneInArea);
+			builder.nome(posizioneSensore).sensorePresenza(sensorePresenza).fotometro(fotometroInArea).luci(luciInArea)
+					.rilevatoreCO2(rilevatoreInArea).sprinklers(sprinklersInArea).sirene(sireneInArea).sensoreAllagamento(sensoreAllagamentoInArea);
 			Area nuovaArea = new Area(builder);
 			gestoreAree.aggiungiArea(nuovaArea);
 			System.out.println(nuovaArea.getNome() + "creata");
 			gestoreAree.stampaAree();
 		}
-		
+
 		// da questo punto possiamo istanziare SistemaLuciStanzaImpl e SistemaAntincendioImpl
 		sistemaLuci = new SistemaLuciStanzaImpl();
 		sistemaLuci.start();
 		sistemaAntincendio = new SistemaAntincendioImpl();
 		sistemaAntincendio.start();
+		sistemaAntiallagamentoImpl = new SistemaAntiallagamentoImpl();
+		sistemaAntiallagamentoImpl.start();
 		sistemaInizializzato = true;
 	}
+	
 
 }

@@ -11,7 +11,6 @@ import dominio.Area;
 public class SistemaAntincendioImpl {
 
 	RilevatoreCO2Listener listenerRilevatori = new RilevatoreCO2Listener();
-
 	
 	// metodo per assegnare un listener ad un rilevatore di CO2
 	public void assegnaListener(CarbonDioxydeSensor sensoreCO2){
