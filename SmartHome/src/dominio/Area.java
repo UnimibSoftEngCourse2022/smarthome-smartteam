@@ -3,27 +3,34 @@ package dominio;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.liglab.adele.icasa.device.gasSensor.CarbonDioxydeSensor;
 import fr.liglab.adele.icasa.device.light.BinaryLight;
+import fr.liglab.adele.icasa.device.light.Photometer;
+import fr.liglab.adele.icasa.device.presence.PresenceSensor;
 import fr.liglab.adele.icasa.device.security.Siren;
 import fr.liglab.adele.icasa.device.sprinkler.Sprinkler;
 
 public class Area {
 	
+	private String nome;
+	protected PresenceSensor sensorePresenza;
+	protected Photometer fotometro;
 	protected List<BinaryLight> luci;
+	protected CarbonDioxydeSensor rilevatoreCO2;
+
+
 	protected List<Sprinkler> sprinklers;
 	protected List<Siren> sirene;
-	private String nome;
-	
-	public Area(String nome, ArrayList<BinaryLight> luci) {
-		this.nome = nome;
-		this.luci = luci;
-	}
 	
 	
-	// costruttore con irrigatori antincendio (sprinklers)
-	public Area(String nome, ArrayList<BinaryLight> luci,  ArrayList<Sprinkler> sprinklers) {
-		this(nome, luci);
-		this.sprinklers = sprinklers;
+	public Area(AreaBuilder builder) {
+		this.nome = builder.getNome();
+		this.sensorePresenza = builder.getSensorePresenza();
+		this.fotometro = builder.getFotometro();
+		this.luci = builder.getLuci();
+		this.rilevatoreCO2 = builder.getRilevatoreCO2();
+		this.sprinklers = builder.getSprinklers();
+		this.sirene = builder.getSirene();
 	}
 	
 	
@@ -32,6 +39,61 @@ public class Area {
 	}
 	
 	
+	public PresenceSensor getSensorePresenza() {
+		return sensorePresenza;
+	}
+
+
+	public Photometer getFotometro() {
+		return fotometro;
+	}
+
+
+	public List<BinaryLight> getLuci() {
+		return luci;
+	}
+
+
+	public CarbonDioxydeSensor getRilevatoreCO2() {
+		return rilevatoreCO2;
+	}
+	
+	
+	public List<Sprinkler> getSprinklers() {
+		return sprinklers;
+	}
+
+
+	public List<Siren> getSirene() {
+		return sirene;
+	}
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+	public void setSensorePresenza(PresenceSensor sensorePresenza) {
+		this.sensorePresenza = sensorePresenza;
+	}
+
+
+	public void setFotometro(Photometer fotometro) {
+		this.fotometro = fotometro;
+	}
+
+
+	public void setLuci(List<BinaryLight> luci) {
+		this.luci = luci;
+	}
+
+	
+	public void setRilevatoreCO2(CarbonDioxydeSensor rilevatoreCO2) {
+		this.rilevatoreCO2 = rilevatoreCO2;
+	}
+	
+
 	public void setSprinklers(List<Sprinkler> sprinklers) {
 		this.sprinklers = sprinklers;
 	}

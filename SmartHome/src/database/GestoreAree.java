@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class GestoreAree {
 
     private volatile List<Area> aree;
-    private static volatile GestoreAree istanza;
+	private static volatile GestoreAree istanza;
 
     public static GestoreAree getIstanza(){
         if(istanza == null){
@@ -20,6 +20,12 @@ public class GestoreAree {
     	aree = new ArrayList<Area>();
     }
 
+    
+    public List<Area> getAree() {
+		return aree;
+	}
+    
+    
     public void aggiungiArea(Area area){
         for(int i = 0; i < aree.size(); i++){
             if(aree.get(i) != null && aree.get(i).equals(area)){

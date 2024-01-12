@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ipojo xmlns="org.apache.felix.ipojo">
   <component classname="controllers.SistemaLuciStanzaImpl" name="SistemaLuciStanza">
+    <callback method="start" transition="validate"/>
+    <callback method="stop" transition="invalidate"/>
+  </component>
+  <component classname="controllers.SistemaAntincendioImpl" name="SistemaAntincendio">
+    <callback method="start" transition="validate"/>
+    <callback method="stop" transition="invalidate"/>
+  </component>
+  <component classname="controllers.InizializzaSistemaImpl" name="InizializzaSistema">
     <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.light.BinaryLight" field="luci">
       <callback method="assegnaLuce" type="bind"/>
       <callback method="ritiraLuce" type="unbind"/>
@@ -13,17 +21,10 @@
       <callback method="assegnaFotometro" type="bind"/>
       <callback method="ritiraFotometro" type="unbind"/>
     </requires>
-    <callback method="start" transition="validate"/>
-    <callback method="stop" transition="invalidate"/>
-  </component>
-  <instance component="SistemaLuciStanza" name="SistemaLuciStanza-2"/>
-  <component classname="controllers.SistemaAntincendioImpl" name="SistemaAntincendio">
     <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.gasSensor.CarbonDioxydeSensor" field="rilevatoriCO2">
       <callback method="assegnaRilevatoreCO2" type="bind"/>
       <callback method="ritiraRilevatoreCO2" type="unbind"/>
     </requires>
-    <callback method="start" transition="validate"/>
-    <callback method="stop" transition="invalidate"/>
     <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.sprinkler.Sprinkler" field="sprinklers">
       <callback method="assegnaSprinkler" type="bind"/>
       <callback method="ritiraSprinkler" type="unbind"/>
@@ -32,6 +33,8 @@
       <callback method="assegnaSirena" type="bind"/>
       <callback method="ritiraSirena" type="unbind"/>
     </requires>
+    <callback method="start" transition="validate"/>
+    <callback method="stop" transition="invalidate"/>
   </component>
-  <instance component="SistemaAntincendio" name="SistemaAntincendio-1"/>
+  <instance component="InizializzaSistema" name="InizializzaSistema-2"/>
 </ipojo>
