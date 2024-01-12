@@ -16,5 +16,22 @@
     <callback method="start" transition="validate"/>
     <callback method="stop" transition="invalidate"/>
   </component>
-  <instance component="SistemaLuciStanza" name="SistemaLuciStanza-2"/>
+  <component classname="controllers.SistemaTemperaturaImpl" name="SistemaTemperatura">
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.temperature.Thermometer" field="termometri">
+      <callback method="assegnaTermometro" type="bind"/>
+      <callback method="ritiraTermometro" type="unbind"/>
+    </requires>
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.temperature.Cooler" field="condizionatori">
+      <callback method="assegnaCondizionatore" type="bind"/>
+      <callback method="ritiraCondizionatore" type="unbind"/>
+    </requires>
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.temperature.Heater" field="caloriferi">
+      <callback method="assegnaCalorifero" type="bind"/>
+      <callback method="ritiraCalorifero" type="unbind"/>
+    </requires>
+    <callback method="start" transition="validate"/>
+    <callback method="stop" transition="invalidate"/>
+  </component>
+  <instance component="SistemaLuciStanza" name="SistemaLuciStanza-1"/>
+  <instance component="SistemaTemperatura" name="SistemaTemperatura-2"/>
 </ipojo>

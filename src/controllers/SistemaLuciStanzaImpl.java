@@ -13,9 +13,6 @@ import java.util.Map;
 
 import database.GestoreAree;
 import dominio.Area;
-import dominio.Stanza;
-import fr.liglab.adele.icasa.device.motion.MotionSensor;
-
 public class SistemaLuciStanzaImpl {
 
 	private PresenceSensor[] sensoriPresenza;
