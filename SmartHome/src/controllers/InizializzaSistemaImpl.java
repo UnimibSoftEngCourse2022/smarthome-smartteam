@@ -19,7 +19,7 @@ import dominio.AreaBuilder;
 
 public class InizializzaSistemaImpl {
 
-	boolean sistemaInizializzato = false;
+	private boolean sistemaInizializzato = false;
 
 	// Componenti sottosistemi
 	private SistemaLuciStanzaImpl sistemaLuci;
@@ -101,7 +101,7 @@ public class InizializzaSistemaImpl {
 	// ricerca di tutti i dispositivi presenti in una determinata area (stanza o corridoio)
 
 	// luci
-	public ArrayList<BinaryLight> cercaLuciArea(BinaryLight luci[], String posizione) {
+	private ArrayList<BinaryLight> cercaLuciArea(BinaryLight luci[], String posizione) {
 		ArrayList<BinaryLight> luciArea = new ArrayList<BinaryLight>();
 		for (BinaryLight luce : luci) {
 			if (luce.getPropertyValue("Location").equals(posizione)) {
@@ -112,7 +112,7 @@ public class InizializzaSistemaImpl {
 	}
 
 	// fotometro
-	public Photometer cercaFotometroArea(Photometer[] fotometri, String posizione) {
+	private Photometer cercaFotometroArea(Photometer[] fotometri, String posizione) {
 		Photometer fotometroArea = null;
 		for (Photometer fotometro : fotometri) {
 			if (fotometro.getPropertyValue("Location").equals(posizione)) {
@@ -123,7 +123,7 @@ public class InizializzaSistemaImpl {
 	}
 
 	// rilevatore CO2
-	public CarbonDioxydeSensor cercaRilevatoreArea(CarbonDioxydeSensor[] rilevatoriCO2, String posizione) {
+	private CarbonDioxydeSensor cercaRilevatoreArea(CarbonDioxydeSensor[] rilevatoriCO2, String posizione) {
 		CarbonDioxydeSensor rilevatoreCO2Area = null;
 		for (CarbonDioxydeSensor rilevatore : rilevatoriCO2) {
 			if (rilevatore.getPropertyValue("Location").equals(posizione)) {
@@ -134,7 +134,7 @@ public class InizializzaSistemaImpl {
 	}
 
 	// sprinklers
-	public ArrayList<Sprinkler> cercaSprinklersArea(Sprinkler[] sprinklers, String posizione) {
+	private ArrayList<Sprinkler> cercaSprinklersArea(Sprinkler[] sprinklers, String posizione) {
 		ArrayList<Sprinkler> sprinklersArea = new ArrayList<Sprinkler>();
 		for (Sprinkler sprinkler : sprinklers) {
 			if (sprinkler.getPropertyValue("Location").equals(posizione)) {
@@ -145,7 +145,7 @@ public class InizializzaSistemaImpl {
 	}
 
 	// sirene
-	public ArrayList<Siren> cercaSireneArea(Siren[] sirene, String posizione) {
+	private ArrayList<Siren> cercaSireneArea(Siren[] sirene, String posizione) {
 		ArrayList<Siren> sireneArea = new ArrayList<Siren>();
 		for (Siren sirena : sirene) {
 			if (sirena.getPropertyValue("Location").equals(posizione)) {

@@ -13,7 +13,7 @@ public class SistemaAntincendioImpl {
 	RilevatoreCO2Listener listenerRilevatori = new RilevatoreCO2Listener();
 	
 	// metodo per assegnare un listener ad un rilevatore di CO2
-	public void assegnaListener(CarbonDioxydeSensor sensoreCO2){
+	private void assegnaListener(CarbonDioxydeSensor sensoreCO2){
 		if(sensoreCO2 != null) {
 			sensoreCO2.addListener(listenerRilevatori);
 		}
@@ -21,7 +21,7 @@ public class SistemaAntincendioImpl {
 
 
 	// metodo per rimuovere un listener da un rilevatore di CO2
-	public void rimuoviListener(CarbonDioxydeSensor sensoreCO2){
+	private void rimuoviListener(CarbonDioxydeSensor sensoreCO2){
 		if(sensoreCO2 != null) {
 			sensoreCO2.removeListener(listenerRilevatori);
 		}

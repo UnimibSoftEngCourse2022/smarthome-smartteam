@@ -21,7 +21,7 @@ public class SistemaLuciStanzaImpl {
 		String nomeArea = (String) sensorePresenza.getPropertyValue("Location");
 		Area area = gestoreAree.getArea(nomeArea);
 		// avendo assunto che ogni stanza debba avere un sensore di presenza
-		// se un'area non ha più un sensore di presenza, viene riaggiunto
+		// se un'area non ha piï¿½ un sensore di presenza, viene riaggiunto
 		if(area.getSensorePresenza() == null) {
 			area.setSensorePresenza(sensorePresenza);
 			assegnaListener(sensorePresenza);
@@ -46,13 +46,13 @@ public class SistemaLuciStanzaImpl {
 	/** metodo per assegnare un listener ad un sensore di presenza per regolare il comportamento
 	 * 	a seconda della rilevazione di un fotometro
 	*/
-	public void assegnaListener(PresenceSensor sensorePresenza){
+	private void assegnaListener(PresenceSensor sensorePresenza){
 		sensorePresenza.addListener(listenerSensore);
 	}
 
 
 	// metodo per rimuovere un listener da un sensore di presenza non piu' usato
-	public void rimuoviListener(PresenceSensor sensorePresenza){
+	private void rimuoviListener(PresenceSensor sensorePresenza){
 		sensorePresenza.removeListener(listenerSensore);
 	}
 

@@ -9,20 +9,20 @@ import interfacciaUtente.SensoreAllagamentoListener;
 
 public class SistemaAntiallagamentoImpl {
 
-	SensoreAllagamentoListener listenerSensori = new SensoreAllagamentoListener();
+	SensoreAllagamentoListener listenerSensore = new SensoreAllagamentoListener();
 	
 	// metodo per assegnare un listener ad un rilevatore di CO2
-	public void assegnaListener(FloodSensor sensoreAllagamento){
+	private void assegnaListener(FloodSensor sensoreAllagamento){
 		if(sensoreAllagamento != null) {
-			sensoreAllagamento.addListener(listenerSensori);
+			sensoreAllagamento.addListener(listenerSensore);
 		}
 	}
 
 
 	// metodo per rimuovere un listener da un rilevatore di CO2
-	public void rimuoviListener(FloodSensor sensoreAllagamento){
+	private void rimuoviListener(FloodSensor sensoreAllagamento){
 		if(sensoreAllagamento != null) {
-			sensoreAllagamento.removeListener(listenerSensori);
+			sensoreAllagamento.removeListener(listenerSensore);
 		}
 	}
 	
