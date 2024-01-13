@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipojo xmlns="org.apache.felix.ipojo">
+  <component classname="controllers.SistemaLuciStanzaImpl" name="SistemaLuciStanza">
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.light.BinaryLight" field="luci">
+      <callback method="assegnaLuce" type="bind"/>
+      <callback method="ritiraLuce" type="unbind"/>
+    </requires>
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.presence.PresenceSensor" field="sensoriPresenza">
+      <callback method="assegnaSensorePresenza" type="bind"/>
+      <callback method="ritiraSensorePresenza" type="unbind"/>
+    </requires>
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.light.Photometer" field="fotometri">
+      <callback method="assegnaFotometro" type="bind"/>
+      <callback method="ritiraFotometro" type="unbind"/>
+    </requires>
+    <callback method="start" transition="validate"/>
+    <callback method="stop" transition="invalidate"/>
+  </component>
+  <component classname="controllers.SistemaTemperaturaImpl" name="SistemaTemperatura">
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.temperature.Thermometer" field="termometri">
+      <callback method="assegnaTermometro" type="bind"/>
+      <callback method="ritiraTermometro" type="unbind"/>
+    </requires>
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.temperature.Cooler" field="condizionatori">
+      <callback method="assegnaCondizionatore" type="bind"/>
+      <callback method="ritiraCondizionatore" type="unbind"/>
+    </requires>
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.temperature.Heater" field="caloriferi">
+      <callback method="assegnaCalorifero" type="bind"/>
+      <callback method="ritiraCalorifero" type="unbind"/>
+    </requires>
+    <callback method="start" transition="validate"/>
+    <callback method="stop" transition="invalidate"/>
+  </component>
+  <instance component="SistemaLuciStanza" name="SistemaLuciStanza-1"/>
+  <instance component="SistemaTemperatura" name="SistemaTemperatura-2"/>
+</ipojo>

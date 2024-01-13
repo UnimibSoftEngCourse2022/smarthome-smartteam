@@ -1,0 +1,128 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SmartHome
+Bundle-SymbolicName: SmartHome
+Bundle-Version: 1.0.0.qualifier
+Created-By: iPOJO 1.12.1
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: fr.liglab.adele.icasa, fr.liglab.adele.icasa.access, fr.
+ liglab.adele.icasa.access.command, fr.liglab.adele.icasa.application, f
+ r.liglab.adele.icasa.application.impl, fr.liglab.adele.icasa.applicatio
+ n.impl.command, fr.liglab.adele.icasa.application.remote, fr.liglab.ade
+ le.icasa.application.remote.util, fr.liglab.adele.icasa.clockservice, f
+ r.liglab.adele.icasa.clockservice.impl, fr.liglab.adele.icasa.clockserv
+ ice.util, fr.liglab.adele.icasa.command, fr.liglab.adele.icasa.command.
+ handler, fr.liglab.adele.icasa.commands, fr.liglab.adele.icasa.commands
+ .impl, fr.liglab.adele.icasa.common, fr.liglab.adele.icasa.common.impl,
+  fr.liglab.adele.icasa.common.xml.utils, fr.liglab.adele.icasa.dependen
+ cy.manager.exception, fr.liglab.adele.icasa.device, fr.liglab.adele.ica
+ sa.device.bathroomscale, fr.liglab.adele.icasa.device.box, fr.liglab.ad
+ ele.icasa.device.button, fr.liglab.adele.icasa.device.button.simulated,
+  fr.liglab.adele.icasa.device.doorWindow, fr.liglab.adele.icasa.device.
+ gasSensor, fr.liglab.adele.icasa.device.light, fr.liglab.adele.icasa.de
+ vice.manager, fr.liglab.adele.icasa.device.motion, fr.liglab.adele.icas
+ a.device.power, fr.liglab.adele.icasa.device.presence, fr.liglab.adele.
+ icasa.device.security, fr.liglab.adele.icasa.device.settopbox, fr.ligla
+ b.adele.icasa.device.sound, fr.liglab.adele.icasa.device.sprinkler, fr.
+ liglab.adele.icasa.device.temperature, fr.liglab.adele.icasa.device.uti
+ l, fr.liglab.adele.icasa.exception, fr.liglab.adele.icasa.frontend.serv
+ ices, fr.liglab.adele.icasa.frontend.services.rest, fr.liglab.adele.ica
+ sa.frontend.services.utils, fr.liglab.adele.icasa.listener, fr.liglab.a
+ dele.icasa.location, fr.liglab.adele.icasa.location.impl, fr.liglab.ade
+ le.icasa.location.util, fr.liglab.adele.icasa.remote.wisdom, fr.liglab.
+ adele.icasa.remote.wisdom.util, fr.liglab.adele.icasa.service.location,
+  fr.liglab.adele.icasa.service.preferences, fr.liglab.adele.icasa.servi
+ ce.scheduler, fr.liglab.adele.icasa.service.zone.dimension.calculator, 
+ fr.liglab.adele.icasa.service.zone.size.calculator, fr.liglab.adele.ica
+ sa.simulator, fr.liglab.adele.icasa.simulator.listener, fr.liglab.adele
+ .icasa.simulator.listener.util, fr.liglab.adele.icasa.simulator.remote.
+ wisdom.util, fr.liglab.adele.icasa.simulator.script.executor, fr.liglab
+ .adele.icasa.simulator.services, org.apache.felix.ipojo;version="[1.12.
+ 1,2.0.0)", org.apache.felix.ipojo.architecture;version="[1.12.1,2.0.0)"
+ , org.json, org.osgi.service.cm;version=1.2, org.osgi.service.log;versi
+ on=1.3
+iPOJO-Components: instance { $component="SistemaLuciStanza" $name="Siste
+ maLuciStanza-1" }instance { $component="SistemaTemperatura" $name="Sist
+ emaTemperatura-2" }component { $classname="controllers.SistemaLuciStanz
+ aImpl" $name="SistemaLuciStanza" requires { $aggregate="true" $optional
+ ="true" $specification="fr.liglab.adele.icasa.device.light.BinaryLight"
+  $field="luci" callback { $method="assegnaLuce" $type="bind" }callback 
+ { $method="ritiraLuce" $type="unbind" }}requires { $aggregate="true" $o
+ ptional="true" $specification="fr.liglab.adele.icasa.device.presence.Pr
+ esenceSensor" $field="sensoriPresenza" callback { $method="assegnaSenso
+ rePresenza" $type="bind" }callback { $method="ritiraSensorePresenza" $t
+ ype="unbind" }}requires { $aggregate="true" $optional="true" $specifica
+ tion="fr.liglab.adele.icasa.device.light.Photometer" $field="fotometri"
+  callback { $method="assegnaFotometro" $type="bind" }callback { $method
+ ="ritiraFotometro" $type="unbind" }}callback { $method="start" $transit
+ ion="validate" }callback { $method="stop" $transition="invalidate" }man
+ ipulation { $classname="controllers.SistemaLuciStanzaImpl" field { $nam
+ e="fotometri" $type="fr.liglab.adele.icasa.device.light.Photometer[]" }
+ field { $name="listenersSensori" $type="java.util.Map" }field { $name="
+ luci" $type="fr.liglab.adele.icasa.device.light.BinaryLight[]" }field {
+  $name="sensoriPresenza" $type="fr.liglab.adele.icasa.device.presence.P
+ resenceSensor[]" }method { $name="getLuci" $return="fr.liglab.adele.ica
+ sa.device.light.BinaryLight[]" }method { $name="assegnaFotometro" $argu
+ ments="{fr.liglab.adele.icasa.device.light.Photometer,java.util.Map}" $
+ names="{fotometro,proprieta}" }method { $name="ritiraFotometro" $argume
+ nts="{fr.liglab.adele.icasa.device.light.Photometer,java.util.Map}" $na
+ mes="{fotometro,proprieta}" }method { $name="assegnaLuce" $arguments="{
+ fr.liglab.adele.icasa.device.light.BinaryLight,java.util.Map}" $names="
+ {luce,proprieta}" }method { $name="ritiraLuce" $arguments="{fr.liglab.a
+ dele.icasa.device.light.BinaryLight,java.util.Map}" $names="{luce,propr
+ ieta}" }method { $name="assegnaSensorePresenza" $arguments="{fr.liglab.
+ adele.icasa.device.presence.PresenceSensor,java.util.Map}" $names="{sen
+ sorePresenza,proprieta}" }method { $name="cercaLuciArea" $return="java.
+ util.ArrayList" $arguments="{fr.liglab.adele.icasa.device.light.BinaryL
+ ight[],fr.liglab.adele.icasa.device.presence.PresenceSensor}" $names="{
+ luci,sensorePresenza}" }method { $name="cercaFotometroArea" $return="fr
+ .liglab.adele.icasa.device.light.Photometer" $arguments="{fr.liglab.ade
+ le.icasa.device.light.Photometer[],fr.liglab.adele.icasa.device.presenc
+ e.PresenceSensor}" $names="{fotometri,sensorePresenza}" }method { $name
+ ="assegnaListener" $arguments="{fr.liglab.adele.icasa.device.light.Phot
+ ometer,fr.liglab.adele.icasa.device.presence.PresenceSensor}" $names="{
+ fotometroArea,sensorePresenza}" }method { $name="rimuoviListener" $argu
+ ments="{fr.liglab.adele.icasa.device.presence.PresenceSensor}" $names="
+ {sensorePresenza}" }method { $name="ritiraSensorePresenza" $arguments="
+ {fr.liglab.adele.icasa.device.presence.PresenceSensor,java.util.Map}" $
+ names="{sensorePresenza,proprieta}" }method { $name="stop" }method { $n
+ ame="start" }}}component { $classname="controllers.SistemaTemperaturaIm
+ pl" $name="SistemaTemperatura" requires { $aggregate="true" $optional="
+ true" $specification="fr.liglab.adele.icasa.device.temperature.Thermome
+ ter" $field="termometri" callback { $method="assegnaTermometro" $type="
+ bind" }callback { $method="ritiraTermometro" $type="unbind" }}requires 
+ { $aggregate="true" $optional="true" $specification="fr.liglab.adele.ic
+ asa.device.temperature.Cooler" $field="condizionatori" callback { $meth
+ od="assegnaCondizionatore" $type="bind" }callback { $method="ritiraCond
+ izionatore" $type="unbind" }}requires { $aggregate="true" $optional="tr
+ ue" $specification="fr.liglab.adele.icasa.device.temperature.Heater" $f
+ ield="caloriferi" callback { $method="assegnaCalorifero" $type="bind" }
+ callback { $method="ritiraCalorifero" $type="unbind" }}callback { $meth
+ od="start" $transition="validate" }callback { $method="stop" $transitio
+ n="invalidate" }manipulation { $classname="controllers.SistemaTemperatu
+ raImpl" field { $name="caloriferi" $type="fr.liglab.adele.icasa.device.
+ temperature.Heater[]" }field { $name="condizionatori" $type="fr.liglab.
+ adele.icasa.device.temperature.Cooler[]" }field { $name="termometri" $t
+ ype="fr.liglab.adele.icasa.device.temperature.Thermometer[]" }field { $
+ name="termometriList" $type="java.util.List" }method { $name="assegnaTe
+ rmometro" $arguments="{fr.liglab.adele.icasa.device.temperature.Thermom
+ eter,java.util.Map}" $names="{termometro,properties}" }method { $name="
+ cercaCondizionatore" $return="fr.liglab.adele.icasa.device.temperature.
+ Cooler" $arguments="{fr.liglab.adele.icasa.device.temperature.Cooler[],
+ fr.liglab.adele.icasa.device.temperature.Thermometer}" $names="{condizi
+ onatori,termometro}" }method { $name="cercaCalorifero" $return="fr.ligl
+ ab.adele.icasa.device.temperature.Heater" $arguments="{fr.liglab.adele.
+ icasa.device.temperature.Heater[],fr.liglab.adele.icasa.device.temperat
+ ure.Thermometer}" $names="{caloriferi,termometro}" }method { $name="rit
+ iraTermometro" $arguments="{fr.liglab.adele.icasa.device.temperature.Th
+ ermometer,java.util.Map}" $names="{thermometer,properties}" }method { $
+ name="assegnaCondizionatore" $arguments="{fr.liglab.adele.icasa.device.
+ temperature.Cooler,java.util.Map}" $names="{cooler,properties}" }method
+  { $name="ritiraCondizionatore" $arguments="{fr.liglab.adele.icasa.devi
+ ce.temperature.Cooler,java.util.Map}" $names="{cooler,properties}" }met
+ hod { $name="assegnaCalorifero" $arguments="{fr.liglab.adele.icasa.devi
+ ce.temperature.Heater,java.util.Map}" $names="{heater,properties}" }met
+ hod { $name="ritiraCalorifero" $arguments="{fr.liglab.adele.icasa.devic
+ e.temperature.Heater,java.util.Map}" $names="{heater,properties}" }meth
+ od { $name="stop" }method { $name="start" }}}
+
