@@ -2,8 +2,6 @@ name: Build
 on:
   push:
     branches:
-      - sistemaAllarme
-      - temp-control-start
       - main
   pull_request:
     types: [opened, synchronize, reopened]
