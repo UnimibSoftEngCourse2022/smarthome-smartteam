@@ -16,10 +16,6 @@ import database.GestoreAree;
 import dominio.Area;
 
 public class SistemaTemperaturaImpl {
-
-	
-	
-	private List<Termostato> termostatiList = new ArrayList<Termostato>();
 	
 	/** Unbind Method for termometri dependency */
 	public void ritiraTermometro(Thermometer thermometer, Map properties) {

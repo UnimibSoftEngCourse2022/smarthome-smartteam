@@ -18,7 +18,7 @@ public class GestoreAree {
     }
 
     public GestoreAree(){
-    	aree = new ArrayList<Area>();
+    	aree = new ArrayList<>();
     }
 
     
@@ -54,9 +54,4 @@ public class GestoreAree {
     }
     
     
-    public void stampaAree(){
-        for(int i = 0; i < aree.size(); i++){
-            System.out.println("Area: " + aree.get(i).getNome());
-        }
-    } 
 }

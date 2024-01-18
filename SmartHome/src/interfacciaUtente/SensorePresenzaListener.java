@@ -59,10 +59,6 @@ public class SensorePresenzaListener implements DeviceListener{
 
 	//metodo per il recupero dell' area in cui si trova sensoreInCambiamento
 	public static Area recuperoArea(String areaRilevata, GenericDevice sensoreInCambiamento){
-		System.out.println(
-				"Il dispositivo con il numero seriale " + sensoreInCambiamento.getSerialNumber() + " e' cambiato");
-		System.out.println("Questo sensore e' nell' area:" + areaRilevata);
-
 		GestoreAree gestoreAree = GestoreAree.getIstanza();
 		return gestoreAree.getArea(areaRilevata);
 	}

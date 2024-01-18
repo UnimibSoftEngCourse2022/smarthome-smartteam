@@ -37,8 +37,6 @@ public class RilevatoreCO2Listener implements DeviceListener{
 		CarbonDioxydeSensor rilevatoreCO2 = (CarbonDioxydeSensor) dispositivo;
 		double concentrazioneCO2 = rilevatoreCO2.getCO2Concentration();
 		
-		System.out.println("Ho misurato qualcosa: " + concentrazioneCO2);
-		
 		GestoreAree gestoreAree = GestoreAree.getIstanza();
 		Area areaInteressata = gestoreAree.getArea((String) rilevatoreCO2.getPropertyValue("Location"));
 		if(concentrazioneCO2 >= 2) {

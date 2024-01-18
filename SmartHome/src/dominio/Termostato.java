@@ -6,7 +6,7 @@ import fr.liglab.adele.icasa.device.temperature.Thermometer;
 
 public class Termostato extends Thread{
 		
-	public Thermometer termometro;
+	private Thermometer termometro;
 	private boolean tempAccesa = true;
 	
 	
@@ -24,7 +24,6 @@ public class Termostato extends Thread{
 	public void run() {
 		GestoreAree gestoreAree =  GestoreAree.getIstanza();
 		Area area = gestoreAree.getArea((String) termometro.getPropertyValue("Location"));
-		//System.out.println("Termometro in " + termometro.getPropertyValue("Location") + " in ascolto");
 		while(tempAccesa) {
 			if(termometro.getTemperature() < area.getTempMinima()) {
 				area.accendiCaloriferi();

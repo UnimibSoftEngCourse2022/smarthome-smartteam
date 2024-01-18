@@ -147,11 +147,9 @@ public class Area {
 		this.tempMassima = tempMassima;
 	}
 	
-	
+	@Override
 	public boolean equals(Area area){
-		if(this.getNome().equals(area.nome))
-			return true;
-		return false;
+		return this.getNome().equals(area.nome);
 	}
 
 	
@@ -198,7 +196,6 @@ public class Area {
 	
 	
 	public void accendiCaloriferi() {
-		//double powerLevel = (temp - 293.15)/10;
 		for(Heater calorifero : caloriferi) {
 			calorifero.setPowerLevel(1);
 		}

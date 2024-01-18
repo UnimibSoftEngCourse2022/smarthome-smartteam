@@ -22,12 +22,6 @@ import dominio.Termostato;
 
 public class InizializzaSistemaImpl {
 
-	// Componenti sottosistemi
-	private  sistemaLuci;
-	private  sistemaAntincendio;
-	private  sistemaAntiallagamentoImpl;
-	private  sistemaTemperatura;
-
 	/** Field for rilevatoriCO2 dependency */
 	private CarbonDioxydeSensor[] rilevatoriCO2;
 	/** Field for sensoriPresenza dependency */
@@ -263,8 +257,6 @@ public class InizializzaSistemaImpl {
 
 			Area nuovaArea = new Area(builder);
 			gestoreAree.aggiungiArea(nuovaArea);
-			System.out.println(nuovaArea.getNome() + "creata");
-			gestoreAree.stampaAree();
 		}
 
 		// da questo punto possiamo istanziare SistemaLuciStanzaImpl e SistemaAntincendioImpl
