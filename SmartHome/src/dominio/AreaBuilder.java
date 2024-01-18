@@ -8,6 +8,9 @@ import fr.liglab.adele.icasa.device.light.Photometer;
 import fr.liglab.adele.icasa.device.presence.PresenceSensor;
 import fr.liglab.adele.icasa.device.security.Siren;
 import fr.liglab.adele.icasa.device.sprinkler.Sprinkler;
+import fr.liglab.adele.icasa.device.temperature.Cooler;
+import fr.liglab.adele.icasa.device.temperature.Heater;
+import fr.liglab.adele.icasa.device.temperature.Thermometer;
 import fr.liglab.adele.icasa.device.security.FloodSensor;
 
 public class AreaBuilder {
@@ -20,6 +23,9 @@ public class AreaBuilder {
 	private List<Sprinkler> sprinklers;
 	private List<Siren> sirene;
 	private FloodSensor sensoreAllagamento;
+	private List<Heater> caloriferi;
+	private List<Cooler> condizionatori;
+	private Termostato termostato;
 	
 	
 	public AreaBuilder nome(String nome) {
@@ -69,6 +75,18 @@ public class AreaBuilder {
 		return this;
 	}
 	
+	
+	public AreaBuilder caloriferi(List<Heater> caloriferi) {
+		this.caloriferi = caloriferi;
+		return this;
+	}
+	
+	
+	public AreaBuilder condizionatori(List<Cooler> condizionatori) {
+		this.condizionatori = condizionatori;
+		return this;
+	}
+	
 
 	public String getNome() {
 		return nome;
@@ -107,6 +125,27 @@ public class AreaBuilder {
 	
 	public FloodSensor getSensoreAllagamento() {
 		return sensoreAllagamento;
+	}
+
+
+	public List<Heater> getCaloriferi() {
+		return caloriferi;
+	}
+
+
+	public List<Cooler> getCondizionatori() {
+		return condizionatori;
+	}
+
+
+	public AreaBuilder termostato(Termostato termostato) {
+		this.termostato = termostato;
+		return this;
+	}
+
+
+	public Termostato getTermostato() {
+		return termostato;
 	}
 	
 	

@@ -8,25 +8,7 @@ public class GestoreAree {
 
     private volatile List<Area> aree;
 	private static volatile GestoreAree istanza;
-    private double tempMinima = 296.5;
-    private double tempMassima = 299.5;
-
-
-    public double getTempMinima() {
-		return tempMinima;
-	}
-
-	public void setTempMinima(double tempMinima) {
-		this.tempMinima = tempMinima;
-	}
-
-	public double getTempMassima() {
-		return tempMassima;
-	}
-
-	public void setTempMassima(double tempMassima) {
-		this.tempMassima = tempMassima;
-	}
+    
 
 	public static GestoreAree getIstanza(){
         if(istanza == null){

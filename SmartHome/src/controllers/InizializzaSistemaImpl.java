@@ -3,6 +3,9 @@ package controllers;
 import fr.liglab.adele.icasa.device.gasSensor.CarbonDioxydeSensor;
 import fr.liglab.adele.icasa.device.presence.PresenceSensor;
 import fr.liglab.adele.icasa.device.sprinkler.Sprinkler;
+import fr.liglab.adele.icasa.device.temperature.Cooler;
+import fr.liglab.adele.icasa.device.temperature.Heater;
+import fr.liglab.adele.icasa.device.temperature.Thermometer;
 import fr.liglab.adele.icasa.device.security.FloodSensor;
 import fr.liglab.adele.icasa.device.security.Siren;
 import fr.liglab.adele.icasa.device.light.Photometer;
@@ -15,7 +18,7 @@ import java.util.Map;
 import database.GestoreAree;
 import dominio.Area;
 import dominio.AreaBuilder;
-
+import dominio.Termostato;
 
 public class InizializzaSistemaImpl {
 
@@ -25,6 +28,7 @@ public class InizializzaSistemaImpl {
 	private SistemaLuciStanzaImpl sistemaLuci;
 	private SistemaAntincendioImpl sistemaAntincendio;
 	private SistemaAntiallagamentoImpl sistemaAntiallagamentoImpl;
+	private SistemaTemperaturaImpl sistemaTemperatura;
 
 	/** Field for rilevatoriCO2 dependency */
 	private CarbonDioxydeSensor[] rilevatoriCO2;
@@ -40,8 +44,12 @@ public class InizializzaSistemaImpl {
 	private BinaryLight[] luci;
 	/** Field for sensoriAllagamento dependency */
 	private FloodSensor[] sensoriAllagamento;
-
-	
+	/** Field for condizionatori dependency */
+	private Cooler[] condizionatori;
+	/** Field for caloriferi dependency */
+	private Heater[] caloriferi;
+	/** Field for termometri dependency */
+	private Thermometer[] termometri;
 
 	/** Bind Method for rilevatoriCO2 dependency */
 	public void assegnaRilevatoreCO2(CarbonDioxydeSensor carbonDioxydeSensor, Map properties) {
@@ -154,8 +162,7 @@ public class InizializzaSistemaImpl {
 		}
 		return sireneArea;
 	}
-	
-	
+
 	private FloodSensor cercaSensoreAllagamento(FloodSensor[] sensoriAllagamento, String posizione) {
 		FloodSensor sensoreAllagamento = null;
 		for (FloodSensor sensore : sensoriAllagamento) {
@@ -166,7 +173,36 @@ public class InizializzaSistemaImpl {
 		return sensoreAllagamento;
 	}
 
-	
+	public ArrayList<Cooler> cercaCondizionatori(Cooler[] condizionatori, String posizione) {
+		ArrayList<Cooler> condizionatoriArea = new ArrayList<Cooler>();
+		for (Cooler condizionatore : condizionatori) {
+			if (condizionatore.getPropertyValue("Location").equals(posizione)) {
+				condizionatoriArea.add(condizionatore);
+			}
+		}
+		return condizionatoriArea;
+	}
+
+	public ArrayList<Heater> cercaCaloriferi(Heater[] caloriferi, String posizione) {
+		ArrayList<Heater> caloriferiArea = new ArrayList<Heater>();
+		for (Heater calorifero : caloriferi) {
+			if (calorifero.getPropertyValue("Location").equals(posizione)) {
+				caloriferiArea.add(calorifero);
+			}
+		}
+		return caloriferiArea;
+	}
+
+	private Thermometer cercaTermometro(Thermometer[] termometri, String posizione) {
+		Thermometer termometroArea = null;
+		for (Thermometer termometro : termometri) {
+			if (termometro.getPropertyValue("Location").equals(posizione)) {
+				termometroArea = termometro;
+			}
+		}
+		return termometroArea;
+	}
+
 	/** Bind Method for luci dependency */
 	public void assegnaLuce(BinaryLight binaryLight, Map properties) {
 		// TODO: Add your implementation code here
@@ -186,7 +222,7 @@ public class InizializzaSistemaImpl {
 	public void ritiraSensoreAllagamento(FloodSensor sensoreAllagamento, Map properties) {
 		// TODO: Add your implementation code here
 	}
-	
+
 	/** Component Lifecycle Method */
 	public void stop() {
 		// TODO: Add your implementation code here
@@ -211,11 +247,20 @@ public class InizializzaSistemaImpl {
 			List<Sprinkler> sprinklersInArea = cercaSprinklersArea(sprinklers, posizioneSensore);
 			List<Siren> sireneInArea = cercaSireneArea(sirene, posizioneSensore);
 			FloodSensor sensoreAllagamentoInArea = cercaSensoreAllagamento(sensoriAllagamento, posizioneSensore);
-			
+
+			// ELEMENTI SISTEMA TEMPERATURA
+			ArrayList<Heater> caloriferiInArea = cercaCaloriferi(caloriferi, posizioneSensore);
+			ArrayList<Cooler> condizionatoriInArea = cercaCondizionatori(condizionatori, posizioneSensore);
+			Thermometer termometroInArea = cercaTermometro(termometri, posizioneSensore);
+			Termostato termostatoInArea = new Termostato(termometroInArea);
+
 			// INIZIALIZZAZIONE AREA
 			AreaBuilder builder = new AreaBuilder();
 			builder.nome(posizioneSensore).sensorePresenza(sensorePresenza).fotometro(fotometroInArea).luci(luciInArea)
-					.rilevatoreCO2(rilevatoreInArea).sprinklers(sprinklersInArea).sirene(sireneInArea).sensoreAllagamento(sensoreAllagamentoInArea);
+					.rilevatoreCO2(rilevatoreInArea).sprinklers(sprinklersInArea).sirene(sireneInArea)
+					.sensoreAllagamento(sensoreAllagamentoInArea).caloriferi(caloriferiInArea)
+					.condizionatori(condizionatoriInArea).termostato(termostatoInArea);
+
 			Area nuovaArea = new Area(builder);
 			gestoreAree.aggiungiArea(nuovaArea);
 			System.out.println(nuovaArea.getNome() + "creata");
@@ -229,8 +274,39 @@ public class InizializzaSistemaImpl {
 		sistemaAntincendio.start();
 		sistemaAntiallagamentoImpl = new SistemaAntiallagamentoImpl();
 		sistemaAntiallagamentoImpl.start();
+		sistemaTemperatura = new SistemaTemperaturaImpl();
+		sistemaTemperatura.start();
 		sistemaInizializzato = true;
 	}
-	
+
+	/** Bind Method for termometri dependency */
+	public void assegnaTermometro(Thermometer thermometer, Map properties) {
+		// TODO: Add your implementation code here
+	}
+
+	/** Unbind Method for termometri dependency */
+	public void ritiraTermometro(Thermometer thermometer, Map properties) {
+		// TODO: Add your implementation code here
+	}
+
+	/** Bind Method for condizionatori dependency */
+	public void assegnaCondizionatore(Cooler cooler, Map properties) {
+		// TODO: Add your implementation code here
+	}
+
+	/** Unbind Method for condizionatori dependency */
+	public void ritiraCondizionatore(Cooler cooler, Map properties) {
+		// TODO: Add your implementation code here
+	}
+
+	/** Bind Method for caloriferi dependency */
+	public void assegnaCalorifero(Heater heater, Map properties) {
+		// TODO: Add your implementation code here
+	}
+
+	/** Unbind Method for caloriferi dependency */
+	public void ritiraCalorifero(Heater heater, Map properties) {
+		// TODO: Add your implementation code here
+	}
 
 }

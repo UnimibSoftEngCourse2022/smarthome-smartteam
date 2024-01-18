@@ -39,6 +39,18 @@
       <callback method="assegnaSensoreAllagamento" type="bind"/>
       <callback method="ritiraSensoreAllagamento" type="unbind"/>
     </requires>
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.temperature.Heater" field="caloriferi">
+      <callback method="assegnaCalorifero" type="bind"/>
+      <callback method="ritiraCalorifero" type="unbind"/>
+    </requires>
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.temperature.Cooler" field="condizionatori">
+      <callback method="assegnaCondizionatore" type="bind"/>
+      <callback method="ritiraCondizionatore" type="unbind"/>
+    </requires>
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.temperature.Thermometer" field="termometri">
+      <callback method="assegnaTermometro" type="bind"/>
+      <callback method="ritiraTermometro" type="unbind"/>
+    </requires>
   </component>
   <component classname="controllers.SistemaAntiallagamentoImpl" name="SistemaAntiallagamento">
     <callback method="start" transition="validate"/>

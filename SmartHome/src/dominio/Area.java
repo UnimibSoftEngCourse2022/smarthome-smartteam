@@ -9,20 +9,38 @@ import fr.liglab.adele.icasa.device.light.Photometer;
 import fr.liglab.adele.icasa.device.presence.PresenceSensor;
 import fr.liglab.adele.icasa.device.security.Siren;
 import fr.liglab.adele.icasa.device.sprinkler.Sprinkler;
+import fr.liglab.adele.icasa.device.temperature.Cooler;
+import fr.liglab.adele.icasa.device.temperature.Heater;
+import fr.liglab.adele.icasa.device.temperature.Thermometer;
 import fr.liglab.adele.icasa.device.security.FloodSensor;
 
 public class Area {
 	
 	private String nome;
-	protected PresenceSensor sensorePresenza;
-	protected Photometer fotometro;
-	protected List<BinaryLight> luci;
-	protected CarbonDioxydeSensor rilevatoreCO2;
-	protected List<Sprinkler> sprinklers;
-	protected List<Siren> sirene;
-	protected FloodSensor sensoreAllagamento;
+	private PresenceSensor sensorePresenza;
+	private Photometer fotometro;
+	private List<BinaryLight> luci;
+	private CarbonDioxydeSensor rilevatoreCO2;
+	private List<Sprinkler> sprinklers;
+	private List<Siren> sirene;
+	private FloodSensor sensoreAllagamento;
+	private List<Heater> caloriferi;
+	private List<Cooler> condizionatori;
+	private double tempMinima = 296.5;
+    private double tempMassima = 299.5;
+	private Termostato termostato;
 	
 	
+	public Termostato getTermostato() {
+		return termostato;
+	}
+
+
+	public void setTermostato(Termostato termostato) {
+		this.termostato = termostato;
+	}
+
+
 	public Area(AreaBuilder builder) {
 		this.nome = builder.getNome();
 		this.sensorePresenza = builder.getSensorePresenza();
@@ -32,6 +50,9 @@ public class Area {
 		this.sprinklers = builder.getSprinklers();
 		this.sirene = builder.getSirene();
 		this.sensoreAllagamento = builder.getSensoreAllagamento();
+		this.caloriferi = builder.getCaloriferi();
+		this.condizionatori = builder.getCondizionatori();
+		this.termostato = builder.getTermostato();
 	}
 	
 	
@@ -110,6 +131,23 @@ public class Area {
 	}
 	
 	
+	public double getTempMinima() {
+		return tempMinima;
+	}
+
+	public void setTempMinima(double tempMinima) {
+		this.tempMinima = tempMinima;
+	}
+
+	public double getTempMassima() {
+		return tempMassima;
+	}
+
+	public void setTempMassima(double tempMassima) {
+		this.tempMassima = tempMassima;
+	}
+	
+	
 	public boolean equals(Area area){
 		if(this.getNome().equals(area.nome))
 			return true;
@@ -157,4 +195,34 @@ public class Area {
 			sirene.get(i).turnOff();
 		}
 	}
+	
+	
+	public void accendiCaloriferi() {
+		//double powerLevel = (temp - 293.15)/10;
+		for(Heater calorifero : caloriferi) {
+			calorifero.setPowerLevel(1);
+		}
+	}
+	
+	
+	public void spegniCaloriferi() {
+		for(Heater calorifero : caloriferi) {
+			calorifero.setPowerLevel(0);
+		}
+	}
+	
+	
+	public void accendiCondizionatori() {
+		for(Cooler condizionatore : condizionatori) {
+			condizionatore.setPowerLevel(1);
+		}
+	}
+	
+	
+	public void spegniCondizionatori() {
+		for(Cooler condizionatore : condizionatori) {
+			condizionatore.setPowerLevel(0);
+		}
+	}
+	
 }

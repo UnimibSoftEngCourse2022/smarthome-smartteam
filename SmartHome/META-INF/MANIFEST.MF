@@ -85,76 +85,112 @@ iPOJO-Components: instance { $component="InizializzaSistema" $name="Iniz
  regate="true" $optional="true" $specification="fr.liglab.adele.icasa.de
  vice.security.FloodSensor" $field="sensoriAllagamento" callback { $meth
  od="assegnaSensoreAllagamento" $type="bind" }callback { $method="ritira
- SensoreAllagamento" $type="unbind" }}callback { $method="start" $transi
- tion="validate" }callback { $method="stop" $transition="invalidate" }ma
- nipulation { $classname="controllers.InizializzaSistemaImpl" field { $n
- ame="fotometri" $type="fr.liglab.adele.icasa.device.light.Photometer[]"
-  }field { $name="luci" $type="fr.liglab.adele.icasa.device.light.Binary
- Light[]" }field { $name="rilevatoriCO2" $type="fr.liglab.adele.icasa.de
- vice.gasSensor.CarbonDioxydeSensor[]" }field { $name="sensoriAllagament
- o" $type="fr.liglab.adele.icasa.device.security.FloodSensor[]" }field {
-  $name="sensoriPresenza" $type="fr.liglab.adele.icasa.device.presence.P
- resenceSensor[]" }field { $name="sirene" $type="fr.liglab.adele.icasa.d
- evice.security.Siren[]" }field { $name="sistemaAntiallagamentoImpl" $ty
- pe="controllers.SistemaAntiallagamentoImpl" }field { $name="sistemaAnti
- ncendio" $type="controllers.SistemaAntincendioImpl" }field { $name="sis
- temaInizializzato" $type="boolean" }field { $name="sistemaLuci" $type="
- controllers.SistemaLuciStanzaImpl" }field { $name="sprinklers" $type="f
- r.liglab.adele.icasa.device.sprinkler.Sprinkler[]" }method { $name="ass
- egnaRilevatoreCO2" $arguments="{fr.liglab.adele.icasa.device.gasSensor.
- CarbonDioxydeSensor,java.util.Map}" $names="{carbonDioxydeSensor,proper
- ties}" }method { $name="ritiraRilevatoreCO2" $arguments="{fr.liglab.ade
- le.icasa.device.gasSensor.CarbonDioxydeSensor,java.util.Map}" $names="{
- carbonDioxydeSensor,properties}" }method { $name="assegnaSprinkler" $ar
- guments="{fr.liglab.adele.icasa.device.sprinkler.Sprinkler,java.util.Ma
- p}" $names="{sprinkler,properties}" }method { $name="ritiraSprinkler" $
- arguments="{fr.liglab.adele.icasa.device.sprinkler.Sprinkler,java.util.
- Map}" $names="{sprinkler,properties}" }method { $name="assegnaSirena" $
- arguments="{fr.liglab.adele.icasa.device.security.Siren,java.util.Map}"
-  $names="{siren,properties}" }method { $name="ritiraSirena" $arguments=
- "{fr.liglab.adele.icasa.device.security.Siren,java.util.Map}" $names="{
- siren,properties}" }method { $name="assegnaFotometro" $arguments="{fr.l
- iglab.adele.icasa.device.light.Photometer,java.util.Map}" $names="{phot
- ometer,properties}" }method { $name="ritiraFotometro" $arguments="{fr.l
- iglab.adele.icasa.device.light.Photometer,java.util.Map}" $names="{phot
- ometer,properties}" }method { $name="assegnaSensorePresenza" $arguments
- ="{fr.liglab.adele.icasa.device.presence.PresenceSensor,java.util.Map}"
-  $names="{sensorePresenza,proprieta}" }method { $name="ritiraSensorePre
- senza" $arguments="{fr.liglab.adele.icasa.device.presence.PresenceSenso
- r,java.util.Map}" $names="{sensorePresenza,proprieta}" }method { $name=
- "cercaLuciArea" $return="java.util.ArrayList" $arguments="{fr.liglab.ad
- ele.icasa.device.light.BinaryLight[],java.lang.String}" $names="{luci,p
- osizione}" }method { $name="cercaFotometroArea" $return="fr.liglab.adel
- e.icasa.device.light.Photometer" $arguments="{fr.liglab.adele.icasa.dev
- ice.light.Photometer[],java.lang.String}" $names="{fotometri,posizione}
- " }method { $name="cercaRilevatoreArea" $return="fr.liglab.adele.icasa.
- device.gasSensor.CarbonDioxydeSensor" $arguments="{fr.liglab.adele.icas
- a.device.gasSensor.CarbonDioxydeSensor[],java.lang.String}" $names="{ri
- levatoriCO2,posizione}" }method { $name="cercaSprinklersArea" $return="
- java.util.ArrayList" $arguments="{fr.liglab.adele.icasa.device.sprinkle
- r.Sprinkler[],java.lang.String}" $names="{sprinklers,posizione}" }metho
- d { $name="cercaSireneArea" $return="java.util.ArrayList" $arguments="{
- fr.liglab.adele.icasa.device.security.Siren[],java.lang.String}" $names
- ="{sirene,posizione}" }method { $name="cercaSensoreAllagamento" $return
- ="fr.liglab.adele.icasa.device.security.FloodSensor" $arguments="{fr.li
- glab.adele.icasa.device.security.FloodSensor[],java.lang.String}" $name
- s="{sensoriAllagamento,posizione}" }method { $name="assegnaLuce" $argum
- ents="{fr.liglab.adele.icasa.device.light.BinaryLight,java.util.Map}" $
- names="{binaryLight,properties}" }method { $name="ritiraLuce" $argument
- s="{fr.liglab.adele.icasa.device.light.BinaryLight,java.util.Map}" $nam
- es="{binaryLight,properties}" }method { $name="assegnaSensoreAllagament
- o" $arguments="{fr.liglab.adele.icasa.device.security.FloodSensor,java.
- util.Map}" $names="{sensoreAllagamento,properties}" }method { $name="ri
- tiraSensoreAllagamento" $arguments="{fr.liglab.adele.icasa.device.secur
- ity.FloodSensor,java.util.Map}" $names="{sensoreAllagamento,properties}
- " }method { $name="stop" }method { $name="start" }}}component { $classn
- ame="controllers.SistemaAntiallagamentoImpl" $name="SistemaAntiallagame
- nto" callback { $method="start" $transition="validate" }callback { $met
- hod="stop" $transition="invalidate" }manipulation { $classname="control
- lers.SistemaAntiallagamentoImpl" field { $name="listenerSensori" $type=
- "interfacciaUtente.SensoreAllagamentoListener" }method { $name="assegna
- Listener" $arguments="{fr.liglab.adele.icasa.device.security.FloodSenso
- r}" $names="{sensoreAllagamento}" }method { $name="rimuoviListener" $ar
- guments="{fr.liglab.adele.icasa.device.security.FloodSensor}" $names="{
- sensoreAllagamento}" }method { $name="stop" }method { $name="start" }}}
+ SensoreAllagamento" $type="unbind" }}requires { $aggregate="true" $opti
+ onal="true" $specification="fr.liglab.adele.icasa.device.temperature.He
+ ater" $field="caloriferi" callback { $method="assegnaCalorifero" $type=
+ "bind" }callback { $method="ritiraCalorifero" $type="unbind" }}requires
+  { $aggregate="true" $optional="true" $specification="fr.liglab.adele.i
+ casa.device.temperature.Cooler" $field="condizionatori" callback { $met
+ hod="assegnaCondizionatore" $type="bind" }callback { $method="ritiraCon
+ dizionatore" $type="unbind" }}requires { $aggregate="true" $optional="t
+ rue" $specification="fr.liglab.adele.icasa.device.temperature.Thermomet
+ er" $field="termometri" callback { $method="assegnaTermometro" $type="b
+ ind" }callback { $method="ritiraTermometro" $type="unbind" }}callback {
+  $method="start" $transition="validate" }callback { $method="stop" $tra
+ nsition="invalidate" }manipulation { $classname="controllers.Inizializz
+ aSistemaImpl" field { $name="caloriferi" $type="fr.liglab.adele.icasa.d
+ evice.temperature.Heater[]" }field { $name="condizionatori" $type="fr.l
+ iglab.adele.icasa.device.temperature.Cooler[]" }field { $name="fotometr
+ i" $type="fr.liglab.adele.icasa.device.light.Photometer[]" }field { $na
+ me="luci" $type="fr.liglab.adele.icasa.device.light.BinaryLight[]" }fie
+ ld { $name="rilevatoriCO2" $type="fr.liglab.adele.icasa.device.gasSenso
+ r.CarbonDioxydeSensor[]" }field { $name="sensoriAllagamento" $type="fr.
+ liglab.adele.icasa.device.security.FloodSensor[]" }field { $name="senso
+ riPresenza" $type="fr.liglab.adele.icasa.device.presence.PresenceSensor
+ []" }field { $name="sirene" $type="fr.liglab.adele.icasa.device.securit
+ y.Siren[]" }field { $name="sistemaAntiallagamentoImpl" $type="controlle
+ rs.SistemaAntiallagamentoImpl" }field { $name="sistemaAntincendio" $typ
+ e="controllers.SistemaAntincendioImpl" }field { $name="sistemaInizializ
+ zato" $type="boolean" }field { $name="sistemaLuci" $type="controllers.S
+ istemaLuciStanzaImpl" }field { $name="sistemaTemperatura" $type="contro
+ llers.SistemaTemperaturaImpl" }field { $name="sprinklers" $type="fr.lig
+ lab.adele.icasa.device.sprinkler.Sprinkler[]" }field { $name="termometr
+ i" $type="fr.liglab.adele.icasa.device.temperature.Thermometer[]" }meth
+ od { $name="assegnaRilevatoreCO2" $arguments="{fr.liglab.adele.icasa.de
+ vice.gasSensor.CarbonDioxydeSensor,java.util.Map}" $names="{carbonDioxy
+ deSensor,properties}" }method { $name="ritiraRilevatoreCO2" $arguments=
+ "{fr.liglab.adele.icasa.device.gasSensor.CarbonDioxydeSensor,java.util.
+ Map}" $names="{carbonDioxydeSensor,properties}" }method { $name="assegn
+ aSprinkler" $arguments="{fr.liglab.adele.icasa.device.sprinkler.Sprinkl
+ er,java.util.Map}" $names="{sprinkler,properties}" }method { $name="rit
+ iraSprinkler" $arguments="{fr.liglab.adele.icasa.device.sprinkler.Sprin
+ kler,java.util.Map}" $names="{sprinkler,properties}" }method { $name="a
+ ssegnaSirena" $arguments="{fr.liglab.adele.icasa.device.security.Siren,
+ java.util.Map}" $names="{siren,properties}" }method { $name="ritiraSire
+ na" $arguments="{fr.liglab.adele.icasa.device.security.Siren,java.util.
+ Map}" $names="{siren,properties}" }method { $name="assegnaFotometro" $a
+ rguments="{fr.liglab.adele.icasa.device.light.Photometer,java.util.Map}
+ " $names="{photometer,properties}" }method { $name="ritiraFotometro" $a
+ rguments="{fr.liglab.adele.icasa.device.light.Photometer,java.util.Map}
+ " $names="{photometer,properties}" }method { $name="assegnaSensorePrese
+ nza" $arguments="{fr.liglab.adele.icasa.device.presence.PresenceSensor,
+ java.util.Map}" $names="{sensorePresenza,proprieta}" }method { $name="r
+ itiraSensorePresenza" $arguments="{fr.liglab.adele.icasa.device.presenc
+ e.PresenceSensor,java.util.Map}" $names="{sensorePresenza,proprieta}" }
+ method { $name="cercaLuciArea" $return="java.util.ArrayList" $arguments
+ ="{fr.liglab.adele.icasa.device.light.BinaryLight[],java.lang.String}" 
+ $names="{luci,posizione}" }method { $name="cercaFotometroArea" $return=
+ "fr.liglab.adele.icasa.device.light.Photometer" $arguments="{fr.liglab.
+ adele.icasa.device.light.Photometer[],java.lang.String}" $names="{fotom
+ etri,posizione}" }method { $name="cercaRilevatoreArea" $return="fr.ligl
+ ab.adele.icasa.device.gasSensor.CarbonDioxydeSensor" $arguments="{fr.li
+ glab.adele.icasa.device.gasSensor.CarbonDioxydeSensor[],java.lang.Strin
+ g}" $names="{rilevatoriCO2,posizione}" }method { $name="cercaSprinklers
+ Area" $return="java.util.ArrayList" $arguments="{fr.liglab.adele.icasa.
+ device.sprinkler.Sprinkler[],java.lang.String}" $names="{sprinklers,pos
+ izione}" }method { $name="cercaSireneArea" $return="java.util.ArrayList
+ " $arguments="{fr.liglab.adele.icasa.device.security.Siren[],java.lang.
+ String}" $names="{sirene,posizione}" }method { $name="cercaSensoreAllag
+ amento" $return="fr.liglab.adele.icasa.device.security.FloodSensor" $ar
+ guments="{fr.liglab.adele.icasa.device.security.FloodSensor[],java.lang
+ .String}" $names="{sensoriAllagamento,posizione}" }method { $name="cerc
+ aCondizionatori" $return="java.util.ArrayList" $arguments="{fr.liglab.a
+ dele.icasa.device.temperature.Cooler[],java.lang.String}" $names="{cond
+ izionatori,posizione}" }method { $name="cercaCaloriferi" $return="java.
+ util.ArrayList" $arguments="{fr.liglab.adele.icasa.device.temperature.H
+ eater[],java.lang.String}" $names="{caloriferi,posizione}" }method { $n
+ ame="cercaTermometro" $return="fr.liglab.adele.icasa.device.temperature
+ .Thermometer" $arguments="{fr.liglab.adele.icasa.device.temperature.The
+ rmometer[],java.lang.String}" $names="{termometri,posizione}" }method {
+  $name="assegnaLuce" $arguments="{fr.liglab.adele.icasa.device.light.Bi
+ naryLight,java.util.Map}" $names="{binaryLight,properties}" }method { $
+ name="ritiraLuce" $arguments="{fr.liglab.adele.icasa.device.light.Binar
+ yLight,java.util.Map}" $names="{binaryLight,properties}" }method { $nam
+ e="assegnaSensoreAllagamento" $arguments="{fr.liglab.adele.icasa.device
+ .security.FloodSensor,java.util.Map}" $names="{sensoreAllagamento,prope
+ rties}" }method { $name="ritiraSensoreAllagamento" $arguments="{fr.ligl
+ ab.adele.icasa.device.security.FloodSensor,java.util.Map}" $names="{sen
+ soreAllagamento,properties}" }method { $name="stop" }method { $name="st
+ art" }method { $name="assegnaTermometro" $arguments="{fr.liglab.adele.i
+ casa.device.temperature.Thermometer,java.util.Map}" $names="{thermomete
+ r,properties}" }method { $name="ritiraTermometro" $arguments="{fr.ligla
+ b.adele.icasa.device.temperature.Thermometer,java.util.Map}" $names="{t
+ hermometer,properties}" }method { $name="assegnaCondizionatore" $argume
+ nts="{fr.liglab.adele.icasa.device.temperature.Cooler,java.util.Map}" $
+ names="{cooler,properties}" }method { $name="ritiraCondizionatore" $arg
+ uments="{fr.liglab.adele.icasa.device.temperature.Cooler,java.util.Map}
+ " $names="{cooler,properties}" }method { $name="assegnaCalorifero" $arg
+ uments="{fr.liglab.adele.icasa.device.temperature.Heater,java.util.Map}
+ " $names="{heater,properties}" }method { $name="ritiraCalorifero" $argu
+ ments="{fr.liglab.adele.icasa.device.temperature.Heater,java.util.Map}"
+  $names="{heater,properties}" }}}component { $classname="controllers.Si
+ stemaAntiallagamentoImpl" $name="SistemaAntiallagamento" callback { $me
+ thod="start" $transition="validate" }callback { $method="stop" $transit
+ ion="invalidate" }manipulation { $classname="controllers.SistemaAntiall
+ agamentoImpl" field { $name="listenerSensore" $type="interfacciaUtente.
+ SensoreAllagamentoListener" }method { $name="assegnaListener" $argument
+ s="{fr.liglab.adele.icasa.device.security.FloodSensor}" $names="{sensor
+ eAllagamento}" }method { $name="rimuoviListener" $arguments="{fr.liglab
+ .adele.icasa.device.security.FloodSensor}" $names="{sensoreAllagamento}
+ " }method { $name="stop" }method { $name="start" }}}
 
