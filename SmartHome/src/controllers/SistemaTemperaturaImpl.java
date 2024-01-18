@@ -23,32 +23,31 @@ public class SistemaTemperaturaImpl {
 	
 	/** Unbind Method for termometri dependency */
 	public void ritiraTermometro(Thermometer thermometer, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Bind Method for condizionatori dependency */
 	public void assegnaCondizionatore(Cooler cooler, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Unbind Method for condizionatori dependency */
 	public void ritiraCondizionatore(Cooler cooler, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Bind Method for caloriferi dependency */
 	public void assegnaCalorifero(Heater heater, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Unbind Method for caloriferi dependency */
 	public void ritiraCalorifero(Heater heater, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Component Lifecycle Method */
 	public void stop() {
-		// TODO: Add your implementation code here
 		System.out.println("Fine sis. Temp.");
 		GestoreAree gestoreAree = GestoreAree.getIstanza();
 		List<Area> aree = gestoreAree.getAree();
@@ -59,7 +58,6 @@ public class SistemaTemperaturaImpl {
 
 	/** Component Lifecycle Method */
 	public void start() {
-		// TODO: Add your implementation code here
 		System.out.println("Inizio sis. Temp.");
 		GestoreAree gestoreAree = GestoreAree.getIstanza();
 		List<Area> aree = gestoreAree.getAree();

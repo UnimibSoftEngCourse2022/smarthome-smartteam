@@ -15,20 +15,17 @@ public class RilevatoreCO2Listener implements DeviceListener{
 	
 	@Override
 	public void deviceAdded(GenericDevice arg0) {
-		// TODO Auto-generated method stub
-		
+		// Metodo ereditato dall' interfaccia
 	}
 
 	@Override
 	public void deviceEvent(GenericDevice arg0, Object arg1) {
-		// TODO Auto-generated method stub
-		
+		// Metodo ereditato dall' interfaccia
 	}
 
 	@Override
 	public void devicePropertyAdded(GenericDevice arg0, String arg1) {
-		// TODO Auto-generated method stub
-		
+		// Metodo ereditato dall' interfaccia
 	}
 
 	@Override
@@ -73,15 +70,12 @@ public class RilevatoreCO2Listener implements DeviceListener{
 
 	@Override
 	public void devicePropertyRemoved(GenericDevice arg0, String arg1) {
-		// TODO Auto-generated method stub
-		
+		// Metodo ereditato dall' interfaccia		
 	}
 
 	@Override
 	public void deviceRemoved(GenericDevice arg0) {
-		// TODO Auto-generated method stub
-		
+		// Metodo ereditato dall' interfaccia		
 	}
 	 
-	
 }

@@ -22,8 +22,6 @@ import dominio.Termostato;
 
 public class InizializzaSistemaImpl {
 
-	private boolean sistemaInizializzato = false;
-
 	// Componenti sottosistemi
 	private SistemaLuciStanzaImpl sistemaLuci;
 	private SistemaAntincendioImpl sistemaAntincendio;
@@ -51,44 +49,46 @@ public class InizializzaSistemaImpl {
 	/** Field for termometri dependency */
 	private Thermometer[] termometri;
 
+	private final String PROPRIETA = "Location";
+
 	/** Bind Method for rilevatoriCO2 dependency */
 	public void assegnaRilevatoreCO2(CarbonDioxydeSensor carbonDioxydeSensor, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Unbind Method for rilevatoriCO2 dependency */
 	public void ritiraRilevatoreCO2(CarbonDioxydeSensor carbonDioxydeSensor, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Bind Method for sprinklers dependency */
 	public void assegnaSprinkler(Sprinkler sprinkler, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Unbind Method for sprinklers dependency */
 	public void ritiraSprinkler(Sprinkler sprinkler, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Bind Method for sirene dependency */
 	public void assegnaSirena(Siren siren, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Unbind Method for sirene dependency */
 	public void ritiraSirena(Siren siren, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Bind Method for fotometri dependency */
 	public void assegnaFotometro(Photometer photometer, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Unbind Method for fotometri dependency */
 	public void ritiraFotometro(Photometer photometer, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Bind Method for sensoriPresenza dependency */
@@ -112,7 +112,7 @@ public class InizializzaSistemaImpl {
 	private ArrayList<BinaryLight> cercaLuciArea(BinaryLight luci[], String posizione) {
 		ArrayList<BinaryLight> luciArea = new ArrayList<BinaryLight>();
 		for (BinaryLight luce : luci) {
-			if (luce.getPropertyValue("Location").equals(posizione)) {
+			if (luce.getPropertyValue(PROPRIETA).equals(posizione)) {
 				luciArea.add(luce);
 			}
 		}
@@ -123,7 +123,7 @@ public class InizializzaSistemaImpl {
 	private Photometer cercaFotometroArea(Photometer[] fotometri, String posizione) {
 		Photometer fotometroArea = null;
 		for (Photometer fotometro : fotometri) {
-			if (fotometro.getPropertyValue("Location").equals(posizione)) {
+			if (fotometro.getPropertyValue(PROPRIETA).equals(posizione)) {
 				fotometroArea = fotometro;
 			}
 		}
@@ -134,7 +134,7 @@ public class InizializzaSistemaImpl {
 	private CarbonDioxydeSensor cercaRilevatoreArea(CarbonDioxydeSensor[] rilevatoriCO2, String posizione) {
 		CarbonDioxydeSensor rilevatoreCO2Area = null;
 		for (CarbonDioxydeSensor rilevatore : rilevatoriCO2) {
-			if (rilevatore.getPropertyValue("Location").equals(posizione)) {
+			if (rilevatore.getPropertyValue(PROPRIETA).equals(posizione)) {
 				rilevatoreCO2Area = rilevatore;
 			}
 		}
@@ -145,7 +145,7 @@ public class InizializzaSistemaImpl {
 	private ArrayList<Sprinkler> cercaSprinklersArea(Sprinkler[] sprinklers, String posizione) {
 		ArrayList<Sprinkler> sprinklersArea = new ArrayList<Sprinkler>();
 		for (Sprinkler sprinkler : sprinklers) {
-			if (sprinkler.getPropertyValue("Location").equals(posizione)) {
+			if (sprinkler.getPropertyValue(PROPRIETA).equals(posizione)) {
 				sprinklersArea.add(sprinkler);
 			}
 		}
@@ -156,7 +156,7 @@ public class InizializzaSistemaImpl {
 	private ArrayList<Siren> cercaSireneArea(Siren[] sirene, String posizione) {
 		ArrayList<Siren> sireneArea = new ArrayList<Siren>();
 		for (Siren sirena : sirene) {
-			if (sirena.getPropertyValue("Location").equals(posizione)) {
+			if (sirena.getPropertyValue(PROPRIETA).equals(posizione)) {
 				sireneArea.add(sirena);
 			}
 		}
@@ -166,7 +166,7 @@ public class InizializzaSistemaImpl {
 	private FloodSensor cercaSensoreAllagamento(FloodSensor[] sensoriAllagamento, String posizione) {
 		FloodSensor sensoreAllagamento = null;
 		for (FloodSensor sensore : sensoriAllagamento) {
-			if (sensore.getPropertyValue("Location").equals(posizione)) {
+			if (sensore.getPropertyValue(PROPRIETA).equals(posizione)) {
 				sensoreAllagamento = sensore;
 			}
 		}
@@ -176,7 +176,7 @@ public class InizializzaSistemaImpl {
 	public ArrayList<Cooler> cercaCondizionatori(Cooler[] condizionatori, String posizione) {
 		ArrayList<Cooler> condizionatoriArea = new ArrayList<Cooler>();
 		for (Cooler condizionatore : condizionatori) {
-			if (condizionatore.getPropertyValue("Location").equals(posizione)) {
+			if (condizionatore.getPropertyValue(PROPRIETA).equals(posizione)) {
 				condizionatoriArea.add(condizionatore);
 			}
 		}
@@ -186,7 +186,7 @@ public class InizializzaSistemaImpl {
 	public ArrayList<Heater> cercaCaloriferi(Heater[] caloriferi, String posizione) {
 		ArrayList<Heater> caloriferiArea = new ArrayList<Heater>();
 		for (Heater calorifero : caloriferi) {
-			if (calorifero.getPropertyValue("Location").equals(posizione)) {
+			if (calorifero.getPropertyValue(PROPRIETA).equals(posizione)) {
 				caloriferiArea.add(calorifero);
 			}
 		}
@@ -196,7 +196,7 @@ public class InizializzaSistemaImpl {
 	private Thermometer cercaTermometro(Thermometer[] termometri, String posizione) {
 		Thermometer termometroArea = null;
 		for (Thermometer termometro : termometri) {
-			if (termometro.getPropertyValue("Location").equals(posizione)) {
+			if (termometro.getPropertyValue(PROPRIETA).equals(posizione)) {
 				termometroArea = termometro;
 			}
 		}
@@ -205,27 +205,27 @@ public class InizializzaSistemaImpl {
 
 	/** Bind Method for luci dependency */
 	public void assegnaLuce(BinaryLight binaryLight, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Unbind Method for luci dependency */
 	public void ritiraLuce(BinaryLight binaryLight, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Bind Method for sensoriAllagamento dependency */
 	public void assegnaSensoreAllagamento(FloodSensor sensoreAllagamento, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Unbind Method for sensoriAllagamento dependency */
 	public void ritiraSensoreAllagamento(FloodSensor sensoreAllagamento, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Component Lifecycle Method */
 	public void stop() {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Component Lifecycle Method */
@@ -276,37 +276,36 @@ public class InizializzaSistemaImpl {
 		sistemaAntiallagamentoImpl.start();
 		sistemaTemperatura = new SistemaTemperaturaImpl();
 		sistemaTemperatura.start();
-		sistemaInizializzato = true;
 	}
 
 	/** Bind Method for termometri dependency */
 	public void assegnaTermometro(Thermometer thermometer, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Unbind Method for termometri dependency */
 	public void ritiraTermometro(Thermometer thermometer, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Bind Method for condizionatori dependency */
 	public void assegnaCondizionatore(Cooler cooler, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Unbind Method for condizionatori dependency */
 	public void ritiraCondizionatore(Cooler cooler, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Bind Method for caloriferi dependency */
 	public void assegnaCalorifero(Heater heater, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Unbind Method for caloriferi dependency */
 	public void ritiraCalorifero(Heater heater, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 }

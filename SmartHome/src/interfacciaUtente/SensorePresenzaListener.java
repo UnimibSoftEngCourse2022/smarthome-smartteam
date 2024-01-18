@@ -11,17 +11,20 @@ import fr.liglab.adele.icasa.device.light.Photometer;
 public class SensorePresenzaListener implements DeviceListener{
 
 	@Override
-	public void deviceAdded(GenericDevice arg0) {		
+	public void deviceAdded(GenericDevice arg0) {	
+		//Metodo ereditato dall' interfaccia	
 	}
 
 	
 	@Override
 	public void deviceEvent(GenericDevice arg0, Object arg1) {
+		//Metodo ereditato dall' interfaccia
 	}
 
 	
 	@Override
 	public void devicePropertyAdded(GenericDevice arg0, String arg1) {
+		//Metodo ereditato dall' interfaccia
 	}
 
 	
@@ -68,11 +71,13 @@ public class SensorePresenzaListener implements DeviceListener{
 	
 	@Override
 	public void devicePropertyRemoved(GenericDevice arg0, String arg1) {
+		//Metodo ereditato dall' interfaccia
 	}
 
 	
 	@Override
 	public void deviceRemoved(GenericDevice arg0) {
+		//Metodo ereditato dall' interfaccia
 	}
 	
 }
