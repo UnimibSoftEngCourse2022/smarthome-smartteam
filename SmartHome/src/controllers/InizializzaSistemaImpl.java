@@ -23,10 +23,10 @@ import dominio.Termostato;
 public class InizializzaSistemaImpl {
 
 	// Componenti sottosistemi
-	private SistemaLuciStanzaImpl sistemaLuci;
-	private SistemaAntincendioImpl sistemaAntincendio;
-	private SistemaAntiallagamentoImpl sistemaAntiallagamentoImpl;
-	private SistemaTemperaturaImpl sistemaTemperatura;
+	private  sistemaLuci;
+	private  sistemaAntincendio;
+	private  sistemaAntiallagamentoImpl;
+	private  sistemaTemperatura;
 
 	/** Field for rilevatoriCO2 dependency */
 	private CarbonDioxydeSensor[] rilevatoriCO2;
@@ -268,13 +268,13 @@ public class InizializzaSistemaImpl {
 		}
 
 		// da questo punto possiamo istanziare SistemaLuciStanzaImpl e SistemaAntincendioImpl
-		sistemaLuci = new SistemaLuciStanzaImpl();
+		SistemaLuciStanzaImpl sistemaLuci = new SistemaLuciStanzaImpl();
 		sistemaLuci.start();
-		sistemaAntincendio = new SistemaAntincendioImpl();
+		SistemaAntincendioImpl sistemaAntincendio = new SistemaAntincendioImpl();
 		sistemaAntincendio.start();
-		sistemaAntiallagamentoImpl = new SistemaAntiallagamentoImpl();
+		SistemaAntiallagamentoImpl sistemaAntiallagamentoImpl = new SistemaAntiallagamentoImpl();
 		sistemaAntiallagamentoImpl.start();
-		sistemaTemperatura = new SistemaTemperaturaImpl();
+		SistemaTemperaturaImpl sistemaTemperatura = new SistemaTemperaturaImpl();
 		sistemaTemperatura.start();
 	}
 
