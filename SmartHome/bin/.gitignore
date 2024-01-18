@@ -1,4 +1,4 @@
-/controllers/
-/database/
-/dominio/
-/interfacciaUtente/
+/controllers/*
+/database/*
+/dominio/*
+/interfacciaUtente/*
