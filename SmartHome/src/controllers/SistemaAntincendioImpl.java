@@ -11,6 +11,12 @@ import dominio.Area;
 public class SistemaAntincendioImpl {
 
 	RilevatoreCO2Listener listenerRilevatori = new RilevatoreCO2Listener();
+	List<Area> aree;
+	
+	public SistemaAntincendioImpl(List<Area> aree) {
+		this.aree = aree;
+	}
+	
 	
 	// metodo per assegnare un listener ad un rilevatore di CO2
 	private void assegnaListener(CarbonDioxydeSensor sensoreCO2){
@@ -31,8 +37,6 @@ public class SistemaAntincendioImpl {
 	public void stop() {
 		System.out.println("Fine sistema ANTINCENDIO");
 		
-		GestoreAree gestoreAree = GestoreAree.getIstanza();
-		List<Area> aree = gestoreAree.getAree();
 		for(Area area : aree) {
 			rimuoviListener(area.getRilevatoreCO2());
 		}
@@ -42,8 +46,6 @@ public class SistemaAntincendioImpl {
 	public void start() {
 		System.out.println("Inizio sistema ANTINCENDIO");
 		
-		GestoreAree gestoreAree = GestoreAree.getIstanza();
-		List<Area> aree = gestoreAree.getAree();
 		for(Area area : aree) {
 			assegnaListener(area.getRilevatoreCO2());
 		}

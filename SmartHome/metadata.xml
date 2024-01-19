@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ipojo xmlns="org.apache.felix.ipojo">
-  <component classname="controllers.SistemaLuciStanzaImpl" name="SistemaLuciStanza">
-    <callback method="start" transition="validate"/>
-    <callback method="stop" transition="invalidate"/>
-  </component>
-  <component classname="controllers.SistemaAntincendioImpl" name="SistemaAntincendio">
-    <callback method="start" transition="validate"/>
-    <callback method="stop" transition="invalidate"/>
-  </component>
   <component classname="controllers.InizializzaSistemaImpl" name="InizializzaSistema">
     <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.light.BinaryLight" field="luci">
       <callback method="assegnaLuce" type="bind"/>
@@ -52,9 +44,5 @@
       <callback method="ritiraTermometro" type="unbind"/>
     </requires>
   </component>
-  <component classname="controllers.SistemaAntiallagamentoImpl" name="SistemaAntiallagamento">
-    <callback method="start" transition="validate"/>
-    <callback method="stop" transition="invalidate"/>
-  </component>
-  <instance component="InizializzaSistema" name="InizializzaSistema-1"/>
+  <instance component="InizializzaSistema" name="InizializzaSistema-3"/>
 </ipojo>

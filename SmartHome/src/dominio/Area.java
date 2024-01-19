@@ -147,7 +147,6 @@ public class Area {
 		this.tempMassima = tempMassima;
 	}
 	
-	@Override
 	public boolean equals(Area area){
 		return this.getNome().equals(area.nome);
 	}

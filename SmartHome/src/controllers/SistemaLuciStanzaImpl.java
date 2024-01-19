@@ -11,6 +11,11 @@ import dominio.Area;
 public class SistemaLuciStanzaImpl {
 
 	SensorePresenzaListener listenerSensore = new SensorePresenzaListener();
+	List<Area> aree;
+	
+	public SistemaLuciStanzaImpl(List<Area> aree) {
+		this.aree = aree;
+	}
 	
 	/** metodo per assegnare le dipendenze ai sensori di presenza. 
 	* Collega le aree create nel simulatore a quelle del sistema.
@@ -41,7 +46,7 @@ public class SistemaLuciStanzaImpl {
 		}
 	}
 	*/	
-	
+
 
 	/** metodo per assegnare un listener ad un sensore di presenza per regolare il comportamento
 	 * 	a seconda della rilevazione di un fotometro
@@ -61,8 +66,6 @@ public class SistemaLuciStanzaImpl {
 	public void stop() {
 		System.out.println("Fine sistema gestione LUCI");
 
-		GestoreAree gestoreAree = GestoreAree.getIstanza();
-		List<Area> aree = gestoreAree.getAree();
 		for(Area area : aree) {
 			rimuoviListener(area.getSensorePresenza());
 		}
@@ -73,8 +76,6 @@ public class SistemaLuciStanzaImpl {
 	public void start() {
 		System.out.println("Inizio sistema gestione LUCI");
 		
-		GestoreAree gestoreAree = GestoreAree.getIstanza();
-		List<Area> aree = gestoreAree.getAree();
 		for(Area area : aree) {
 			assegnaListener(area.getSensorePresenza());
 		}

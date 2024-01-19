@@ -10,6 +10,12 @@ import interfacciaUtente.SensoreAllagamentoListener;
 public class SistemaAntiallagamentoImpl {
 
 	SensoreAllagamentoListener listenerSensore = new SensoreAllagamentoListener();
+	List<Area> aree;
+	
+	public SistemaAntiallagamentoImpl(List<Area> aree) {
+		this.aree = aree;
+	}
+	
 	
 	// metodo per assegnare un listener ad un rilevatore di CO2
 	private void assegnaListener(FloodSensor sensoreAllagamento){
@@ -31,8 +37,6 @@ public class SistemaAntiallagamentoImpl {
 	public void stop() {
 		System.out.println("Fine sistema ANTIALLAGAMENTO");
 		
-		GestoreAree gestoreAree = GestoreAree.getIstanza();
-		List<Area> aree = gestoreAree.getAree();
 		for(Area area : aree) {
 			rimuoviListener(area.getSensoreAllagamento());
 		}
@@ -43,8 +47,6 @@ public class SistemaAntiallagamentoImpl {
 	public void start() {
 		System.out.println("Inizio sistema ANTIALLAGAMENTO");
 		
-		GestoreAree gestoreAree = GestoreAree.getIstanza();
-		List<Area> aree = gestoreAree.getAree();
 		for(Area area : aree) {
 			assegnaListener(area.getSensoreAllagamento());
 		}
