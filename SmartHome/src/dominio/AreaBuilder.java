@@ -15,17 +15,17 @@ import fr.liglab.adele.icasa.device.security.FloodSensor;
 
 public class AreaBuilder {
 	
-	private String nome;
-	private PresenceSensor sensorePresenza;
-	private Photometer fotometro;
-	private List<BinaryLight> luci;
-	private CarbonDioxydeSensor rilevatoreCO2;
-	private List<Sprinkler> sprinklers;
-	private List<Siren> sirene;
-	private FloodSensor sensoreAllagamento;
-	private List<Heater> caloriferi;
-	private List<Cooler> condizionatori;
-	private Termostato termostato;
+	String nome;
+	PresenceSensor sensorePresenza;
+	Photometer fotometro;
+	List<BinaryLight> luci;
+	CarbonDioxydeSensor rilevatoreCO2;
+	List<Sprinkler> sprinklers;
+	List<Siren> sirene;
+	FloodSensor sensoreAllagamento;
+	List<Heater> caloriferi;
+	List<Cooler> condizionatori;
+	Termostato termostato;
 	
 	
 	public AreaBuilder nome(String nome) {
@@ -86,67 +86,11 @@ public class AreaBuilder {
 		this.condizionatori = condizionatori;
 		return this;
 	}
-	
-
-	public String getNome() {
-		return nome;
-	}
-
-
-	public PresenceSensor getSensorePresenza() {
-		return sensorePresenza;
-	}
-
-
-	public Photometer getFotometro() {
-		return fotometro;
-	}
-
-
-	public List<BinaryLight> getLuci() {
-		return luci;
-	}
-
-	
-	public CarbonDioxydeSensor getRilevatoreCO2() {
-		return rilevatoreCO2;
-	}
-
-	
-	public List<Sprinkler> getSprinklers() {
-		return sprinklers;
-	}
-
-
-	public List<Siren> getSirene() {
-		return sirene;
-	}
-	
-	
-	public FloodSensor getSensoreAllagamento() {
-		return sensoreAllagamento;
-	}
-
-
-	public List<Heater> getCaloriferi() {
-		return caloriferi;
-	}
-
-
-	public List<Cooler> getCondizionatori() {
-		return condizionatori;
-	}
 
 
 	public AreaBuilder termostato(Termostato termostato) {
 		this.termostato = termostato;
 		return this;
 	}
-
-
-	public Termostato getTermostato() {
-		return termostato;
-	}
-	
 	
 }

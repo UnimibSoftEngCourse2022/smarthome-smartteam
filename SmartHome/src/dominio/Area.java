@@ -42,92 +42,17 @@ public class Area {
 
 
 	public Area(AreaBuilder builder) {
-		this.nome = builder.getNome();
-		this.sensorePresenza = builder.getSensorePresenza();
-		this.fotometro = builder.getFotometro();
-		this.luci = builder.getLuci();
-		this.rilevatoreCO2 = builder.getRilevatoreCO2();
-		this.sprinklers = builder.getSprinklers();
-		this.sirene = builder.getSirene();
-		this.sensoreAllagamento = builder.getSensoreAllagamento();
-		this.caloriferi = builder.getCaloriferi();
-		this.condizionatori = builder.getCondizionatori();
-		this.termostato = builder.getTermostato();
-	}
-	
-	
-	public String getNome() {
-		return nome;
-	}
-	
-	
-	public PresenceSensor getSensorePresenza() {
-		return sensorePresenza;
-	}
-
-
-	public Photometer getFotometro() {
-		return fotometro;
-	}
-
-
-	public List<BinaryLight> getLuci() {
-		return luci;
-	}
-
-
-	public CarbonDioxydeSensor getRilevatoreCO2() {
-		return rilevatoreCO2;
-	}
-	
-	
-	public List<Sprinkler> getSprinklers() {
-		return sprinklers;
-	}
-
-
-	public List<Siren> getSirene() {
-		return sirene;
-	}
-	
-	
-	public FloodSensor getSensoreAllagamento() {
-		return sensoreAllagamento;
-	}
-
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-
-	public void setSensorePresenza(PresenceSensor sensorePresenza) {
-		this.sensorePresenza = sensorePresenza;
-	}
-
-
-	public void setFotometro(Photometer fotometro) {
-		this.fotometro = fotometro;
-	}
-
-
-	public void setLuci(List<BinaryLight> luci) {
-		this.luci = luci;
-	}
-
-	
-	public void setRilevatoreCO2(CarbonDioxydeSensor rilevatoreCO2) {
-		this.rilevatoreCO2 = rilevatoreCO2;
-	}
-	
-
-	public void setSprinklers(List<Sprinkler> sprinklers) {
-		this.sprinklers = sprinklers;
-	}
-	
-	
-	public void setSirene(List<Siren> sirene) {
-		this.sirene = sirene;
+		this.nome = builder.nome;
+		this.sensorePresenza = builder.sensorePresenza;
+		this.fotometro = builder.fotometro;
+		this.luci = builder.luci;
+		this.rilevatoreCO2 = builder.rilevatoreCO2;
+		this.sprinklers = builder.sprinklers;
+		this.sirene = builder.sirene;
+		this.sensoreAllagamento = builder.sensoreAllagamento;
+		this.caloriferi = builder.caloriferi;
+		this.condizionatori = builder.condizionatori;
+		this.termostato = builder.termostato;
 	}
 	
 	
@@ -148,7 +73,7 @@ public class Area {
 	}
 	
 	public boolean equals(Area area){
-		return this.getNome().equals(area.nome);
+		return this.nome.equals(area.nome);
 	}
 
 	
@@ -219,6 +144,31 @@ public class Area {
 		for(Cooler condizionatore : condizionatori) {
 			condizionatore.setPowerLevel(0);
 		}
+	}
+
+
+	public FloodSensor getSensoreAllagamento() {
+		return sensoreAllagamento;
+	}
+
+
+	public CarbonDioxydeSensor getRilevatoreCO2() {
+		return rilevatoreCO2;
+	}
+
+
+	public PresenceSensor getSensorePresenza() {
+		return sensorePresenza;
+	}
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+	public Photometer getFotometro() {
+		return fotometro;
 	}
 	
 }
