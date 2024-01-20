@@ -1,7 +1,7 @@
 package controllers;
 
 import fr.liglab.adele.icasa.device.gasSensor.CarbonDioxydeSensor;
-import interfacciaUtente.RilevatoreCO2Listener;
+import listeners.RilevatoreCO2Listener;
 
 import java.util.List;
 

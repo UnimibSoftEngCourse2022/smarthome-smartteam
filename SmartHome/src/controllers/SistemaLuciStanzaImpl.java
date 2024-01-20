@@ -1,7 +1,7 @@
 package controllers;
 
 import fr.liglab.adele.icasa.device.presence.PresenceSensor;
-import interfacciaUtente.SensorePresenzaListener;
+import listeners.SensorePresenzaListener;
 
 import java.util.List;
 

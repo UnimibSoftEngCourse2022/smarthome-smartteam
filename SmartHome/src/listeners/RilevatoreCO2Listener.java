@@ -1,4 +1,4 @@
-package interfacciaUtente;
+package listeners;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,34 +11,18 @@ import fr.liglab.adele.icasa.device.GenericDevice;
 import fr.liglab.adele.icasa.device.gasSensor.CarbonDioxydeSensor;
 import fr.liglab.adele.icasa.device.presence.PresenceSensor;
 
-public class RilevatoreCO2Listener implements DeviceListener{
-	
+public class RilevatoreCO2Listener extends GenericListener{
+
 	@Override
-	public void deviceAdded(GenericDevice arg0) {
-		// Metodo ereditato dall' interfaccia
+	public boolean verificaTipologiaDispositivo(GenericDevice dispositivo) {
+		return dispositivo.getClass().equals(CarbonDioxydeSensor.class);
 	}
 
 	@Override
-	public void deviceEvent(GenericDevice arg0, Object arg1) {
-		// Metodo ereditato dall' interfaccia
-	}
-
-	@Override
-	public void devicePropertyAdded(GenericDevice arg0, String arg1) {
-		// Metodo ereditato dall' interfaccia
-	}
-
-	@Override
-	public void devicePropertyModified(GenericDevice dispositivo, String nomeProprieta, Object vecchioValore, Object nuovoValore) {
-	
-		//ci accertiamo che il device sia un rilevatore di CO2
-		assert dispositivo instanceof CarbonDioxydeSensor : "e' richiesto un rilevatore di CO2";
-				  
+	public void gestisciEvento(GenericDevice dispositivo, Area areaInteressata, String nomeProprieta, Object vecchioValore, Object nuovoValore) {
 		CarbonDioxydeSensor rilevatoreCO2 = (CarbonDioxydeSensor) dispositivo;
 		double concentrazioneCO2 = rilevatoreCO2.getCO2Concentration();
 		
-		GestoreAree gestoreAree = GestoreAree.getIstanza();
-		Area areaInteressata = gestoreAree.getArea((String) rilevatoreCO2.getPropertyValue("Location"));
 		if(concentrazioneCO2 >= 2) {
 			// allarme
 			areaInteressata.accendiSirene();
@@ -63,17 +47,6 @@ public class RilevatoreCO2Listener implements DeviceListener{
 			}
 		}
 		
-		
-	}
-
-	@Override
-	public void devicePropertyRemoved(GenericDevice arg0, String arg1) {
-		// Metodo ereditato dall' interfaccia		
-	}
-
-	@Override
-	public void deviceRemoved(GenericDevice arg0) {
-		// Metodo ereditato dall' interfaccia		
 	}
 	 
 }

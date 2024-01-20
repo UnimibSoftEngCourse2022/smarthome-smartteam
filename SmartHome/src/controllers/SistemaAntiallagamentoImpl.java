@@ -5,7 +5,7 @@ import java.util.List;
 import database.GestoreAree;
 import dominio.Area;
 import fr.liglab.adele.icasa.device.security.FloodSensor;
-import interfacciaUtente.SensoreAllagamentoListener;
+import listeners.SensoreAllagamentoListener;
 
 public class SistemaAntiallagamentoImpl {
 

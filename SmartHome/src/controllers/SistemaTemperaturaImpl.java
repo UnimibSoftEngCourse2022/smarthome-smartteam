@@ -4,7 +4,7 @@ package controllers;
 import fr.liglab.adele.icasa.device.temperature.Cooler;
 import fr.liglab.adele.icasa.device.temperature.Heater;
 import fr.liglab.adele.icasa.device.temperature.Thermometer;
-import interfacciaUtente.SensorePresenzaListener;
+import listeners.SensorePresenzaListener;
 import dominio.Termostato;
 
 import java.util.ArrayList;
