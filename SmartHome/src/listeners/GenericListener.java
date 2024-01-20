@@ -26,7 +26,7 @@ public abstract class GenericListener implements DeviceListener{
 	public void devicePropertyModified(GenericDevice dispositivo, String nomeProprieta, Object vecchioValore, Object nuovoValore) {
 		
 		if(!verificaTipologiaDispositivo(dispositivo)) {
-			System.out.println("Errore");
+			System.out.println("Errore, il dispositivo non è della tipologia richiesta");
 		}
 		
 		GestoreAree gestoreAree = GestoreAree.getIstanza();

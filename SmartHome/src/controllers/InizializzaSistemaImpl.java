@@ -188,7 +188,7 @@ public class InizializzaSistemaImpl {
 		// assumiamo che in ogni area (stanza o corridoio) ci sia un sensore di presenza
 		// prendiamo quindi la Location di ciascun sensore per individuare tutti i dispositivi in un'area
 		for (PresenceSensor sensorePresenza : sensoriPresenza) {
-			String posizioneSensore = (String) sensorePresenza.getPropertyValue("Location");
+			String posizioneSensore = (String) sensorePresenza.getPropertyValue(PROPRIETA);
 			// ELEMENTI GESTIONE LUCI
 
 			List<BinaryLight> luciInArea = (List<BinaryLight>) cercaDispositiviArea(luci, posizioneSensore);
