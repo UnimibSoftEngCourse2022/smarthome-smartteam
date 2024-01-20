@@ -33,7 +33,7 @@
 	<move-device-zone deviceId="CO2GasSensor-6d0d7e23f8" zoneId="cucina" />
 	<move-device-zone deviceId="Sirena-01" zoneId="cucina" />
 	<move-device-zone deviceId="SensoreApertura-01" zoneId="cucina" />
-	<move-device-zone deviceId="telecamera-01" zone="cucina" />
+	<move-device-zone deviceId="telecamera-01" zoneId="cucina" />
 
 
 	<!-- SOGGIORNO -->
@@ -63,7 +63,7 @@
 	<create-device id="telecamera-02" type="iCasa.camera" />
 	<move-device-zone deviceId="Sirena-02" zoneId="soggiorno" />
 	<move-device-zone deviceId="SensoreApertura-02" zoneId="soggiorno" />
-	<move-device-zone deviceId="telecamera-02" zone="soggiorno" />
+	<move-device-zone deviceId="telecamera-02" zoneId="soggiorno" />
 
 	
 	<!-- CAMERA DA LETTO -->
@@ -93,7 +93,7 @@
 	<create-device id="telecamera-02" type="iCasa.camera" />
 	<move-device-zone deviceId="Sirena-03" zoneId="camera da letto" />
 	<move-device-zone deviceId="SensoreApertura-03" zoneId="camera da letto" />
-	<move-device-zone deviceId="telecamera-03" zone="camera da letto" />
+	<move-device-zone deviceId="telecamera-03" zoneId="camera da letto" />
 
 
 	<!-- BAGNO -->
@@ -126,7 +126,7 @@
     <move-device-zone deviceId="FloodSensor-01" zoneId="bagno" />
     <move-device-zone deviceId="Sirena-04" zoneId="bagno" />
 	<move-device-zone deviceId="SensoreApertura-04" zoneId="bagno" />
-	<move-device-zone deviceId="telecamera-04" zone="bagno" />
+	<move-device-zone deviceId="telecamera-04" zoneId="bagno" />
 	
 	
 	<!-- CORRIDOIO CENTRALE -->
@@ -158,7 +158,7 @@
 	<create-device id="telecamera-05" type="iCasa.camera" />
 	<move-device-zone deviceId="Sirena-05" zoneId="corridoio" />
 	<move-device-zone deviceId="SensoreApertura-05" zoneId="corridoio" />
-	<move-device-zone deviceId="telecamera-05" zone="corridoio" />
+	<move-device-zone deviceId="telecamera-05" zoneId="corridoio" />
 
 	<create-person id="Comi" type="Grandfather" />
 
