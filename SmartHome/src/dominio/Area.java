@@ -35,6 +35,7 @@ public class Area {
 	private Termostato termostato;
 	private List<Camera> telecamere;
 	private DoorWindowSensor sensorePorteFinestre;
+	private PushButton pulsanteAllarme;
 	
 	
 	public Termostato getTermostato() {
@@ -61,6 +62,7 @@ public class Area {
 		this.termostato = builder.termostato;
 		this.telecamere = builder.telecamere;
 		this.sensorePorteFinestre = builder.sensorePorteFinestre;
+		this.pulsanteAllarme = builder.pulsanteAllarme;
 	}
 	
 	
@@ -201,5 +203,22 @@ public class Area {
 			}
 		}
 	}
+
+
+	public void spegniAllarme() {
+		for(Camera telecamera : telecamere) {
+			telecamera.stopRecording();
+		}
+		for(Siren sirena : sirene) {
+			sirena.turnOff();
+		}
+		System.out.println("Allarme disattivato in " + this.nome);
+	}
+
+
+	public PushButton getPulsanteAllarme() {
+		return pulsanteAllarme;
+	}
+
 	
 }

@@ -8,7 +8,8 @@ public class GestoreAree {
 
     private List<Area> aree;
 	private static GestoreAree istanza;
-	private boolean AllarmeAcceso = true;
+	private boolean allarmeAcceso = true;
+	private String codice = "0123";
     
 
 	public static GestoreAree getIstanza(){
@@ -19,7 +20,7 @@ public class GestoreAree {
     }
 
     public boolean isAllarmeAcceso() {
-		return AllarmeAcceso;
+		return allarmeAcceso;
 	}
 
 	public GestoreAree(){
@@ -57,6 +58,22 @@ public class GestoreAree {
         }
         return null;
     }
+
+	public boolean spegniAllarme(String codice) {
+		if(this.codice.equals(codice)) {
+			for(Area area : aree) {
+				area.spegniAllarme();
+			}
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public void accendiAllarme() {
+			allarmeAcceso = true;
+	}
     
     
 }

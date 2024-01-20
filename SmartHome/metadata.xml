@@ -51,6 +51,10 @@
       <callback method="assegnaSensorePortaFinestra" type="bind"/>
       <callback method="ritiraSensorePortaFinestra" type="unbind"/>
     </requires>
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.button.PushButton" field="pulsanti">
+      <callback method="assegnaPulsante" type="bind"/>
+      <callback method="ritiraPulsante" type="unbind"/>
+    </requires>
   </component>
   <instance component="InizializzaSistema" name="InizializzaSistema-3"/>
 </ipojo>

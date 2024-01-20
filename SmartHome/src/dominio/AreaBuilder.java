@@ -2,6 +2,7 @@ package dominio;
 
 import java.util.List;
 
+import fr.liglab.adele.icasa.device.button.PushButton;
 import fr.liglab.adele.icasa.device.doorWindow.DoorWindowSensor;
 import fr.liglab.adele.icasa.device.gasSensor.CarbonDioxydeSensor;
 import fr.liglab.adele.icasa.device.light.BinaryLight;
@@ -30,10 +31,16 @@ public class AreaBuilder {
 	Termostato termostato;
 	List<Camera> telecamere;
 	DoorWindowSensor sensorePorteFinestre;
+	PushButton pulsanteAllarme;
 	
 	
 	public AreaBuilder nome(String nome) {
 		this.nome = nome;
+		return this;
+	}
+	
+	public AreaBuilder pulsanteAllarme(PushButton pulsante) {
+		this.pulsanteAllarme = pulsante;
 		return this;
 	}
 	

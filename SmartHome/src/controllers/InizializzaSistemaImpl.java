@@ -22,6 +22,7 @@ import dominio.AreaBuilder;
 import dominio.Termostato;
 import fr.liglab.adele.icasa.device.security.Camera;
 import fr.liglab.adele.icasa.device.doorWindow.DoorWindowSensor;
+import fr.liglab.adele.icasa.device.button.PushButton;
 
 public class InizializzaSistemaImpl {
 
@@ -51,6 +52,8 @@ public class InizializzaSistemaImpl {
 	private Camera[] telecamere;
 	/** Field for sensoriPorteFinestre dependency */
 	private DoorWindowSensor[] sensoriPorteFinestre;
+	/** Field for pulsanti dependency */
+	private PushButton[] pulsanti;
 
 	/** Bind Method for rilevatoriCO2 dependency */
 	public void assegnaRilevatoreCO2(CarbonDioxydeSensor carbonDioxydeSensor, Map properties) {
@@ -122,6 +125,15 @@ public class InizializzaSistemaImpl {
 	private GenericDevice cercaDispositivoArea(GenericDevice dispositivi[], String posizione) {
 		for (GenericDevice dispositivo : dispositivi) {
 			if (dispositivo.getPropertyValue(PROPRIETA).equals(posizione)) {
+				return dispositivo;
+			}
+		}
+		return null;
+	}
+	
+	private GenericDevice cercaDispositivoArea(GenericDevice dispositivi[], String posizione, String tipologia) {
+		for (GenericDevice dispositivo : dispositivi) {
+			if (dispositivo.getPropertyValue(PROPRIETA).equals(posizione) && tipologia.equals(dispositivo.getPropertyValue("Tipologia"))) {
 				return dispositivo;
 			}
 		}
@@ -221,6 +233,7 @@ public class InizializzaSistemaImpl {
 			List<Camera> camereInArea = (List<Camera>) cercaDispositiviArea(telecamere, posizioneSensore);
 			DoorWindowSensor sensorePorteFinestreInArea = (DoorWindowSensor) cercaDispositivoArea(sensoriPorteFinestre,
 					posizioneSensore);
+			PushButton pulsanteAllarme = (PushButton) cercaDispositivoArea(pulsanti, posizioneSensore, "allarme");
 
 			// INIZIALIZZAZIONE AREA
 			AreaBuilder builder = new AreaBuilder();
@@ -229,7 +242,7 @@ public class InizializzaSistemaImpl {
 					.rilevatoreCO2(rilevatoreInArea).sprinklers(sprinklersInArea).sirene(sireneInArea)
 					.sensoreAllagamento(sensoreAllagamentoInArea).caloriferi(caloriferiInArea)
 					.condizionatori(condizionatoriInArea).termostato(termostatoInArea).telecamere(camereInArea)
-					.sensorePortaFinestra(sensorePorteFinestreInArea);
+					.sensorePortaFinestra(sensorePorteFinestreInArea).pulsanteAllarme(pulsanteAllarme);
 
 			Area nuovaArea = new Area(builder);
 
@@ -267,6 +280,16 @@ public class InizializzaSistemaImpl {
 
 	/** Unbind Method for telecamere dependency */
 	public void ritiraTelecamera(Camera camera, Map properties) {
+		// TODO: Add your implementation code here
+	}
+
+	/** Bind Method for pulsanti dependency */
+	public void assegnaPulsante(PushButton pushButton, Map properties) {
+		// TODO: Add your implementation code here
+	}
+
+	/** Unbind Method for pulsanti dependency */
+	public void ritiraPulsante(PushButton pushButton, Map properties) {
 		// TODO: Add your implementation code here
 	}
 
