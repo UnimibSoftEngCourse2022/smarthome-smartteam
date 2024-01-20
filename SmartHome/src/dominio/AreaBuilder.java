@@ -2,6 +2,7 @@ package dominio;
 
 import java.util.List;
 
+import fr.liglab.adele.icasa.device.doorWindow.DoorWindowSensor;
 import fr.liglab.adele.icasa.device.gasSensor.CarbonDioxydeSensor;
 import fr.liglab.adele.icasa.device.light.BinaryLight;
 import fr.liglab.adele.icasa.device.light.Photometer;
@@ -11,6 +12,7 @@ import fr.liglab.adele.icasa.device.sprinkler.Sprinkler;
 import fr.liglab.adele.icasa.device.temperature.Cooler;
 import fr.liglab.adele.icasa.device.temperature.Heater;
 import fr.liglab.adele.icasa.device.temperature.Thermometer;
+import fr.liglab.adele.icasa.device.security.Camera;
 import fr.liglab.adele.icasa.device.security.FloodSensor;
 
 public class AreaBuilder {
@@ -26,6 +28,8 @@ public class AreaBuilder {
 	List<Heater> caloriferi;
 	List<Cooler> condizionatori;
 	Termostato termostato;
+	List<Camera> telecamere;
+	DoorWindowSensor sensorePorteFinestre;
 	
 	
 	public AreaBuilder nome(String nome) {
@@ -92,5 +96,16 @@ public class AreaBuilder {
 		this.termostato = termostato;
 		return this;
 	}
+	
+	public AreaBuilder telecamere(List<Camera> telecamere) {
+		this.telecamere = telecamere;
+		return this;
+	}
+
+	public AreaBuilder sensorePortaFinestra(DoorWindowSensor sensorePorteFinestre) {
+		this.sensorePorteFinestre = sensorePorteFinestre;
+		return this;
+	}
+
 	
 }

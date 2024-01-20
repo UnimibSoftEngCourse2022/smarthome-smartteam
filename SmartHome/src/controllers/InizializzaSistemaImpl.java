@@ -20,6 +20,8 @@ import database.GestoreAree;
 import dominio.Area;
 import dominio.AreaBuilder;
 import dominio.Termostato;
+import fr.liglab.adele.icasa.device.security.Camera;
+import fr.liglab.adele.icasa.device.doorWindow.DoorWindowSensor;
 
 public class InizializzaSistemaImpl {
 
@@ -45,6 +47,10 @@ public class InizializzaSistemaImpl {
 	private Thermometer[] termometri;
 
 	private final String PROPRIETA = "Location";
+	/** Field for telecamere dependency */
+	private Camera[] telecamere;
+	/** Field for sensoriPorteFinestre dependency */
+	private DoorWindowSensor[] sensoriPorteFinestre;
 
 	/** Bind Method for rilevatoriCO2 dependency */
 	public void assegnaRilevatoreCO2(CarbonDioxydeSensor carbonDioxydeSensor, Map properties) {
@@ -210,16 +216,23 @@ public class InizializzaSistemaImpl {
 			Thermometer termometroInArea = (Thermometer) cercaDispositivoArea(termometri, posizioneSensore);
 			Termostato termostatoInArea = new Termostato(termometroInArea);
 
+			// ELEMENTI SISTEMA SICUREZZA
+
+			List<Camera> camereInArea = (List<Camera>) cercaDispositiviArea(telecamere, posizioneSensore);
+			DoorWindowSensor sensorePorteFinestreInArea = (DoorWindowSensor) cercaDispositivoArea(sensoriPorteFinestre,
+					posizioneSensore);
+
 			// INIZIALIZZAZIONE AREA
 			AreaBuilder builder = new AreaBuilder();
 			System.out.println("STO CREANDO UN'AREA");
 			builder.nome(posizioneSensore).sensorePresenza(sensorePresenza).fotometro(fotometroInArea).luci(luciInArea)
 					.rilevatoreCO2(rilevatoreInArea).sprinklers(sprinklersInArea).sirene(sireneInArea)
 					.sensoreAllagamento(sensoreAllagamentoInArea).caloriferi(caloriferiInArea)
-					.condizionatori(condizionatoriInArea).termostato(termostatoInArea);
+					.condizionatori(condizionatoriInArea).termostato(termostatoInArea).telecamere(camereInArea)
+					.sensorePortaFinestra(sensorePorteFinestreInArea);
 
 			Area nuovaArea = new Area(builder);
-			
+
 			gestoreAree.aggiungiArea(nuovaArea);
 			aree.add(nuovaArea);
 		}
@@ -233,6 +246,28 @@ public class InizializzaSistemaImpl {
 		sistemaAntiallagamentoImpl.start();
 		SistemaTemperaturaImpl sistemaTemperatura = new SistemaTemperaturaImpl(aree);
 		sistemaTemperatura.start();
+		SistemaSicurezza sistemaSicurezza = new SistemaSicurezza(aree);
+		sistemaSicurezza.start();
+	}
+
+	/** Bind Method for sensoriPorteFinestre dependency */
+	public void assegnaSensorePortaFinestra(DoorWindowSensor doorWindowSensor, Map properties) {
+		// TODO: Add your implementation code here
+	}
+
+	/** Unbind Method for sensoriPorteFinestre dependency */
+	public void ritiraSensorePortaFinestra(DoorWindowSensor doorWindowSensor, Map properties) {
+		// TODO: Add your implementation code here
+	}
+
+	/** Bind Method for telecamere dependency */
+	public void assegnaTelecamera(Camera camera, Map properties) {
+		// TODO: Add your implementation code here
+	}
+
+	/** Unbind Method for telecamere dependency */
+	public void ritiraTelecamera(Camera camera, Map properties) {
+		// TODO: Add your implementation code here
 	}
 
 }

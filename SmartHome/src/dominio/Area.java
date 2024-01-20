@@ -2,8 +2,10 @@ package dominio;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
+import database.GestoreAree;
+import fr.liglab.adele.icasa.device.button.PushButton;
+import fr.liglab.adele.icasa.device.doorWindow.DoorWindowSensor;
 import fr.liglab.adele.icasa.device.gasSensor.CarbonDioxydeSensor;
 import fr.liglab.adele.icasa.device.light.BinaryLight;
 import fr.liglab.adele.icasa.device.light.Photometer;
@@ -13,6 +15,7 @@ import fr.liglab.adele.icasa.device.sprinkler.Sprinkler;
 import fr.liglab.adele.icasa.device.temperature.Cooler;
 import fr.liglab.adele.icasa.device.temperature.Heater;
 import fr.liglab.adele.icasa.device.temperature.Thermometer;
+import fr.liglab.adele.icasa.device.security.Camera;
 import fr.liglab.adele.icasa.device.security.FloodSensor;
 
 public class Area {
@@ -30,6 +33,8 @@ public class Area {
 	private double tempMinima = 296.5;
     private double tempMassima = 299.5;
 	private Termostato termostato;
+	private List<Camera> telecamere;
+	private DoorWindowSensor sensorePorteFinestre;
 	
 	
 	public Termostato getTermostato() {
@@ -54,9 +59,21 @@ public class Area {
 		this.caloriferi = builder.caloriferi;
 		this.condizionatori = builder.condizionatori;
 		this.termostato = builder.termostato;
+		this.telecamere = builder.telecamere;
+		this.sensorePorteFinestre = builder.sensorePorteFinestre;
 	}
 	
 	
+	public List<Camera> getTelecamere() {
+		return telecamere;
+	}
+
+
+	public DoorWindowSensor getSensorePorteFinestre() {
+		return sensorePorteFinestre;
+	}
+
+
 	public double getTempMinima() {
 		return tempMinima;
 	}
@@ -73,12 +90,10 @@ public class Area {
 		this.tempMassima = tempMassima;
 	}
 	
-	/*@Override
 	public boolean equals(Area area){
 		return this.nome.equals(area.nome);
-	}*/
+	}
 
-	
 	
 	public void accendiLuci() {
 		for (int i = 0; i < luci.size(); i++) {
@@ -86,19 +101,7 @@ public class Area {
 		}
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Area other = (Area) obj;
-		return nome.equals(other.nome);
-	}
-
-
+	
 	public void spegniLuci() {
 		for(int i = 0; i < luci.size(); i++){
 			luci.get(i).turnOff();
@@ -184,6 +187,19 @@ public class Area {
 
 	public Photometer getFotometro() {
 		return fotometro;
+	}
+	
+	public void chiamaAllarme() {
+		GestoreAree gestoreAree = GestoreAree.getIstanza();
+		if(gestoreAree.isAllarmeAcceso()) {
+			for(Camera telecamera : telecamere) {
+				telecamera.startRecording();
+			}
+			for(Siren sirena : sirene) {
+				sirena.turnOn();
+				System.out.println("E' ENTRATO QUALCUNO IN " + this.nome.toUpperCase());
+			}
+		}
 	}
 	
 }

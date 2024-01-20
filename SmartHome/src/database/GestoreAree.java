@@ -8,6 +8,7 @@ public class GestoreAree {
 
     private List<Area> aree;
 	private static GestoreAree istanza;
+	private boolean AllarmeAcceso = true;
     
 
 	public static GestoreAree getIstanza(){
@@ -17,7 +18,11 @@ public class GestoreAree {
         return istanza;
     }
 
-    public GestoreAree(){
+    public boolean isAllarmeAcceso() {
+		return AllarmeAcceso;
+	}
+
+	public GestoreAree(){
     	aree = new ArrayList<>();
     }
 

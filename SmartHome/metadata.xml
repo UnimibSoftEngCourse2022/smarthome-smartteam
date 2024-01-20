@@ -43,6 +43,14 @@
       <callback method="assegnaTermometro" type="bind"/>
       <callback method="ritiraTermometro" type="unbind"/>
     </requires>
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.security.Camera" field="telecamere">
+      <callback method="assegnaTelecamera" type="bind"/>
+      <callback method="ritiraTelecamera" type="unbind"/>
+    </requires>
+    <requires aggregate="true" optional="true" specification="fr.liglab.adele.icasa.device.doorWindow.DoorWindowSensor" field="sensoriPorteFinestre">
+      <callback method="assegnaSensorePortaFinestra" type="bind"/>
+      <callback method="ritiraSensorePortaFinestra" type="unbind"/>
+    </requires>
   </component>
   <instance component="InizializzaSistema" name="InizializzaSistema-3"/>
 </ipojo>
