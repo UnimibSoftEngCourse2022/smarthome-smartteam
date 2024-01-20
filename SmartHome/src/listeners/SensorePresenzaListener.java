@@ -11,7 +11,7 @@ public class SensorePresenzaListener extends GenericListener{
 
 	@Override
 	public boolean verificaTipologiaDispositivo(GenericDevice dispositivo) {
-		return dispositivo.getClass().equals(PresenceSensor.class);
+		return dispositivo instanceof PresenceSensor;
 	}
 
 	@Override

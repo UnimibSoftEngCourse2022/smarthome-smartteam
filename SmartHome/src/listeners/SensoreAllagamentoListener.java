@@ -11,7 +11,7 @@ public class SensoreAllagamentoListener extends GenericListener{
 
 	@Override
 	public boolean verificaTipologiaDispositivo(GenericDevice dispositivo) {
-		return dispositivo.getClass().equals(FloodSensor.class);
+		return dispositivo instanceof FloodSensor;
 	}
 
 	@Override

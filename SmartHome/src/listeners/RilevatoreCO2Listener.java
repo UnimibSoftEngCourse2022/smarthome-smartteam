@@ -15,7 +15,7 @@ public class RilevatoreCO2Listener extends GenericListener{
 
 	@Override
 	public boolean verificaTipologiaDispositivo(GenericDevice dispositivo) {
-		return dispositivo.getClass().equals(CarbonDioxydeSensor.class);
+		return dispositivo instanceof CarbonDioxydeSensor;
 	}
 
 	@Override

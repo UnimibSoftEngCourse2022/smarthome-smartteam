@@ -2,6 +2,7 @@ package dominio;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import fr.liglab.adele.icasa.device.gasSensor.CarbonDioxydeSensor;
 import fr.liglab.adele.icasa.device.light.BinaryLight;
@@ -72,10 +73,12 @@ public class Area {
 		this.tempMassima = tempMassima;
 	}
 	
+	/*@Override
 	public boolean equals(Area area){
 		return this.nome.equals(area.nome);
-	}
+	}*/
 
+	
 	
 	public void accendiLuci() {
 		for (int i = 0; i < luci.size(); i++) {
@@ -83,7 +86,19 @@ public class Area {
 		}
 	}
 
-	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Area other = (Area) obj;
+		return nome.equals(other.nome);
+	}
+
+
 	public void spegniLuci() {
 		for(int i = 0; i < luci.size(); i++){
 			luci.get(i).turnOff();

@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class GestoreAree {
 
-    private volatile List<Area> aree;
-	private static volatile GestoreAree istanza;
+    private List<Area> aree;
+	private static GestoreAree istanza;
     
 
 	public static GestoreAree getIstanza(){
