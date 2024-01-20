@@ -44,7 +44,7 @@ public class InizializzaSistemaImpl {
 	/** Field for termometri dependency */
 	private Thermometer[] termometri;
 
-	private final String PROPRIETA = "Location";
+	private static final String PROPRIETA = "Location";
 
 	/** Bind Method for rilevatoriCO2 dependency */
 	public void assegnaRilevatoreCO2(CarbonDioxydeSensor carbonDioxydeSensor, Map properties) {
