@@ -73,13 +73,6 @@ public class Area {
 		this.tempMassima = tempMassima;
 	}
 	
-	/*@Override
-	public boolean equals(Area area){
-		return this.nome.equals(area.nome);
-	}*/
-
-	
-	
 	public void accendiLuci() {
 		for (int i = 0; i < luci.size(); i++) {
 			luci.get(i).turnOn();
