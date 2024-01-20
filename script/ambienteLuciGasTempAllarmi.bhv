@@ -125,7 +125,6 @@
 	<create-device id="telecamera-04" type="iCasa.camera" />
     <move-device-zone deviceId="FloodSensor-01" zoneId="bagno" />
     <move-device-zone deviceId="Sirena-04" zoneId="bagno" />
-	<move-device-zone deviceId="Sirena-04" zoneId="bagno" />
 	<move-devie-zone deviceId="SensoreApertura-04" zoneId="bagno" />
 	<move-device-zone deviceId="telecamera-04" zone="bagno" />
 	
