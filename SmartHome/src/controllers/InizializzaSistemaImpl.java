@@ -47,6 +47,11 @@ public class InizializzaSistemaImpl {
 	/** Field for termometri dependency */
 	private Thermometer[] termometri;
 
+	private SistemaLuciStanzaImpl sistemaLuci;
+	private SistemaAntincendioImpl sistemaAntincendio;
+	private SistemaAntiallagamentoImpl sistemaAntiallagamentoImpl;
+	private SistemaTemperaturaImpl sistemaTemperatura;
+	private SistemaSicurezza sistemaSicurezza;
 
 	private static final String PROPRIETA = "Location";
 	/** Field for telecamere dependency */
@@ -194,6 +199,11 @@ public class InizializzaSistemaImpl {
 	/** Component Lifecycle Method */
 	public void stop() {
 		// Metodo ereditato dall' interfaccia
+		sistemaLuci.stop();
+		sistemaAntincendio.stop();
+		sistemaAntiallagamentoImpl.stop();
+		sistemaTemperatura.stop();
+		sistemaSicurezza.stop();
 	}
 
 	/** Component Lifecycle Method */
@@ -227,6 +237,7 @@ public class InizializzaSistemaImpl {
 			List<Heater> caloriferiInArea = (List<Heater>) cercaDispositiviArea(caloriferi, posizioneSensore);
 			List<Cooler> condizionatoriInArea = (List<Cooler>) cercaDispositiviArea(condizionatori, posizioneSensore);
 			Thermometer termometroInArea = (Thermometer) cercaDispositivoArea(termometri, posizioneSensore);
+			PushButton pulsanteTemperatura = (PushButton) cercaDispositivoArea(pulsanti, posizioneSensore, "temperatura");
 			Termostato termostatoInArea = new Termostato(termometroInArea);
 
 			// ELEMENTI SISTEMA SICUREZZA
@@ -242,7 +253,7 @@ public class InizializzaSistemaImpl {
 					.rilevatoreCO2(rilevatoreInArea).sprinklers(sprinklersInArea).sirene(sireneInArea)
 					.sensoreAllagamento(sensoreAllagamentoInArea).caloriferi(caloriferiInArea)
 					.condizionatori(condizionatoriInArea).termostato(termostatoInArea).telecamere(camereInArea)
-					.sensorePortaFinestra(sensorePorteFinestreInArea).pulsanteAllarme(pulsanteAllarme);
+					.sensorePortaFinestra(sensorePorteFinestreInArea).pulsanteAllarme(pulsanteAllarme).pulsanteTemperatura(pulsanteTemperatura);
 
 			Area nuovaArea = new Area(builder);
 
@@ -251,15 +262,15 @@ public class InizializzaSistemaImpl {
 		}
 
 		// da questo punto possiamo istanziare SistemaLuciStanzaImpl e SistemaAntincendioImpl
-		SistemaLuciStanzaImpl sistemaLuci = new SistemaLuciStanzaImpl(aree);
+		sistemaLuci = new SistemaLuciStanzaImpl(aree);
 		sistemaLuci.start();
-		SistemaAntincendioImpl sistemaAntincendio = new SistemaAntincendioImpl(aree);
+		sistemaAntincendio = new SistemaAntincendioImpl(aree);
 		sistemaAntincendio.start();
-		SistemaAntiallagamentoImpl sistemaAntiallagamentoImpl = new SistemaAntiallagamentoImpl(aree);
+		sistemaAntiallagamentoImpl = new SistemaAntiallagamentoImpl(aree);
 		sistemaAntiallagamentoImpl.start();
-		SistemaTemperaturaImpl sistemaTemperatura = new SistemaTemperaturaImpl(aree);
+		sistemaTemperatura = new SistemaTemperaturaImpl(aree);
 		sistemaTemperatura.start();
-		SistemaSicurezza sistemaSicurezza = new SistemaSicurezza(aree);
+		sistemaSicurezza = new SistemaSicurezza(aree);
 		sistemaSicurezza.start();
 	}
 

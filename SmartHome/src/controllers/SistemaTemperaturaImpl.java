@@ -1,9 +1,12 @@
 package controllers;
 
 
+import fr.liglab.adele.icasa.device.button.PushButton;
+import fr.liglab.adele.icasa.device.doorWindow.DoorWindowSensor;
 import fr.liglab.adele.icasa.device.temperature.Cooler;
 import fr.liglab.adele.icasa.device.temperature.Heater;
 import fr.liglab.adele.icasa.device.temperature.Thermometer;
+import listeners.PulsanteTemperaturaListener;
 import listeners.SensorePresenzaListener;
 import dominio.Termostato;
 
@@ -17,10 +20,23 @@ import dominio.Area;
 
 public class SistemaTemperaturaImpl {
 	
-	List<Area> aree;
+	private List<Area> aree;
+	private PulsanteTemperaturaListener listenerPulsante = new PulsanteTemperaturaListener();
 	
 	public SistemaTemperaturaImpl(List<Area> aree) {
 		this.aree = aree;
+	}
+	
+	public void assegnaListener(PushButton pulsante) {
+		if(pulsante != null) {
+			pulsante.addListener(listenerPulsante);
+		}
+	}
+
+	public void rimuoviListener(PushButton pulsante) {
+		if(pulsante != null) {
+			pulsante.removeListener(listenerPulsante);
+		}
 	}
 
 	/** Component Lifecycle Method */
@@ -28,7 +44,8 @@ public class SistemaTemperaturaImpl {
 		System.out.println("Fine sis. Temp.");
 		
 		for(Area area : aree) {
-			area.getTermostato().interrupt();
+			area.getTermostato().setTempAccesa(false);
+			rimuoviListener(area.getPulsanteTemperatura());
 		}	
 	}
 
@@ -38,6 +55,7 @@ public class SistemaTemperaturaImpl {
 		
 		for(Area area : aree) {
 			area.getTermostato().start();
+			assegnaListener(area.getPulsanteTemperatura());
 		}
 	}
 

@@ -32,6 +32,7 @@ public class AreaBuilder {
 	List<Camera> telecamere;
 	DoorWindowSensor sensorePorteFinestre;
 	PushButton pulsanteAllarme;
+	PushButton pulsanteTemperatura;
 	
 	
 	public AreaBuilder nome(String nome) {
@@ -41,6 +42,11 @@ public class AreaBuilder {
 	
 	public AreaBuilder pulsanteAllarme(PushButton pulsante) {
 		this.pulsanteAllarme = pulsante;
+		return this;
+	}
+	
+	public AreaBuilder pulsanteTemperatura(PushButton pulsante) {
+		this.pulsanteTemperatura = pulsante;
 		return this;
 	}
 	

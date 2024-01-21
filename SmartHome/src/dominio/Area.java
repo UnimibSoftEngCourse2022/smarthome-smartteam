@@ -36,18 +36,9 @@ public class Area {
 	private List<Camera> telecamere;
 	private DoorWindowSensor sensorePorteFinestre;
 	private PushButton pulsanteAllarme;
+	private PushButton pulsanteTemperatura;
 	
 	
-	public Termostato getTermostato() {
-		return termostato;
-	}
-
-
-	public void setTermostato(Termostato termostato) {
-		this.termostato = termostato;
-	}
-
-
 	public Area(AreaBuilder builder) {
 		this.nome = builder.nome;
 		this.sensorePresenza = builder.sensorePresenza;
@@ -63,8 +54,19 @@ public class Area {
 		this.telecamere = builder.telecamere;
 		this.sensorePorteFinestre = builder.sensorePorteFinestre;
 		this.pulsanteAllarme = builder.pulsanteAllarme;
+		this.pulsanteTemperatura = builder.pulsanteTemperatura;
 	}
 	
+	
+	public Termostato getTermostato() {
+		return termostato;
+	}
+
+
+	public void setTermostato(Termostato termostato) {
+		this.termostato = termostato;
+	}
+
 	
 	public List<Camera> getTelecamere() {
 		return telecamere;
@@ -225,6 +227,11 @@ public class Area {
 
 	public PushButton getPulsanteAllarme() {
 		return pulsanteAllarme;
+	}
+
+	
+	public PushButton getPulsanteTemperatura() {
+		return pulsanteTemperatura;
 	}
 
 	

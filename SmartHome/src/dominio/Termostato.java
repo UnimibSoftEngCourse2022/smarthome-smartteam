@@ -10,6 +10,16 @@ public class Termostato extends Thread{
 	private boolean tempAccesa = true;
 	
 	
+	public boolean isTempAccesa() {
+		return tempAccesa;
+	}
+
+
+	public void setTempAccesa(boolean tempAccesa) {
+		this.tempAccesa = tempAccesa;
+	}
+
+
 	public Termostato(Thermometer termometro) {
 		this.termometro = termometro;
 	}

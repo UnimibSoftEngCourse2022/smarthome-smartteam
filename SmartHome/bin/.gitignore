@@ -1,5 +1,5 @@
-/interfacciaUtente/
 /controllers/
-/listeners/
-/dominio/
 /database/
+/dominio/
+/interfaccia_utente/
+/listeners/
