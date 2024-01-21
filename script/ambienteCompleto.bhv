@@ -11,20 +11,20 @@
 	<create-device id="Pres-A1255D-D" type="iCasa.PresenceSensor" />
 	<create-device id="BiLi-A7496W-S" type="iCasa.BinaryLight" />
 	<create-device id="Photometer-9734200c37" type="iCasa.Photometer" />
+	<create-device id="Pulsante-L01" type="iCasa.PushButton" />
+	<set-device-property deviceId="Pulsante-L01" property="Tipologia" value="luci" />
 	<move-device-zone deviceId="Pres-A1255D-D" zoneId="cucina" />
 	<move-device-zone deviceId="BiLi-A7496W-S" zoneId="cucina" />
 	<move-device-zone deviceId="Photometer-9734200c37" zoneId="cucina" />
+	<move-device-zone deviceId="Pulsante-L01" zoneId="cucina" />
 
 	<!-- temperatura -->
 	<create-device id="Ther-A3654Q-S" type="iCasa.Thermometer" />
 	<create-device id="Heater-A3654Q-S" type="iCasa.Heater" />
 	<create-device id="Cool-A3654Q-S" type="iCasa.Cooler" />
-	<create-device id="pulsante-01" type="iCasa.PushButton" />
 	<move-device-zone deviceId="Ther-A3654Q-S" zoneId="cucina" />
 	<move-device-zone deviceId="Heater-A3654Q-S" zoneId="cucina" />
 	<move-device-zone deviceId="Cool-A3654Q-S" zoneId="cucina" />
-	<move-device-zone deviceId="pulsante-01" zoneId="cucina" />
-	<set-device-property deviceId="pulsante-01" property="Tipologia" value="temperatura" />
 
 	<!-- allarmi -->
     <create-device id="CO2GasSensor-6d0d7e23f8" type="iCasa.CO2GasSensor" />
@@ -48,20 +48,20 @@
 	<create-device id="Pres-B1255D-D" type="iCasa.PresenceSensor" />
 	<create-device id="BiLi-B7496W-S" type="iCasa.BinaryLight" />
 	<create-device id="Photometer-9734200c38" type="iCasa.Photometer" />
+	<create-device id="Pulsante-L02" type="iCasa.PushButton" />
+	<set-device-property deviceId="Pulsante-L02" property="Tipologia" value="luci" />
 	<move-device-zone deviceId="Pres-B1255D-D" zoneId="soggiorno" />
 	<move-device-zone deviceId="BiLi-B7496W-S" zoneId="soggiorno" />
 	<move-device-zone deviceId="Photometer-9734200c38" zoneId="soggiorno" />
-
+    <move-device-zone deviceId="Pulsante-L02" zoneId="soggiorno" />
+	
 	<!-- temperatura -->
 	<create-device id="Ther-B3654Q-S" type="iCasa.Thermometer" />
 	<create-device id="Heater-B3654Q-S" type="iCasa.Heater" />
 	<create-device id="Cool-B3654Q-S" type="iCasa.Cooler" />
-	<create-device id="pulsante-02" type="iCasa.PushButton" />
 	<move-device-zone deviceId="Ther-B3654Q-S" zoneId="soggiorno" />
 	<move-device-zone deviceId="Heater-B3654Q-S" zoneId="soggiorno" />
 	<move-device-zone deviceId="Cool-B3654Q-S" zoneId="soggiorno" />
-	<move-device-zone deviceId="pulsante-02" zoneId="soggiorno" />
-	<set-device-property deviceId="pulsante-02" property="Tipologia" value="temperatura" />
 
 	<!-- allarmi -->
 	<create-device id="Sirena-02" type="iCasa.Siren" />
@@ -81,25 +81,26 @@
 	<create-device id="Pres-C1255D-D" type="iCasa.PresenceSensor" />
 	<create-device id="BiLi-C7496W-S" type="iCasa.BinaryLight" />
 	<create-device id="Photometer-9734200c39" type="iCasa.Photometer" />
+	<create-device id="Pulsante-L03" type="iCasa.PushButton" />
+	<set-device-property deviceId="Pulsante-L03" property="Tipologia" value="luci" />
 	<move-device-zone deviceId="Pres-C1255D-D" zoneId="camera da letto" />
 	<move-device-zone deviceId="BiLi-C7496W-S" zoneId="camera da letto" />
 	<move-device-zone deviceId="Photometer-9734200c39" zoneId="camera da letto" />
+	<move-device-zone deviceId="Pulsante-L03" zoneId="camera da letto" />
+
 
 	<!-- temperatura -->
 	<create-device id="Ther-C3654Q-S" type="iCasa.Thermometer" />
 	<create-device id="Heater-C3654Q-S" type="iCasa.Heater" />
 	<create-device id="Cool-C3654Q-S" type="iCasa.Cooler" />
-	<create-device id="pulsante-03" type="iCasa.PushButton" />
 	<move-device-zone deviceId="Ther-C3654Q-S" zoneId="camera da letto" />
 	<move-device-zone deviceId="Heater-C3654Q-S" zoneId="camera da letto" />
 	<move-device-zone deviceId="Cool-C3654Q-S" zoneId="camera da letto" />
-	<move-device-zone deviceId="pulsante-03" zoneId="camera da letto" />
-	<set-device-property deviceId="pulsante-03" property="Tipologia" value="temperatura" />
 	
 	<!-- allarmi -->
 	<create-device id="Sirena-03" type="iCasa.Siren" />
-	<create-device id="SensoreApertura-02" type="iCasa.DoorWindowSensor" />
-	<create-device id="telecamera-02" type="iCasa.Camera" />
+	<create-device id="SensoreApertura-03" type="iCasa.DoorWindowSensor" />
+	<create-device id="telecamera-03" type="iCasa.Camera" />
 	<move-device-zone deviceId="Sirena-03" zoneId="camera da letto" />
 	<move-device-zone deviceId="SensoreApertura-03" zoneId="camera da letto" />
 	<move-device-zone deviceId="telecamera-03" zoneId="camera da letto" />
@@ -114,24 +115,24 @@
 	<create-device id="Pres-D1255D-D" type="iCasa.PresenceSensor" />
 	<create-device id="BiLi-D7496W-S" type="iCasa.BinaryLight" />
 	<create-device id="Photometer-9734200c40" type="iCasa.Photometer" />
+	<create-device id="Pulsante-L04" type="iCasa.PushButton" />
+	<set-device-property deviceId="Pulsante-L04" property="Tipologia" value="luci" />
 	<move-device-zone deviceId="Pres-D1255D-D" zoneId="bagno" />
 	<move-device-zone deviceId="BiLi-D7496W-S" zoneId="bagno" />
 	<move-device-zone deviceId="Photometer-9734200c40" zoneId="bagno" />
+	<move-device-zone deviceId="Pulsante-L04" zoneId="bagno" />
 
 	<!-- temperatura -->
 	<create-device id="Ther-D3654Q-S" type="iCasa.Thermometer" />
 	<create-device id="Heater-D3654Q-S" type="iCasa.Heater" />
 	<create-device id="Cool-D3654Q-S" type="iCasa.Cooler" />
-	<create-device id="pulsante-04" type="iCasa.PushButton" />
 	<move-device-zone deviceId="Ther-D3654Q-S" zoneId="bagno" />
 	<move-device-zone deviceId="Heater-D3654Q-S" zoneId="bagno" />
 	<move-device-zone deviceId="Cool-D3654Q-S" zoneId="bagno" />
-	<move-device-zone deviceId="pulsante-04" zoneId="bagno" />
-	<set-device-property deviceId="pulsante-04" property="Tipologia" value="temperatura" />
 
 	<!-- allarmi -->
     <create-device id="FloodSensor-01" type="iCasa.FloodSensor" />
-    <create-device id="Sirena-04" type="iCasa.Siren" />
+	<create-device id="Sirena-04" type="iCasa.Siren" />
 	<create-device id="SensoreApertura-04" type="iCasa.DoorWindowSensor" />
 	<create-device id="telecamera-04" type="iCasa.Camera" />
     <move-device-zone deviceId="FloodSensor-01" zoneId="bagno" />
@@ -150,36 +151,29 @@
 	<create-device id="BiLi-E7496W-S" type="iCasa.BinaryLight" />
 	<create-device id="BiLi-E7496W-T" type="iCasa.BinaryLight" />
 	<create-device id="Photometer-9734200c41" type="iCasa.Photometer" />
+	<create-device id="Pulsante-L05" type="iCasa.PushButton" />
+	<set-device-property deviceId="Pulsante-L05" property="Tipologia" value="luci" />
 	<move-device-zone deviceId="PresenceSensor-x303528852" zoneId="corridoio" />
 	<move-device-zone deviceId="BiLi-E7496W-S" zoneId="corridoio" />
 	<move-device-zone deviceId="BiLi-E7496W-T" zoneId="corridoio" />
 	<move-device-zone deviceId="Photometer-9734200c41" zoneId="corridoio" />
+	<move-device-zone deviceId="Pulsante-L05" zoneId="corridoio" />
 
 	<!-- temperatura -->
 	<create-device id="Ther-E3654Q-S" type="iCasa.Thermometer" />
 	<create-device id="Heater-E3654Q-S" type="iCasa.Heater" />
 	<create-device id="Cool-E3654Q-S" type="iCasa.Cooler" />
-	<create-device id="pulsante-05" type="iCasa.PushButton" />
 	<move-device-zone deviceId="Ther-E3654Q-S" zoneId="corridoio" />
 	<move-device-zone deviceId="Heater-E3654Q-S" zoneId="corridoio" />
 	<move-device-zone deviceId="Cool-E3654Q-S" zoneId="corridoio" />
-	<move-device-zone deviceId="pulsante-05" zoneId="corridoio" />
-	<set-device-property deviceId="pulsante-05" property="Tipologia" value="temperatura" />
 	
 	<!-- allarmi -->
 	<create-device id="Sirena-05" type="iCasa.Siren" />
 	<create-device id="SensoreApertura-05" type="iCasa.DoorWindowSensor" />
 	<create-device id="telecamera-05" type="iCasa.Camera" />
-<<<<<<< HEAD
-	<create-device id="pulsante-06" type="iCasa.PushButton" />
-=======
->>>>>>> luciRemote
 	<move-device-zone deviceId="Sirena-05" zoneId="corridoio" />
 	<move-device-zone deviceId="SensoreApertura-05" zoneId="corridoio" />
 	<move-device-zone deviceId="telecamera-05" zoneId="corridoio" />
-	<move-device-zone deviceId="pulsante-06" zoneId="corridoio" />
-	<set-device-property deviceId="pulsante-06" property="Tipologia" value="allarme" />
-
 
 	<create-person id="Comi" type="Grandfather" />
 

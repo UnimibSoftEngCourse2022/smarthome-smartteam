@@ -218,13 +218,13 @@ public class InizializzaSistemaImpl {
 		// prendiamo quindi la Location di ciascun sensore per individuare tutti i dispositivi in un'area
 		for (PresenceSensor sensorePresenza : sensoriPresenza) {
 			String posizioneSensore = (String) sensorePresenza.getPropertyValue(PROPRIETA);
+			
 			// ELEMENTI GESTIONE LUCI
-
 			List<BinaryLight> luciInArea = (List<BinaryLight>) cercaDispositiviArea(luci, posizioneSensore);
 			Photometer fotometroInArea = (Photometer) cercaDispositivoArea(fotometri, posizioneSensore);
-
+			PushButton pulsanteLuci = (PushButton) cercaDispositivoArea(pulsanti, posizioneSensore, "luci");
+			
 			// ELEMENTI SISTEMA ANTINCENDIO E SISTEMA ANTIALLAGAMENTO
-
 			CarbonDioxydeSensor rilevatoreInArea = (CarbonDioxydeSensor) cercaDispositivoArea(rilevatoriCO2,
 					posizioneSensore);
 			List<Sprinkler> sprinklersInArea = (List<Sprinkler>) cercaDispositiviArea(sprinklers, posizioneSensore);
@@ -233,7 +233,6 @@ public class InizializzaSistemaImpl {
 					posizioneSensore);
 
 			// ELEMENTI SISTEMA TEMPERATURA
-
 			List<Heater> caloriferiInArea = (List<Heater>) cercaDispositiviArea(caloriferi, posizioneSensore);
 			List<Cooler> condizionatoriInArea = (List<Cooler>) cercaDispositiviArea(condizionatori, posizioneSensore);
 			Thermometer termometroInArea = (Thermometer) cercaDispositivoArea(termometri, posizioneSensore);
@@ -241,7 +240,6 @@ public class InizializzaSistemaImpl {
 			Termostato termostatoInArea = new Termostato(termometroInArea);
 
 			// ELEMENTI SISTEMA SICUREZZA
-
 			List<Camera> camereInArea = (List<Camera>) cercaDispositiviArea(telecamere, posizioneSensore);
 			DoorWindowSensor sensorePorteFinestreInArea = (DoorWindowSensor) cercaDispositivoArea(sensoriPorteFinestre,
 					posizioneSensore);
@@ -253,7 +251,8 @@ public class InizializzaSistemaImpl {
 					.rilevatoreCO2(rilevatoreInArea).sprinklers(sprinklersInArea).sirene(sireneInArea)
 					.sensoreAllagamento(sensoreAllagamentoInArea).caloriferi(caloriferiInArea)
 					.condizionatori(condizionatoriInArea).termostato(termostatoInArea).telecamere(camereInArea)
-					.sensorePortaFinestra(sensorePorteFinestreInArea).pulsanteAllarme(pulsanteAllarme).pulsanteTemperatura(pulsanteTemperatura);
+					.sensorePortaFinestra(sensorePorteFinestreInArea).pulsanteAllarme(pulsanteAllarme).pulsanteLuci(pulsanteLuci).pulsanteTemperatura(pulsanteTemperatura);
+
 
 			Area nuovaArea = new Area(builder);
 

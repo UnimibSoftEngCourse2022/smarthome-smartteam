@@ -42,7 +42,7 @@ Import-Package: fr.liglab.adele.icasa, fr.liglab.adele.icasa.access, fr.
  , org.json, org.osgi.service.cm;version=1.2, org.osgi.service.log;versi
  on=1.3
 iPOJO-Components: instance { $component="InizializzaSistema" $name="Iniz
- ializzaSistema-3" }component { $classname="controllers.InizializzaSiste
+ ializzaSistema-1" }component { $classname="controllers.InizializzaSiste
  maImpl" $name="InizializzaSistema" requires { $aggregate="true" $option
  al="true" $specification="fr.liglab.adele.icasa.device.light.BinaryLigh
  t" $field="luci" callback { $method="assegnaLuce" $type="bind" }callbac
