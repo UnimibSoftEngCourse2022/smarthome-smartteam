@@ -1,4 +1,4 @@
-package interfacciaUtente;
+package interfaccia_utente;
 
 
 import java.io.BufferedReader;

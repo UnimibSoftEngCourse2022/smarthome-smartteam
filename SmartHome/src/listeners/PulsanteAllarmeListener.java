@@ -1,10 +1,10 @@
 package listeners;
 
-import interfacciaUtente.TerminaleIO;
 import database.GestoreAree;
 import dominio.Area;
 import fr.liglab.adele.icasa.device.GenericDevice;
 import fr.liglab.adele.icasa.device.button.PushButton;
+import interfaccia_utente.TerminaleIO;
 
 public class PulsanteAllarmeListener extends GenericListener{
 

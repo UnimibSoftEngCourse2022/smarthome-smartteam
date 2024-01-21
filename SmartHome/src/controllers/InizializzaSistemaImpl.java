@@ -132,7 +132,7 @@ public class InizializzaSistemaImpl {
 		return null;
 	}
 	
-	private GenericDevice cercaDispositivoArea(GenericDevice dispositivi[], String posizione, String tipologia) {
+	private GenericDevice cercaDispositivoArea(GenericDevice[] dispositivi, String posizione, String tipologia) {
 		for (GenericDevice dispositivo : dispositivi) {
 			if (dispositivo.getPropertyValue(PROPRIETA).equals(posizione) && tipologia.equals(dispositivo.getPropertyValue("Tipologia"))) {
 				return dispositivo;
@@ -265,32 +265,32 @@ public class InizializzaSistemaImpl {
 
 	/** Bind Method for sensoriPorteFinestre dependency */
 	public void assegnaSensorePortaFinestra(DoorWindowSensor doorWindowSensor, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Unbind Method for sensoriPorteFinestre dependency */
 	public void ritiraSensorePortaFinestra(DoorWindowSensor doorWindowSensor, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Bind Method for telecamere dependency */
 	public void assegnaTelecamera(Camera camera, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Unbind Method for telecamere dependency */
 	public void ritiraTelecamera(Camera camera, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Bind Method for pulsanti dependency */
 	public void assegnaPulsante(PushButton pushButton, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 	/** Unbind Method for pulsanti dependency */
 	public void ritiraPulsante(PushButton pushButton, Map properties) {
-		// TODO: Add your implementation code here
+		// Metodo ereditato dall' interfaccia
 	}
 
 }
