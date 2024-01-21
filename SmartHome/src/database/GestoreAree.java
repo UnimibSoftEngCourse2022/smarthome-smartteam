@@ -1,6 +1,8 @@
 package database;
 
 import dominio.Area;
+import fr.liglab.adele.icasa.device.doorWindow.DoorWindowSensor;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -63,16 +65,16 @@ public class GestoreAree {
 		if(this.codice.equals(codice)) {
 			for(Area area : aree) {
 				area.spegniAllarme();
+				area.getSensorePorteFinestre().setPropertyValue(DoorWindowSensor.DOOR_WINDOW_SENSOR_OPENING_DETECTCION, "false");
 			}
+			allarmeAcceso = false;
 			return true;
 		}
-		else {
-			return false;
-		}
+		return false;
 	}
 	
 	public void accendiAllarme() {
-			allarmeAcceso = true;
+		allarmeAcceso = true;
 	}
     
     

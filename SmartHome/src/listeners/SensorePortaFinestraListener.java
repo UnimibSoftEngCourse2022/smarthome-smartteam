@@ -18,8 +18,8 @@ public class SensorePortaFinestraListener extends GenericListener{
 		
 		DoorWindowSensor sensorePortaFinestra = (DoorWindowSensor) dispositivo;
 		
-
-		if(nomeProprieta.equals(sensorePortaFinestra.DOOR_WINDOW_SENSOR_OPENING_DETECTCION)) {
+		boolean finestraPortaAperta = sensorePortaFinestra.getPropertyValue(DoorWindowSensor.DOOR_WINDOW_SENSOR_OPENING_DETECTCION).equals("true");
+		if(finestraPortaAperta && nomeProprieta.equals(sensorePortaFinestra.DOOR_WINDOW_SENSOR_OPENING_DETECTCION)) {
 			areaInteressata.chiamaAllarme();
 		}
 	}

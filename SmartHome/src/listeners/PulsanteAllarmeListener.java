@@ -25,9 +25,12 @@ public class PulsanteAllarmeListener extends GenericListener{
 		if(pulsantePremuto && gestoreAree.isAllarmeAcceso()) {
 			terminaleIO.spegniAllarme();
 		}
-		else {
+		else if(pulsantePremuto){
+			System.out.println("STO ATTIVANDO L'ALLARME");
 			gestoreAree.accendiAllarme();
 		}
+		
+		pulsanteAllarme.setPropertyValue(PushButton.PUSH_AND_HOLD, "false");
 		
 	}
 

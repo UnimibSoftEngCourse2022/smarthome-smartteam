@@ -5,7 +5,7 @@
 	<add-zone-variable zoneId="cucina" variable="Illuminance" />
 	<modify-zone-variable zoneId="cucina" variable="Illuminance" value="0"/>
     <add-zone-variable zoneId="cucina" variable="CO2Concentration"/>
-	<modify-zone-variable zoneId="cucina" variable="CO2Concentration" value="200"/>
+	<modify-zone-variable zoneId="cucina" variable="CO2Concentration" value="0"/>
 	
 	<!-- luci -->
 	<create-device id="Pres-A1255D-D" type="iCasa.PresenceSensor" />

@@ -44,6 +44,9 @@ public class TerminaleIO {
 					break;
 				}
 				System.out.println("Codice errato, tentativo numero: " + numeroErrori + " MAX 3 TENTATIVI!");
+			}else {
+				System.out.println("Allarme disattivato correttamente");
+				break;
 			}
 		}
 	}
