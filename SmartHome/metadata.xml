@@ -56,5 +56,5 @@
       <callback method="ritiraPulsante" type="unbind"/>
     </requires>
   </component>
-  <instance component="InizializzaSistema" name="InizializzaSistema-3"/>
+  <instance component="InizializzaSistema" name="InizializzaSistema-1"/>
 </ipojo>

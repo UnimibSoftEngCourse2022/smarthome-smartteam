@@ -36,7 +36,10 @@ public class Area {
 	private List<Camera> telecamere;
 	private DoorWindowSensor sensorePorteFinestre;
 	private PushButton pulsanteAllarme;
+	private PushButton pulsanteLuci;
 	
+	// variabile che assume il valore true solo se tutte le luci sono accese
+	private boolean luciAccese = false;
 	
 	public Termostato getTermostato() {
 		return termostato;
@@ -63,6 +66,7 @@ public class Area {
 		this.telecamere = builder.telecamere;
 		this.sensorePorteFinestre = builder.sensorePorteFinestre;
 		this.pulsanteAllarme = builder.pulsanteAllarme;
+		this.pulsanteLuci = builder.pulsanteLuci;
 	}
 	
 	
@@ -104,10 +108,17 @@ public class Area {
         return nome.equals(other.nome);
     }
 	
+	
+	public boolean isLuciAccese() {
+		return luciAccese;
+	}
+	
+	
 	public void accendiLuci() {
 		for (int i = 0; i < luci.size(); i++) {
 			luci.get(i).turnOn();
 		}
+		luciAccese = true;
 	}
 
 	
@@ -115,6 +126,7 @@ public class Area {
 		for(int i = 0; i < luci.size(); i++){
 			luci.get(i).turnOff();
 		}
+		luciAccese = false;
 	}
 	
 	
@@ -226,6 +238,10 @@ public class Area {
 	public PushButton getPulsanteAllarme() {
 		return pulsanteAllarme;
 	}
-
 	
+	
+	public PushButton getPulsanteLuci() {
+		return pulsanteLuci;
+	}
+
 }

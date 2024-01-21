@@ -1,6 +1,8 @@
 package controllers;
 
+import fr.liglab.adele.icasa.device.button.PushButton;
 import fr.liglab.adele.icasa.device.presence.PresenceSensor;
+import listeners.PulsanteLuciListener;
 import listeners.SensorePresenzaListener;
 
 import java.util.List;
@@ -12,6 +14,8 @@ public class SistemaLuciStanzaImpl {
 
 	SensorePresenzaListener listenerSensore = new SensorePresenzaListener();
 	List<Area> aree;
+	
+	PulsanteLuciListener listenerPulsante = new PulsanteLuciListener();
 	
 	public SistemaLuciStanzaImpl(List<Area> aree) {
 		this.aree = aree;
@@ -49,16 +53,18 @@ public class SistemaLuciStanzaImpl {
 
 
 	/** metodo per assegnare un listener ad un sensore di presenza per regolare il comportamento
-	 * 	a seconda della rilevazione di un fotometro
+	 * 	a seconda della rilevazione di un fotometro e ad un pulsante
 	*/
-	private void assegnaListener(PresenceSensor sensorePresenza){
+	private void assegnaListener(PresenceSensor sensorePresenza, PushButton pulsanteLuci){
 		sensorePresenza.addListener(listenerSensore);
+		pulsanteLuci.addListener(listenerPulsante);
 	}
 
 
-	// metodo per rimuovere un listener da un sensore di presenza non piu' usato
-	private void rimuoviListener(PresenceSensor sensorePresenza){
+	// metodo per rimuovere un listener da un sensore di presenza non piu' usato e da un pulsante
+	private void rimuoviListener(PresenceSensor sensorePresenza, PushButton pulsanteLuci){
 		sensorePresenza.removeListener(listenerSensore);
+		pulsanteLuci.removeListener(listenerPulsante);
 	}
 
 	
@@ -67,7 +73,7 @@ public class SistemaLuciStanzaImpl {
 		System.out.println("Fine sistema gestione LUCI");
 
 		for(Area area : aree) {
-			rimuoviListener(area.getSensorePresenza());
+			rimuoviListener(area.getSensorePresenza(), area.getPulsanteLuci());
 		}
 	}
 
@@ -77,7 +83,7 @@ public class SistemaLuciStanzaImpl {
 		System.out.println("Inizio sistema gestione LUCI");
 		
 		for(Area area : aree) {
-			assegnaListener(area.getSensorePresenza());
+			assegnaListener(area.getSensorePresenza(), area.getPulsanteLuci());
 		}
 	}
 	
