@@ -92,10 +92,17 @@ public class Area {
 		this.tempMassima = tempMassima;
 	}
 	
-	public boolean equals(Area area){
-		return this.nome.equals(area.nome);
-	}
-
+	@Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Area other = (Area) obj;
+        return nome.equals(other.nome);
+    }
 	
 	public void accendiLuci() {
 		for (int i = 0; i < luci.size(); i++) {

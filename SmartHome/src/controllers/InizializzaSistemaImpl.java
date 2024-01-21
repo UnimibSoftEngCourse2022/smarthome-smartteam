@@ -47,7 +47,8 @@ public class InizializzaSistemaImpl {
 	/** Field for termometri dependency */
 	private Thermometer[] termometri;
 
-	private final String PROPRIETA = "Location";
+
+	private static final String PROPRIETA = "Location";
 	/** Field for telecamere dependency */
 	private Camera[] telecamere;
 	/** Field for sensoriPorteFinestre dependency */
@@ -112,7 +113,7 @@ public class InizializzaSistemaImpl {
 
 	// ricerca di tutti i dispositivi presenti in una determinata area (stanza o corridoio)
 
-	private ArrayList<? extends GenericDevice> cercaDispositiviArea(GenericDevice dispositivi[], String posizione) {
+	private ArrayList<? extends GenericDevice> cercaDispositiviArea(GenericDevice[] dispositivi, String posizione) {
 		ArrayList<GenericDevice> dispositiviArea = new ArrayList<>();
 		for (GenericDevice dispositivo : dispositivi) {
 			if (dispositivo.getPropertyValue(PROPRIETA).equals(posizione)) {
@@ -122,7 +123,7 @@ public class InizializzaSistemaImpl {
 		return dispositiviArea;
 	}
 
-	private GenericDevice cercaDispositivoArea(GenericDevice dispositivi[], String posizione) {
+	private GenericDevice cercaDispositivoArea(GenericDevice[] dispositivi, String posizione) {
 		for (GenericDevice dispositivo : dispositivi) {
 			if (dispositivo.getPropertyValue(PROPRIETA).equals(posizione)) {
 				return dispositivo;
@@ -206,7 +207,7 @@ public class InizializzaSistemaImpl {
 		// assumiamo che in ogni area (stanza o corridoio) ci sia un sensore di presenza
 		// prendiamo quindi la Location di ciascun sensore per individuare tutti i dispositivi in un'area
 		for (PresenceSensor sensorePresenza : sensoriPresenza) {
-			String posizioneSensore = (String) sensorePresenza.getPropertyValue("Location");
+			String posizioneSensore = (String) sensorePresenza.getPropertyValue(PROPRIETA);
 			// ELEMENTI GESTIONE LUCI
 
 			List<BinaryLight> luciInArea = (List<BinaryLight>) cercaDispositiviArea(luci, posizioneSensore);
@@ -237,7 +238,6 @@ public class InizializzaSistemaImpl {
 
 			// INIZIALIZZAZIONE AREA
 			AreaBuilder builder = new AreaBuilder();
-			System.out.println("STO CREANDO UN'AREA");
 			builder.nome(posizioneSensore).sensorePresenza(sensorePresenza).fotometro(fotometroInArea).luci(luciInArea)
 					.rilevatoreCO2(rilevatoreInArea).sprinklers(sprinklersInArea).sirene(sireneInArea)
 					.sensoreAllagamento(sensoreAllagamentoInArea).caloriferi(caloriferiInArea)
