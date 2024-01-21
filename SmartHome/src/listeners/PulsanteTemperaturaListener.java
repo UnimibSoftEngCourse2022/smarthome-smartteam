@@ -32,5 +32,7 @@ public class PulsanteTemperaturaListener extends GenericListener{
 			nuovoTermostato.start();
 		}
 		
+		pulsanteTemperatura.setPropertyValue(PushButton.PUSH_AND_HOLD, false);
+		
 	}
 }
