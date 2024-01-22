@@ -5,93 +5,93 @@
 	<add-zone-variable zoneId="cucina" variable="Illuminance" />
 	<modify-zone-variable zoneId="cucina" variable="Illuminance" value="0"/>
 	
-	<create-device id="Pres-A1255D-D" type="iCasa.PresenceSensor" />
-	<create-device id="BiLi-A7496W-S" type="iCasa.BinaryLight" />
-	<create-device id="Photometer-9734200c37" type="iCasa.Photometer" />
-	<create-device id="Ther-A3654Q-S" type="iCasa.Thermometer" />
-	<create-device id="Heater-A3654Q-S" type="iCasa.Heater" />
-	<create-device id="Cool-A3654Q-S" type="iCasa.Cooler" />
-	<move-device-zone deviceId="Pres-A1255D-D" zoneId="cucina" />
-	<move-device-zone deviceId="BiLi-A7496W-S" zoneId="cucina" />
-	<move-device-zone deviceId="Photometer-9734200c37" zoneId="cucina" />
-	<move-device-zone deviceId="Ther-A3654Q-S" zoneId="cucina" />
-	<move-device-zone deviceId="Heater-A3654Q-S" zoneId="cucina" />
-	<move-device-zone deviceId="Cool-A3654Q-S" zoneId="cucina" />
+	<create-device id="SensorePresenza-01" type="iCasa.PresenceSensor" />
+	<create-device id="Luce-01-1" type="iCasa.BinaryLight" />
+	<create-device id="Fotometro-01" type="iCasa.Photometer" />
+	<create-device id="Termometro-01" type="iCasa.Thermometer" />
+	<create-device id="Calorifero-01-1" type="iCasa.Heater" />
+	<create-device id="Condizionatore-01-1" type="iCasa.Cooler" />
+	<move-device-zone deviceId="SensorePresenza-01" zoneId="cucina" />
+	<move-device-zone deviceId="Luce-01-1" zoneId="cucina" />
+	<move-device-zone deviceId="Fotometro-01" zoneId="cucina" />
+	<move-device-zone deviceId="Termometro-01" zoneId="cucina" />
+	<move-device-zone deviceId="Calorifero-01-1" zoneId="cucina" />
+	<move-device-zone deviceId="Condizionatore-01-1" zoneId="cucina" />
 
 	<!-- soggiorno -->
 	<create-zone id="soggiorno" leftX="410" topY="28" X-Length="245" Y-Length="350" />
 	<add-zone-variable zoneId="soggiorno" variable="Illuminance" />
 	<modify-zone-variable zoneId="soggiorno" variable="Illuminance" value="0"/>
 	
-	<create-device id="Pres-B1255D-D" type="iCasa.PresenceSensor" />
-	<create-device id="BiLi-B7496W-S" type="iCasa.BinaryLight" />
-	<create-device id="Photometer-9734200c38" type="iCasa.Photometer" />
-	<create-device id="Ther-B3654Q-S" type="iCasa.Thermometer" />
-	<create-device id="Heater-B3654Q-S" type="iCasa.Heater" />
-	<create-device id="Cool-B3654Q-S" type="iCasa.Cooler" />
-	<move-device-zone deviceId="Pres-B1255D-D" zoneId="soggiorno" />
-	<move-device-zone deviceId="BiLi-B7496W-S" zoneId="soggiorno" />
-	<move-device-zone deviceId="Photometer-9734200c38" zoneId="soggiorno" />
-	<move-device-zone deviceId="Ther-B3654Q-S" zoneId="soggiorno" />
-	<move-device-zone deviceId="Heater-B3654Q-S" zoneId="soggiorno" />
-	<move-device-zone deviceId="Cool-B3654Q-S" zoneId="soggiorno" />
+	<create-device id="SensorePresenza-02" type="iCasa.PresenceSensor" />
+	<create-device id="Luce-02-1" type="iCasa.BinaryLight" />
+	<create-device id="Fotometro-02" type="iCasa.Photometer" />
+	<create-device id="Termometro-02" type="iCasa.Thermometer" />
+	<create-device id="Calorifero-02-1" type="iCasa.Heater" />
+	<create-device id="Condizionatore-02-1" type="iCasa.Cooler" />
+	<move-device-zone deviceId="SensorePresenza-02" zoneId="soggiorno" />
+	<move-device-zone deviceId="Luce-02-1" zoneId="soggiorno" />
+	<move-device-zone deviceId="Fotometro-02" zoneId="soggiorno" />
+	<move-device-zone deviceId="Termometro-02" zoneId="soggiorno" />
+	<move-device-zone deviceId="Calorifero-02-1" zoneId="soggiorno" />
+	<move-device-zone deviceId="Condizionatore-02-1" zoneId="soggiorno" />
 	
 	<!-- camera da letto -->
 	<create-zone id="camera da letto"  leftX="55" topY="370" X-Length="259" Y-Length="210" />		
 	<add-zone-variable zoneId="camera da letto" variable="Illuminance" />
 	<modify-zone-variable zoneId="camera" variable="Illuminance" value="0"/>
 	
-	<create-device id="Pres-C1255D-D" type="iCasa.PresenceSensor" />
-	<create-device id="BiLi-C7496W-S" type="iCasa.BinaryLight" />
-	<create-device id="Photometer-9734200c39" type="iCasa.Photometer" />
-	<create-device id="Ther-C3654Q-S" type="iCasa.Thermometer" />
-	<create-device id="Heater-C3654Q-S" type="iCasa.Heater" />
-	<create-device id="Cool-C3654Q-S" type="iCasa.Cooler" />
-	<move-device-zone deviceId="Pres-C1255D-D" zoneId="camera da letto" />
-	<move-device-zone deviceId="BiLi-C7496W-S" zoneId="camera da letto" />
-	<move-device-zone deviceId="Photometer-9734200c39" zoneId="camera da letto" />
-	<move-device-zone deviceId="Ther-C3654Q-S" zoneId="camera da letto" />
-	<move-device-zone deviceId="Heater-C3654Q-S" zoneId="camera da letto" />
-	<move-device-zone deviceId="Cool-C3654Q-S" zoneId="camera da letto" />
+	<create-device id="SensorePresenza-03" type="iCasa.PresenceSensor" />
+	<create-device id="Luce-03-1" type="iCasa.BinaryLight" />
+	<create-device id="Fotometro-03" type="iCasa.Photometer" />
+	<create-device id="Termometro-03" type="iCasa.Thermometer" />
+	<create-device id="Calorifero-03-1" type="iCasa.Heater" />
+	<create-device id="Condizionatore-03-1" type="iCasa.Cooler" />
+	<move-device-zone deviceId="SensorePresenza-03" zoneId="camera da letto" />
+	<move-device-zone deviceId="Luce-03-1" zoneId="camera da letto" />
+	<move-device-zone deviceId="Fotometro-03" zoneId="camera da letto" />
+	<move-device-zone deviceId="Termometro-03" zoneId="camera da letto" />
+	<move-device-zone deviceId="Calorifero-03-1" zoneId="camera da letto" />
+	<move-device-zone deviceId="Condizionatore-03-1" zoneId="camera da letto" />
 	
 	<!-- bagno -->
 	<create-zone id="bagno"  leftX="55" topY="20" X-Length="260" Y-Length="350" />	
 	<add-zone-variable zoneId="bagno" variable="Illuminance" />
 	<modify-zone-variable zoneId="bagno" variable="Illuminance" value="0"/>
 	
-	<create-device id="Pres-D1255D-D" type="iCasa.PresenceSensor" />
-	<create-device id="BiLi-D7496W-S" type="iCasa.BinaryLight" />
-	<create-device id="Photometer-9734200c40" type="iCasa.Photometer" />
-	<create-device id="Ther-D3654Q-S" type="iCasa.Thermometer" />
-	<create-device id="Heater-D3654Q-S" type="iCasa.Heater" />
-	<create-device id="Cool-D3654Q-S" type="iCasa.Cooler" />
-	<move-device-zone deviceId="Pres-D1255D-D" zoneId="bagno" />
-	<move-device-zone deviceId="BiLi-D7496W-S" zoneId="bagno" />
-	<move-device-zone deviceId="Photometer-9734200c40" zoneId="bagno" />
-	<move-device-zone deviceId="Ther-D3654Q-S" zoneId="bagno" />
-	<move-device-zone deviceId="Heater-D3654Q-S" zoneId="bagno" />
-	<move-device-zone deviceId="Cool-D3654Q-S" zoneId="bagno" />
+	<create-device id="SensorePresenza-04" type="iCasa.PresenceSensor" />
+	<create-device id="Luce-04-1" type="iCasa.BinaryLight" />
+	<create-device id="Fotometro-04" type="iCasa.Photometer" />
+	<create-device id="Termometro-04" type="iCasa.Thermometer" />
+	<create-device id="Calorifero-04-1" type="iCasa.Heater" />
+	<create-device id="Condizionatore-04-1" type="iCasa.Cooler" />
+	<move-device-zone deviceId="SensorePresenza-04" zoneId="bagno" />
+	<move-device-zone deviceId="Luce-04-1" zoneId="bagno" />
+	<move-device-zone deviceId="Fotometro-04" zoneId="bagno" />
+	<move-device-zone deviceId="Termometro-04" zoneId="bagno" />
+	<move-device-zone deviceId="Calorifero-04-1" zoneId="bagno" />
+	<move-device-zone deviceId="Condizionatore-04-1" zoneId="bagno" />
 	
 	<!-- corridoio centrale -->
 	<create-zone id="corridoio"  leftX="315" topY="20" X-Length="95" Y-Length="560" />	
 	<add-zone-variable zoneId="corridoio" variable="Illuminance" />
 	<modify-zone-variable zoneId="corridoio" variable="Illuminance" value="0"/>
 	
-	<create-device id="PresenceSensor-x303528852" type="iCasa.PresenceSensor" />
-	<create-device id="BiLi-E7496W-S" type="iCasa.BinaryLight" />
-	<create-device id="BiLi-E7496W-T" type="iCasa.BinaryLight" />
-	<create-device id="Photometer-9734200c41" type="iCasa.Photometer" />
-	<create-device id="Ther-E3654Q-S" type="iCasa.Thermometer" />
-	<create-device id="Heater-E3654Q-S" type="iCasa.Heater" />
-	<create-device id="Cool-E3654Q-S" type="iCasa.Cooler" />
-	<move-device-zone deviceId="PresenceSensor-x303528852" zoneId="corridoio" />
-	<move-device-zone deviceId="BiLi-E7496W-S" zoneId="corridoio" />
-	<move-device-zone deviceId="BiLi-E7496W-T" zoneId="corridoio" />
-	<move-device-zone deviceId="Photometer-9734200c41" zoneId="corridoio" />
-	<move-device-zone deviceId="Ther-E3654Q-S" zoneId="corridoio" />
-	<move-device-zone deviceId="Heater-E3654Q-S" zoneId="corridoio" />
-	<move-device-zone deviceId="Cool-E3654Q-S" zoneId="corridoio" />
+	<create-device id="SensorePresenza-05" type="iCasa.PresenceSensor" />
+	<create-device id="Luce-05-1" type="iCasa.BinaryLight" />
+	<create-device id="Luce-05-2" type="iCasa.BinaryLight" />
+	<create-device id="Fotometro-05" type="iCasa.Photometer" />
+	<create-device id="Termometro-05" type="iCasa.Thermometer" />
+	<create-device id="Calorifero-05-1" type="iCasa.Heater" />
+	<create-device id="Condizionatore-05-1" type="iCasa.Cooler" />
+	<move-device-zone deviceId="SensorePresenza-05" zoneId="corridoio" />
+	<move-device-zone deviceId="Luce-05-1" zoneId="corridoio" />
+	<move-device-zone deviceId="Luce-05-2" zoneId="corridoio" />
+	<move-device-zone deviceId="Fotometro-05" zoneId="corridoio" />
+	<move-device-zone deviceId="Termometro-05" zoneId="corridoio" />
+	<move-device-zone deviceId="Calorifero-05-1" zoneId="corridoio" />
+	<move-device-zone deviceId="Condizionatore-05-1" zoneId="corridoio" />
 	
-	<create-person id="Comi" type="Grandfather" />
+	<create-person id="Mario Rossi" type="Grandfather" />
 
 </behavior>
