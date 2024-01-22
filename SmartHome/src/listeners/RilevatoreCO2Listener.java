@@ -26,24 +26,26 @@ public class RilevatoreCO2Listener extends GenericListener{
 		if(concentrazioneCO2 >= 2) {
 			// allarme
 			areaInteressata.accendiSirene();
-			System.out.println("CONCENTRAZIONE DI ANIDRIDE CARBONICA IN AUMENTO IN " + areaInteressata.getNome().toUpperCase() + "!!!");
+			System.out.println("CONCENTRAZIONE DI ANIDRIDE CARBONICA OLTRE I PARAMETRI ACCETTABILI IN " + areaInteressata.getNome().toUpperCase() + "!!!");
 			
 			if(concentrazioneCO2 > 500) {
 				//attivazione sprinkler
 				areaInteressata.accendiSprinklers();
 				System.out.println("SISTEMA ANTINCENDIO ATTIVATO IN " + areaInteressata.getNome().toUpperCase() + "!!!");
 			}
-			else {
+			else if((double) vecchioValore > 500){
 				areaInteressata.spegniSprinklers();
 				System.out.println("INCENDIO IN " + areaInteressata.getNome().toUpperCase() + " DOMATO!");
 			}
 		}
 		else {
-			areaInteressata.spegniSirene();
-			System.out.println("CONCENTRAZIONE DI ANIDRIDE CARBONICA IN " + areaInteressata.getNome().toUpperCase() + " RIENTRATA NEI PARAMETRI ACCETTABILI");
-			if((double) vecchioValore > 500.0) {
-				areaInteressata.spegniSprinklers();
-				System.out.println("INCENDIO IN " + areaInteressata.getNome().toUpperCase() + " DOMATO!");
+			if((double) vecchioValore > 1) {
+				areaInteressata.spegniSirene();
+				System.out.println("CONCENTRAZIONE DI ANIDRIDE CARBONICA IN " + areaInteressata.getNome().toUpperCase() + " RIENTRATA NEI PARAMETRI ACCETTABILI");
+				if((double) vecchioValore > 500.0) {
+					areaInteressata.spegniSprinklers();
+					System.out.println("INCENDIO IN " + areaInteressata.getNome().toUpperCase() + " DOMATO!");
+				}
 			}
 		}
 		
