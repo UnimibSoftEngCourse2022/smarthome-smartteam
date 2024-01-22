@@ -34,21 +34,21 @@ public class SistemaAntincendioImpl {
 	}
 	
 	/** Component Lifecycle Method */
-	public void stop() {
-		System.out.println("Fine sistema ANTINCENDIO");
-		
+	public void stop() {		
 		for(Area area : aree) {
 			rimuoviListener(area.getRilevatoreCO2());
 		}
+		
+		System.out.println("Il sistema antincendio e' terminato");
 	}
 
 	/** Component Lifecycle Method */
 	public void start() {
-		System.out.println("Inizio sistema ANTINCENDIO");
-		
 		for(Area area : aree) {
 			assegnaListener(area.getRilevatoreCO2());
 		}
+		
+		System.out.println("Il sistema antincendio e' partito");
 	}
 
 	

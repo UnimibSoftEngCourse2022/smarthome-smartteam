@@ -204,12 +204,13 @@ public class InizializzaSistemaImpl {
 		sistemaAntiallagamentoImpl.stop();
 		sistemaTemperatura.stop();
 		sistemaSicurezza.stop();
+		System.out.println("Il sistema e' stato arrestato correttamente");
 	}
 
 	/** Component Lifecycle Method */
 	public void start() {
 
-		System.out.println("Inizializzazione Stanze partita!");
+		System.out.println("Inizializzazione sistema...");
 		// INIZIALIZZAZIONE STANZE
 		GestoreAree gestoreAree = GestoreAree.getIstanza();
 		List<Area> aree = new ArrayList<>();
@@ -271,6 +272,7 @@ public class InizializzaSistemaImpl {
 		sistemaTemperatura.start();
 		sistemaSicurezza = new SistemaSicurezza(aree);
 		sistemaSicurezza.start();
+		System.out.println("Il sistema e' pronto!");
 	}
 
 	/** Bind Method for sensoriPorteFinestre dependency */

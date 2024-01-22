@@ -40,23 +40,23 @@ public class SistemaTemperaturaImpl {
 	}
 
 	/** Component Lifecycle Method */
-	public void stop() {
-		System.out.println("Fine sis. Temp.");
-		
+	public void stop() {		
 		for(Area area : aree) {
 			area.getTermostato().setTempAccesa(false);
 			rimuoviListener(area.getPulsanteTemperatura());
 		}	
+		
+		System.out.println("Il sistema gestione-temperatura e' terminato");
 	}
 
 	/** Component Lifecycle Method */
 	public void start() {
-		System.out.println("Inizio sis. Temp.");
-		
 		for(Area area : aree) {
 			area.getTermostato().start();
 			assegnaListener(area.getPulsanteTemperatura());
 		}
+		
+		System.out.println("Il sistema gestione-temperatura e' partito");
 	}
 
 }

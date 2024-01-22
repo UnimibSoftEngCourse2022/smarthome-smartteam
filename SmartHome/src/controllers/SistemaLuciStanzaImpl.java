@@ -70,21 +70,21 @@ public class SistemaLuciStanzaImpl {
 	
 	/** Metodo di fine ciclo di vita del componente */
 	public void stop() {
-		System.out.println("Fine sistema gestione LUCI");
-
 		for(Area area : aree) {
 			rimuoviListener(area.getSensorePresenza(), area.getPulsanteLuci());
 		}
+		
+		System.out.println("Il sistema gestione-luci e' terminato");
 	}
 
 
 	/** Metodo di inizio ciclo di vita del componente */
 	public void start() {
-		System.out.println("Inizio sistema gestione LUCI");
-		
 		for(Area area : aree) {
 			assegnaListener(area.getSensorePresenza(), area.getPulsanteLuci());
 		}
+		
+		System.out.println("Il sistema gestione-luci e' partito");
 	}
 	
 }

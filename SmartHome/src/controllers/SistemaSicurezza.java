@@ -31,22 +31,24 @@ public class SistemaSicurezza {
 	}
 	
 	public void start() {
-		System.out.println("Inizio Sistema Sicurezza");
 		for(Area area : aree) {
 			PushButton pulsanteAllarme = area.getPulsanteAllarme();
 			if(pulsanteAllarme != null)
 				pulsanteAllarme.addListener(listenerPulsante);
 			assegnaListener(area.getSensorePorteFinestre());
 		}
+		
+		System.out.println("Il sistema di allarme e' partito");
 	}
 	
 	public void stop() {
-		System.out.println("Fine Sistema Sicurezza");
 		for(Area area : aree) {
 			PushButton pulsanteAllarme = area.getPulsanteAllarme();
 			if(pulsanteAllarme != null)
 				pulsanteAllarme.removeListener(listenerPulsante);
 			rimuoviListener(area.getSensorePorteFinestre());
 		}
+		
+		System.out.println("Il sistema di allarme e' terminato");
 	}
 }

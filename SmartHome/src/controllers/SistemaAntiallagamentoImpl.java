@@ -35,21 +35,21 @@ public class SistemaAntiallagamentoImpl {
 	
 	/** Component Lifecycle Method */
 	public void stop() {
-		System.out.println("Fine sistema ANTIALLAGAMENTO");
-		
 		for(Area area : aree) {
 			rimuoviListener(area.getSensoreAllagamento());
 		}
+		
+		System.out.println("Il sistema antiallagamento e' terminato");
 	}
 	
 
 	/** Component Lifecycle Method */
 	public void start() {
-		System.out.println("Inizio sistema ANTIALLAGAMENTO");
-		
 		for(Area area : aree) {
 			assegnaListener(area.getSensoreAllagamento());
 		}
+		
+		System.out.println("Il sistema antiallagamento e' partito");
 	}
 
 }
