@@ -1,4 +1,4 @@
-<behavior startdate="27/10/2011-00:00:00" factor="1440">
+<behavior startdate="28/01/2024-00:00:00" factor="200">
 	 
 	<!-- CUCINA --> 
 	<create-zone id="cucina"  leftX="410" topY="370" X-Length="245" Y-Length="210" />	 
