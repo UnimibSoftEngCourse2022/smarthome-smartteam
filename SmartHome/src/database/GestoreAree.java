@@ -14,6 +14,10 @@ public class GestoreAree {
 	private String codice = "0123";
     
 
+	public GestoreAree(){
+    	aree = new ArrayList<>();
+    }
+	
 	public static GestoreAree getIstanza(){
         if(istanza == null){
             istanza = new GestoreAree();
@@ -21,17 +25,24 @@ public class GestoreAree {
         return istanza;
     }
 
-    public boolean isAllarmeAcceso() {
-		return allarmeAcceso;
-	}
-
-	public GestoreAree(){
-    	aree = new ArrayList<>();
-    }
-
     
     public List<Area> getAree() {
 		return aree;
+	}
+    
+    
+    public Area getArea(String nomeArea){
+        for(int i = 0; i < aree.size(); i++){
+            if(aree.get(i).getNome().equals(nomeArea)){
+                return aree.get(i);
+            }
+        }
+        return null;
+    }
+    
+    
+    public boolean isAllarmeAcceso() {
+		return allarmeAcceso;
 	}
     
     
@@ -52,15 +63,11 @@ public class GestoreAree {
         }
     } 
 
-    public Area getArea(String nomeArea){
-        for(int i = 0; i < aree.size(); i++){
-            if(aree.get(i).getNome().equals(nomeArea)){
-                return aree.get(i);
-            }
-        }
-        return null;
-    }
-
+    public void accendiAllarme() {
+		allarmeAcceso = true;
+	}
+    
+    
 	public boolean spegniAllarme(String codice) {
 		if(this.codice.equals(codice)) {
 			for(Area area : aree) {
@@ -72,10 +79,5 @@ public class GestoreAree {
 		}
 		return false;
 	}
-	
-	public void accendiAllarme() {
-		allarmeAcceso = true;
-	}
-    
     
 }

@@ -47,10 +47,10 @@ public class InizializzaSistemaImpl {
 	/** Field for termometri dependency */
 	private Thermometer[] termometri;
 
-	private SistemaLuciStanzaImpl sistemaLuci;
-	private SistemaAntincendioImpl sistemaAntincendio;
-	private SistemaAntiallagamentoImpl sistemaAntiallagamentoImpl;
-	private SistemaTemperaturaImpl sistemaTemperatura;
+	private SistemaLuciStanza sistemaLuci;
+	private SistemaAntincendio sistemaAntincendio;
+	private SistemaAntiallagamento sistemaAntiallagamentoImpl;
+	private SistemaTemperatura sistemaTemperatura;
 	private SistemaSicurezza sistemaSicurezza;
 
 	private static final String PROPRIETA = "Location";
@@ -195,6 +195,36 @@ public class InizializzaSistemaImpl {
 	public void ritiraCalorifero(Heater heater, Map properties) {
 		// Metodo ereditato dall' interfaccia
 	}
+	
+	/** Bind Method for sensoriPorteFinestre dependency */
+	public void assegnaSensorePortaFinestra(DoorWindowSensor doorWindowSensor, Map properties) {
+		// Metodo ereditato dall' interfaccia
+	}
+
+	/** Unbind Method for sensoriPorteFinestre dependency */
+	public void ritiraSensorePortaFinestra(DoorWindowSensor doorWindowSensor, Map properties) {
+		// Metodo ereditato dall' interfaccia
+	}
+
+	/** Bind Method for telecamere dependency */
+	public void assegnaTelecamera(Camera camera, Map properties) {
+		// Metodo ereditato dall' interfaccia
+	}
+
+	/** Unbind Method for telecamere dependency */
+	public void ritiraTelecamera(Camera camera, Map properties) {
+		// Metodo ereditato dall' interfaccia
+	}
+
+	/** Bind Method for pulsanti dependency */
+	public void assegnaPulsante(PushButton pushButton, Map properties) {
+		// Metodo ereditato dall' interfaccia
+	}
+
+	/** Unbind Method for pulsanti dependency */
+	public void ritiraPulsante(PushButton pushButton, Map properties) {
+		// Metodo ereditato dall' interfaccia
+	}
 
 	/** Component Lifecycle Method */
 	public void stop() {
@@ -262,47 +292,19 @@ public class InizializzaSistemaImpl {
 		}
 
 		// da questo punto possiamo istanziare SistemaLuciStanzaImpl e SistemaAntincendioImpl
-		sistemaLuci = new SistemaLuciStanzaImpl(aree);
+		sistemaLuci = new SistemaLuciStanza(aree);
 		sistemaLuci.start();
-		sistemaAntincendio = new SistemaAntincendioImpl(aree);
+		sistemaAntincendio = new SistemaAntincendio(aree);
 		sistemaAntincendio.start();
-		sistemaAntiallagamentoImpl = new SistemaAntiallagamentoImpl(aree);
+		sistemaAntiallagamentoImpl = new SistemaAntiallagamento(aree);
 		sistemaAntiallagamentoImpl.start();
-		sistemaTemperatura = new SistemaTemperaturaImpl(aree);
+		sistemaTemperatura = new SistemaTemperatura(aree);
 		sistemaTemperatura.start();
 		sistemaSicurezza = new SistemaSicurezza(aree);
 		sistemaSicurezza.start();
 		System.out.println("Il sistema e' pronto!");
 	}
 
-	/** Bind Method for sensoriPorteFinestre dependency */
-	public void assegnaSensorePortaFinestra(DoorWindowSensor doorWindowSensor, Map properties) {
-		// Metodo ereditato dall' interfaccia
-	}
-
-	/** Unbind Method for sensoriPorteFinestre dependency */
-	public void ritiraSensorePortaFinestra(DoorWindowSensor doorWindowSensor, Map properties) {
-		// Metodo ereditato dall' interfaccia
-	}
-
-	/** Bind Method for telecamere dependency */
-	public void assegnaTelecamera(Camera camera, Map properties) {
-		// Metodo ereditato dall' interfaccia
-	}
-
-	/** Unbind Method for telecamere dependency */
-	public void ritiraTelecamera(Camera camera, Map properties) {
-		// Metodo ereditato dall' interfaccia
-	}
-
-	/** Bind Method for pulsanti dependency */
-	public void assegnaPulsante(PushButton pushButton, Map properties) {
-		// Metodo ereditato dall' interfaccia
-	}
-
-	/** Unbind Method for pulsanti dependency */
-	public void ritiraPulsante(PushButton pushButton, Map properties) {
-		// Metodo ereditato dall' interfaccia
-	}
+	
 
 }

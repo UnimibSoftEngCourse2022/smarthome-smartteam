@@ -1,6 +1,5 @@
 package dominio;
 
-import controllers.SistemaTemperaturaImpl;
 import database.GestoreAree;
 import fr.liglab.adele.icasa.device.temperature.Thermometer;
 
@@ -9,24 +8,22 @@ public class Termostato extends Thread{
 	private Thermometer termometro;
 	private boolean tempAccesa = true;
 	
+	public Termostato(Thermometer termometro) {
+		this.termometro = termometro;
+	}
 	
 	public boolean isTempAccesa() {
 		return tempAccesa;
 	}
 
 
-	public void setTempAccesa(boolean tempAccesa) {
-		this.tempAccesa = tempAccesa;
-	}
-
-
-	public Termostato(Thermometer termometro) {
-		this.termometro = termometro;
-	}
-
-	
 	public Thermometer getTermometro() {
 		return termometro;
+	}
+	
+	
+	public void setTempAccesa(boolean tempAccesa) {
+		this.tempAccesa = tempAccesa;
 	}
 	
 	

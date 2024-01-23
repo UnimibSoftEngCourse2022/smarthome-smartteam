@@ -3,7 +3,7 @@ package listeners;
 import java.util.ArrayList;
 import java.util.List;
 
-import controllers.SistemaAntincendioImpl;
+import controllers.SistemaAntincendio;
 import database.GestoreAree;
 import dominio.Area;
 import fr.liglab.adele.icasa.device.DeviceListener;

@@ -61,14 +61,12 @@ public class Area {
 		this.pulsanteLuci = builder.pulsanteLuci;
 	}
 	
+	public boolean isLuciAccese() {
+		return luciAccese;
+	}
 	
 	public Termostato getTermostato() {
 		return termostato;
-	}
-
-
-	public void setTermostato(Termostato termostato) {
-		this.termostato = termostato;
 	}
 
 	
@@ -86,106 +84,12 @@ public class Area {
 		return tempMinima;
 	}
 
-	public void setTempMinima(double tempMinima) {
-		this.tempMinima = tempMinima;
-	}
+	
 
 	public double getTempMassima() {
 		return tempMassima;
 	}
-
-	public void setTempMassima(double tempMassima) {
-		this.tempMassima = tempMassima;
-	}
 	
-	@Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Area other = (Area) obj;
-        return nome.equals(other.nome);
-    }
-	
-	
-	public boolean isLuciAccese() {
-		return luciAccese;
-	}
-	
-	
-	public void accendiLuci() {
-		for (int i = 0; i < luci.size(); i++) {
-			luci.get(i).turnOn();
-		}
-		luciAccese = true;
-	}
-
-	
-	public void spegniLuci() {
-		for(int i = 0; i < luci.size(); i++){
-			luci.get(i).turnOff();
-		}
-		luciAccese = false;
-	}
-	
-	
-	public void accendiSprinklers() {
-		for (int i = 0; i < sprinklers.size(); i++) {
-			sprinklers.get(i).turnOn();
-		}
-	}
-	
-	
-	public void spegniSprinklers() {
-		for (int i = 0; i < sprinklers.size(); i++) {
-			sprinklers.get(i).turnOff();
-		}
-	}
-	
-	
-	public void accendiSirene() {
-		for (int i = 0; i < sirene.size(); i++) {
-			sirene.get(i).turnOn();
-		}
-	}
-
-	
-	public void spegniSirene() {
-		for(int i = 0; i < sirene.size(); i++){
-			sirene.get(i).turnOff();
-		}
-	}
-	
-	
-	public void accendiCaloriferi() {
-		for(Heater calorifero : caloriferi) {
-			calorifero.setPowerLevel(1);
-		}
-	}
-	
-	
-	public void spegniCaloriferi() {
-		for(Heater calorifero : caloriferi) {
-			calorifero.setPowerLevel(0);
-		}
-	}
-	
-	
-	public void accendiCondizionatori() {
-		for(Cooler condizionatore : condizionatori) {
-			condizionatore.setPowerLevel(1);
-		}
-	}
-	
-	
-	public void spegniCondizionatori() {
-		for(Cooler condizionatore : condizionatori) {
-			condizionatore.setPowerLevel(0);
-		}
-	}
 
 
 	public FloodSensor getSensoreAllagamento() {
@@ -212,6 +116,48 @@ public class Area {
 		return fotometro;
 	}
 	
+	
+	public PushButton getPulsanteAllarme() {
+		return pulsanteAllarme;
+	}
+	
+	
+	public PushButton getPulsanteTemperatura() {
+		return pulsanteTemperatura;
+	}
+
+	
+	public PushButton getPulsanteLuci() {
+		return pulsanteLuci;
+	}
+	
+	public void setTermostato(Termostato termostato) {
+		this.termostato = termostato;
+	}
+	
+	public void setTempMinima(double tempMinima) {
+		this.tempMinima = tempMinima;
+	}
+	
+	
+	public void setTempMassima(double tempMassima) {
+		this.tempMassima = tempMassima;
+	}
+	
+	
+	@Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Area other = (Area) obj;
+        return nome.equals(other.nome);
+    }
+	
+	
 	public void chiamaAllarme() {
 		GestoreAree gestoreAree = GestoreAree.getIstanza();
 		if(gestoreAree.isAllarmeAcceso()) {
@@ -236,19 +182,76 @@ public class Area {
 		System.out.println("Allarme disattivato in " + this.nome);
 	}
 
+	public void accendiLuci() {
+		for (int i = 0; i < luci.size(); i++) {
+			luci.get(i).turnOn();
+		}
+		luciAccese = true;
+	}
+	
+	
+	public void accendiSprinklers() {
+		for (int i = 0; i < sprinklers.size(); i++) {
+			sprinklers.get(i).turnOn();
+		}
+	}
+	
+	
+	public void accendiSirene() {
+		for (int i = 0; i < sirene.size(); i++) {
+			sirene.get(i).turnOn();
+		}
+	}
+	
+	
+	public void accendiCaloriferi() {
+		for(Heater calorifero : caloriferi) {
+			calorifero.setPowerLevel(1);
+		}
+	}
+	
+	
+	public void accendiCondizionatori() {
+		for(Cooler condizionatore : condizionatori) {
+			condizionatore.setPowerLevel(1);
+		}
+	}
+	
+	
+	public void spegniLuci() {
+		for(int i = 0; i < luci.size(); i++){
+			luci.get(i).turnOff();
+		}
+		luciAccese = false;
+	}
 
-	public PushButton getPulsanteAllarme() {
-		return pulsanteAllarme;
+	
+	public void spegniSprinklers() {
+		for (int i = 0; i < sprinklers.size(); i++) {
+			sprinklers.get(i).turnOff();
+		}
 	}
 	
-	public PushButton getPulsanteTemperatura() {
-		return pulsanteTemperatura;
+	
+	public void spegniSirene() {
+		for(int i = 0; i < sirene.size(); i++){
+			sirene.get(i).turnOff();
+		}
 	}
-
 	
 	
-	public PushButton getPulsanteLuci() {
-		return pulsanteLuci;
+	public void spegniCaloriferi() {
+		for(Heater calorifero : caloriferi) {
+			calorifero.setPowerLevel(0);
+		}
 	}
+	
+	
+	public void spegniCondizionatori() {
+		for(Cooler condizionatore : condizionatori) {
+			condizionatore.setPowerLevel(0);
+		}
+	}
+	
 
 }
