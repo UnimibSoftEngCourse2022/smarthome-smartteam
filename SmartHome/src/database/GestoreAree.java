@@ -10,7 +10,7 @@ public class GestoreAree {
 
     private List<Area> aree;
 	private static GestoreAree istanza;
-	private boolean allarmeAcceso = true;
+	private boolean allarmeAcceso = false;
 	private String codice = "0123";
     
 
