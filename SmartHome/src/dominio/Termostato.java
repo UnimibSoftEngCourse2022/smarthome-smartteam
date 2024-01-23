@@ -1,6 +1,5 @@
 package dominio;
 
-import controllers.SistemaTemperaturaImpl;
 import database.GestoreAree;
 import fr.liglab.adele.icasa.device.temperature.Thermometer;
 

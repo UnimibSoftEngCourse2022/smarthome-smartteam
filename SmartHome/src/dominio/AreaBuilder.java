@@ -12,7 +12,6 @@ import fr.liglab.adele.icasa.device.security.Siren;
 import fr.liglab.adele.icasa.device.sprinkler.Sprinkler;
 import fr.liglab.adele.icasa.device.temperature.Cooler;
 import fr.liglab.adele.icasa.device.temperature.Heater;
-import fr.liglab.adele.icasa.device.temperature.Thermometer;
 import fr.liglab.adele.icasa.device.security.Camera;
 import fr.liglab.adele.icasa.device.security.FloodSensor;
 

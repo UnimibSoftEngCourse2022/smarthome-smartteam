@@ -2,7 +2,6 @@ package controllers;
 
 import java.util.List;
 
-import database.GestoreAree;
 import dominio.Area;
 import fr.liglab.adele.icasa.device.security.FloodSensor;
 import listeners.SensoreAllagamentoListener;

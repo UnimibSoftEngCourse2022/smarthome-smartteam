@@ -1,15 +1,8 @@
 package listeners;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import controllers.SistemaAntincendioImpl;
-import database.GestoreAree;
 import dominio.Area;
-import fr.liglab.adele.icasa.device.DeviceListener;
 import fr.liglab.adele.icasa.device.GenericDevice;
 import fr.liglab.adele.icasa.device.gasSensor.CarbonDioxydeSensor;
-import fr.liglab.adele.icasa.device.presence.PresenceSensor;
 
 public class RilevatoreCO2Listener extends GenericListener{
 

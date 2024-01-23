@@ -47,10 +47,10 @@ public class InizializzaSistemaImpl {
 	/** Field for termometri dependency */
 	private Thermometer[] termometri;
 
-	private SistemaLuciStanzaImpl sistemaLuci;
-	private SistemaAntincendioImpl sistemaAntincendio;
-	private SistemaAntiallagamentoImpl sistemaAntiallagamentoImpl;
-	private SistemaTemperaturaImpl sistemaTemperatura;
+	private SistemaLuciStanza sistemaLuci;
+	private SistemaAntincendio sistemaAntincendio;
+	private SistemaAntiallagamento sistemaAntiallagamentoImpl;
+	private SistemaTemperatura sistemaTemperatura;
 	private SistemaSicurezza sistemaSicurezza;
 
 	private static final String PROPRIETA = "Location";
@@ -262,13 +262,13 @@ public class InizializzaSistemaImpl {
 		}
 
 		// da questo punto possiamo istanziare SistemaLuciStanzaImpl e SistemaAntincendioImpl
-		sistemaLuci = new SistemaLuciStanzaImpl(aree);
+		sistemaLuci = new SistemaLuciStanza(aree);
 		sistemaLuci.start();
-		sistemaAntincendio = new SistemaAntincendioImpl(aree);
+		sistemaAntincendio = new SistemaAntincendio(aree);
 		sistemaAntincendio.start();
-		sistemaAntiallagamentoImpl = new SistemaAntiallagamentoImpl(aree);
+		sistemaAntiallagamentoImpl = new SistemaAntiallagamento(aree);
 		sistemaAntiallagamentoImpl.start();
-		sistemaTemperatura = new SistemaTemperaturaImpl(aree);
+		sistemaTemperatura = new SistemaTemperatura(aree);
 		sistemaTemperatura.start();
 		sistemaSicurezza = new SistemaSicurezza(aree);
 		sistemaSicurezza.start();
