@@ -158,9 +158,13 @@ public class Area {
 	
 	public void chiamaAllarme() {
 		GestoreAree gestoreAree = GestoreAree.getIstanza();
+		List<Area> aree = gestoreAree.getAree();
 		if(gestoreAree.isAllarmeAcceso()) {
-			for(Camera telecamera : telecamere) {
-				telecamera.startRecording();
+			for(Area area : aree) {
+				List<Camera> telecamereArea = area.getTelecamere();
+				for(Camera telecamera : telecamereArea) {
+					telecamera.startRecording();
+				}
 			}
 			for(Siren sirena : sirene) {
 				sirena.turnOn();
@@ -171,8 +175,13 @@ public class Area {
 
 
 	public void spegniAllarme() {
-		for(Camera telecamera : telecamere) {
-			telecamera.stopRecording();
+		GestoreAree gestoreAree = GestoreAree.getIstanza();
+		List<Area> aree = gestoreAree.getAree();
+		for(Area area : aree) {
+			List<Camera> telecamereArea = area.getTelecamere();
+			for(Camera telecamera : telecamereArea) {
+				telecamera.stopRecording();
+			}
 		}
 		for(Siren sirena : sirene) {
 			sirena.turnOff();
