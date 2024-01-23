@@ -8,7 +8,7 @@ public abstract class Sistema {
 	
 	List<Area> aree;
 	
-	public Sistema(List<Area> aree) {
+	protected Sistema(List<Area> aree) {
 		this.aree = aree;
 	}
 	
