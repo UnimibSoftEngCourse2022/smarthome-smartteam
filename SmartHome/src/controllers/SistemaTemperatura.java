@@ -18,13 +18,12 @@ import java.util.Map;
 import database.GestoreAree;
 import dominio.Area;
 
-public class SistemaTemperaturaImpl {
+public class SistemaTemperatura extends Sistema{
 	
-	private List<Area> aree;
 	private PulsanteTemperaturaListener listenerPulsante = new PulsanteTemperaturaListener();
 	
-	public SistemaTemperaturaImpl(List<Area> aree) {
-		this.aree = aree;
+	public SistemaTemperatura(List<Area> aree) {
+		super(aree);
 	}
 	
 	public void assegnaListener(PushButton pulsante) {

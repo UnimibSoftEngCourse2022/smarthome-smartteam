@@ -10,15 +10,14 @@ import java.util.List;
 import database.GestoreAree;
 import dominio.Area;
 
-public class SistemaLuciStanzaImpl {
+public class SistemaLuciStanza extends Sistema{
 
 	SensorePresenzaListener listenerSensore = new SensorePresenzaListener();
-	List<Area> aree;
 	
 	PulsanteLuciListener listenerPulsante = new PulsanteLuciListener();
 	
-	public SistemaLuciStanzaImpl(List<Area> aree) {
-		this.aree = aree;
+	public SistemaLuciStanza(List<Area> aree) {
+		super(aree);
 	}
 	
 	/** metodo per assegnare le dipendenze ai sensori di presenza. 

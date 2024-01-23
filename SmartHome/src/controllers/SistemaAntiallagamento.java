@@ -7,13 +7,12 @@ import dominio.Area;
 import fr.liglab.adele.icasa.device.security.FloodSensor;
 import listeners.SensoreAllagamentoListener;
 
-public class SistemaAntiallagamentoImpl {
+public class SistemaAntiallagamento extends Sistema{
 
 	SensoreAllagamentoListener listenerSensore = new SensoreAllagamentoListener();
-	List<Area> aree;
 	
-	public SistemaAntiallagamentoImpl(List<Area> aree) {
-		this.aree = aree;
+	public SistemaAntiallagamento(List<Area> aree) {
+		super(aree);
 	}
 	
 	

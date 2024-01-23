@@ -8,13 +8,12 @@ import java.util.List;
 import database.GestoreAree;
 import dominio.Area;
 
-public class SistemaAntincendioImpl {
+public class SistemaAntincendio extends Sistema{
 
 	RilevatoreCO2Listener listenerRilevatori = new RilevatoreCO2Listener();
-	List<Area> aree;
 	
-	public SistemaAntincendioImpl(List<Area> aree) {
-		this.aree = aree;
+	public SistemaAntincendio(List<Area> aree) {
+		super(aree);
 	}
 	
 	

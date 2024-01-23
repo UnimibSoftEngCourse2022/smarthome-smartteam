@@ -8,14 +8,13 @@ import fr.liglab.adele.icasa.device.doorWindow.DoorWindowSensor;
 import listeners.SensorePortaFinestraListener;
 import listeners.PulsanteAllarmeListener;
 
-public class SistemaSicurezza {
+public class SistemaSicurezza extends Sistema{
 	
-	private List<Area> aree;
 	private SensorePortaFinestraListener listenerSensore = new SensorePortaFinestraListener();
 	private PulsanteAllarmeListener listenerPulsante = new PulsanteAllarmeListener();
 	
 	public SistemaSicurezza(List<Area> aree){
-		this.aree = aree;
+		super(aree);
 	}
 	
 	public void assegnaListener(DoorWindowSensor sensorePortaFinestra) {
