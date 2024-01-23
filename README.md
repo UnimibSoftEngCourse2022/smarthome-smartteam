@@ -32,14 +32,28 @@ E' necessario installare su Eclipse le dipendenze iPOJO utilizzate da iCasa. Il 
         - La classe del dispositivo, che va scelta tra quelle disponibili su iCasa.
     * Infine, bisogna premere il tasto destro sul componente e scegliere la voce `Synchronize Implementation Class`, in questo modo nella classe `InizializzaSistemaImpl.java` verranno aggiunti i dispositivi indicati in precedenza e i metodi per fare bind/unbind.
          
-    - Creare una nuova classe `*NomeDispositivo*Listener.java` per aggiungere il listener del sensore utile al sistema da implementare, questa classe deve estendere `GenericListener.java`.
-      In particolare questa classe deve:
-        * Implementare il metodo `verificaTipologiaDispositivo`, il quale controlla che il dispositivo attivato sia della classe java corretta.
-        * Implementare il metodo `gestisciEvento`, nel quale bisogna gestire la logica del listener e chiamare i metodi della classe `Area` per invocare gli attuatori.
-- Creare una nuova classe chiamata `Sistema*NomeSistema*.java`, che estende la classe astratta `Sistema`. Essa deve:
-        * Implementare i metodi `assegnaListener` e `rimuoviListener`, dove assegnamo e rimuoviamo i listener ai dispositivi del simulatore, se ci sono.
-        * Implementare i metodi `start` e `stop`, che gestiscono la logica di avvio e terminazione del sistema, in particolare annunciano che il sistema sta partendo o terminando ed assegnano o rimuovono i listener utili.
-- Modificare la classe `Areabuilder.java` inserendo i nuovi attributi relativi ai nuovi dispositivi e creare un metodo per ogni attributo nuovo, che restituisca un oggetto di tipo AreaBuilder e che abbia come parametro un dispositivo dello stesso tipo del nuovo attribuito. In questo metodo verrà assegnato al un nuovo attributo il dispositivo passato come parametro.
-- Modificare la classe `Area.java`, aggiungendo un nuovo attributo e modificando il costruttore, in modo tale che dal builder venga preso anche il dispositivo nuovo e venga salvato nell'attributo appena creato. Inoltre verranno creati i dovuti getter e setter per questo attributo, se necessari.
-- Modificare la classe `InizializzaSistemaImpl.java` creando un nuovo attributo di tipo `Sistema*NomeSistema*.java`, inserendo la chiamata a `stop` della classe `Sistema*NomeSistema*` nel metodo stop di `InizializzaSistema.java`. Nel metodo `start`, invece, bisogna recuperare gli attuatori e i sensori nuovi, tramite l'utilizzo dei metodi `cercaDispositiviArea`, che restituisce una lista di dispositivi, utile per gli attuatori, e `cercaDispositivoArea` che restituisce un dispositivo, utile per i sensori. Per i dispositivi che sono utili per diverse funzionalità, è presente anche un metodo `cercaDispositiviarea` che permette di specificare la tipologia del sistema con cui interagisce il dispositivo. Successivamente, deve essere invocato i nuovi metodi del builder, per far sì che la costruzione dell'area avvenga correttamente. Inoltre, deve essere istanziato il sistema appena creato e deve essere chiamato il metodo `start` subito dopo.
-- Infine, va gestita la logica dei nuovi dispositivi in `Area`.
+- Creare una nuova classe `*NomeDispositivo*Listener.java` per aggiungere il listener del sensore utile al sistema da implementare, questa classe deve estendere `GenericListener.java`, in particolare, questa classe deve:
+    * Implementare il metodo `verificaTipologiaDispositivo`, il quale controlla che il dispositivo attivato sia della classe java corretta.
+    * Implementare il metodo `gestisciEvento`, nel quale bisogna gestire la logica del listener e chiamare i metodi della classe `Area` per invocare gli attuatori.
+- Creare una nuova classe chiamata `Sistema*NomeSistema*.java`, che estende la classe astratta `Sistema`, in particolare, questa classe deve:
+    * Implementare i metodi `assegnaListener` e `rimuoviListener`, dove assegnamo e rimuoviamo i listener ai dispositivi del simulatore, se ci sono.
+    * Implementare i metodi `start` e `stop`, che gestiscono la logica di avvio e terminazione del sistema, in particolare annunciano che il sistema sta partendo o terminando ed assegnano o rimuovono i listener utili.
+- Modificare la classe `Areabuilder.java`:
+    * Inserire gli attributi relativi ai nuovi dispositivi
+    * Creare un metodo per ogni attributo nuovo, che restituisca un oggetto di tipo AreaBuilder e che abbia come parametro un dispositivo dello stesso tipo del   nuovo attribuito. In questo metodo verrà assegnato al un nuovo attributo il dispositivo passato come parametro.
+- Modificare la classe `Area.java`:
+    * Aggiungere un nuovo attributo
+    * Modificare il costruttore, in modo tale che dal builder venga preso anche il dispositivo nuovo e venga salvato nell'attributo appena creato.
+    * Creare i dovuti getter e setter per questo attributo, se necessari.
+- Modificare la classe `InizializzaSistemaImpl.java`:
+    * Creare un nuovo attributo di tipo `Sistema*NomeSistema*.java`
+    * Inserire la chiamata a `stop` della classe `Sistema*NomeSistema*` nel metodo stop di `InizializzaSistema.java`.
+    * Nel metodo `start`, invece, bisogna:
+        1. Recuperare gli attuatori e i sensori nuovi, tramite l'utilizzo dei metodi
+           - `cercaDispositiviArea`, che restituisce una lista di dispositivi, utile per gli attuatori.
+           - `cercaDispositivoArea` che restituisce un dispositivo, utile per i sensori.
+           - Per i dispositivi che sono utili per diverse funzionalità, è presente anche un metodo `cercaDispositiviarea` che permette di specificare la tipologia del sistema con cui interagisce il dispositivo.
+        2. Invocare i nuovi metodi del builder, per far sì che la costruzione dell'area avvenga correttamente.
+        3. Istanziare il sistema appena creato
+        4. Chiamare il metodo `start` subito dopo.
+    * Infine, va gestita la logica dei nuovi dispositivi in `Area`.
