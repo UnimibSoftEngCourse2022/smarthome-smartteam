@@ -2,20 +2,8 @@ package controllers;
 
 
 import fr.liglab.adele.icasa.device.button.PushButton;
-import fr.liglab.adele.icasa.device.doorWindow.DoorWindowSensor;
-import fr.liglab.adele.icasa.device.temperature.Cooler;
-import fr.liglab.adele.icasa.device.temperature.Heater;
-import fr.liglab.adele.icasa.device.temperature.Thermometer;
 import listeners.PulsanteTemperaturaListener;
-import listeners.SensorePresenzaListener;
-import dominio.Termostato;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import database.GestoreAree;
 import dominio.Area;
 
 public class SistemaTemperatura extends Sistema{

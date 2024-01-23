@@ -5,7 +5,6 @@ import listeners.RilevatoreCO2Listener;
 
 import java.util.List;
 
-import database.GestoreAree;
 import dominio.Area;
 
 public class SistemaAntincendio extends Sistema{

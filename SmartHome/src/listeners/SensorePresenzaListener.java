@@ -1,9 +1,6 @@
 package listeners;
 import fr.liglab.adele.icasa.device.presence.PresenceSensor;
-import fr.liglab.adele.icasa.device.security.FloodSensor;
-import database.GestoreAree;
 import dominio.Area;
-import fr.liglab.adele.icasa.device.DeviceListener;
 import fr.liglab.adele.icasa.device.GenericDevice;
 import fr.liglab.adele.icasa.device.light.Photometer;
 

@@ -7,7 +7,6 @@ import listeners.SensorePresenzaListener;
 
 import java.util.List;
 
-import database.GestoreAree;
 import dominio.Area;
 
 public class SistemaLuciStanza extends Sistema{
