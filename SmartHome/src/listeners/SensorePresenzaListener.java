@@ -22,12 +22,8 @@ public class SensorePresenzaListener extends GenericListener{
 			Photometer fotometro = areaInteressata.getFotometro();
 			//controllo la luminosita' nella stanza, e se e' inferiore ad un certo valore
 			//accendo la luce, se la stanza si svuota o c'e' abbastanza luce naturale la spengo
-			if(fotometro.getIlluminance() < 1075.0){
-				if(sensorePresenza.getSensedPresence()){
-					areaInteressata.accendiLuci();
-				}else{
-					areaInteressata.spegniLuci();
-				}
+			if(fotometro.getIlluminance() < 1075.0 && sensorePresenza.getSensedPresence()){
+				areaInteressata.accendiLuci();
 			}else {
 				areaInteressata.spegniLuci();
 			}

@@ -19,36 +19,6 @@ public class SistemaLuciStanza extends Sistema{
 		super(aree);
 	}
 	
-	/** metodo per assegnare le dipendenze ai sensori di presenza. 
-	* Collega le aree create nel simulatore a quelle del sistema.
-	* Assegnando ad ogni area le rispettive luci e sensori
-	public void assegnaSensorePresenza(PresenceSensor sensorePresenza) {
-
-		GestoreAree gestoreAree = GestoreAree.getIstanza();
-		String nomeArea = (String) sensorePresenza.getPropertyValue("Location");
-		Area area = gestoreAree.getArea(nomeArea);
-		// avendo assunto che ogni stanza debba avere un sensore di presenza
-		// se un'area non ha pi� un sensore di presenza, viene riaggiunto
-		if(area.getSensorePresenza() == null) {
-			area.setSensorePresenza(sensorePresenza);
-			assegnaListener(sensorePresenza);
-		}
-		
-	}
-	
-	
-	// metodo per rimuovere le dipendenze dai sensori di presenza
-	public void ritiraSensorePresenza(PresenceSensor sensorePresenza) {
-		GestoreAree gestoreAree = GestoreAree.getIstanza();
-		String nomeArea = (String) sensorePresenza.getPropertyValue("Location");
-		Area area = gestoreAree.getArea(nomeArea);
-		if(area.getSensorePresenza() != null) {
-			area.setSensorePresenza(null);
-			rimuoviListener(sensorePresenza);
-		}
-	}
-	*/	
-
 
 	/** metodo per assegnare un listener ad un sensore di presenza per regolare il comportamento
 	 * 	a seconda della rilevazione di un fotometro e ad un pulsante
