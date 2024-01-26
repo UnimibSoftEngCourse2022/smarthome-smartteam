@@ -34,12 +34,12 @@ public class RilevatoreCO2Listener extends GenericListener{
 		}
 		else {
 			if((double) vecchioValore > 1) {
-				areaInteressata.spegniSirene();
 				System.out.println("CONCENTRAZIONE DI ANIDRIDE CARBONICA IN " + areaInteressata.getNome().toUpperCase() + " RIENTRATA NEI PARAMETRI ACCETTABILI");
 				if((double) vecchioValore > 500.0) {
 					areaInteressata.spegniSprinklers();
 					System.out.println("INCENDIO IN " + areaInteressata.getNome().toUpperCase() + " DOMATO!");
 				}
+				areaInteressata.spegniSirene();
 			}
 		}
 		
