@@ -57,3 +57,15 @@ E' necessario installare su Eclipse le dipendenze iPOJO utilizzate da iCasa. Il 
         3. Istanziare il sistema appena creato
         4. Chiamare il metodo `start` subito dopo.
     * Infine, va gestita la logica dei nuovi dispositivi in `Area`.
+
+# Come creare un nuovo file .jar
+
+- Da Eclipse, tasto destro sul progetto > iCASA > Bundle Deployment
+
+<p align="center">
+  <a href="#">
+    <img src="immagini/iCasaDeployment.png" title="demo" alt="demo" width="75%">
+  </a>
+</p>
+
+Se ci sono problemi durante la creazione del file .jar consultare la guida https://perso.telecom-paristech.fr/diacones/comasic/project-notes.html
